@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Testing Best Practices in Foundry</title>
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/serif.css" />
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+
+    <meta property="og:description" content="Paul Razvan Berg @ EthCC 2023" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="@PaulRBerg" />
+    <meta property="og:title" content="Testing Best Practices in Foundry" />
+
+    <meta property="og:image" content="https://PaulRBerg.github.io/presentations/ethcc-2023/og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1124" />
+    <meta property="og:image:height" content="818" />
+    <meta property="og:image:alt" content="Testing Best Practices in Foundry" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://PaulRBerg.github.io/presentations/ethcc-2023/og.jpg" />
+    <meta name="twitter:site" content="PaulRBerg" />
+    <meta name="twitter:title" content="Testing Best Practices in Foundry" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h3 class="r-fit-text">⚒️ Testing Best Practices in Foundry</h3>
+          <h4>Paul Razvan Berg @ EthCC 2023</h4>
+          <p style="font-size: 32px">
+            ▶️ Watch on <a href="https://youtube.com/watch?v=V6KBy8QQnCo" target="_blank">YouTube</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Personal Background</h2>
+          <ul style="list-style-type: none">
+            <li>⏳ Co-founder and Solidity Lead at Sablier Labs</li>
+            <li>👨‍💻 Ethereum developer for 5+ years</li>
+            <li>🐦 Sharing Solidity tips on Twitter @PaulRBerg</li>
+            <li>🚀 Sablier V2: 100% built with Foundry</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>🐣 Foundry</h2>
+          <p>Foundry made its debut in 2022. Before this, Solidity was rarely used for testing smart contracts.</p>
+          <p class="fragment">Today, many Foundry test suites are disorganized</p>
+        </section>
+
+        <section>
+          <h2 data-id="code-title">😇 How it starts</h2>
+          <pre data-id="code-animation">
+              <code class="hljs solidity" data-trim data-line-numbers>
+                function test_Foo() external {
+                  uint256 x = 42;
+                  assertEq(contract.foo(x), x, "value mismatch");
+                }
+              </code>
+            </pre>
+        </section>
+
+        <section>
+          <h2>😵‍💫 How it ends (monolith)</h2>
+          <pre data-id="code-animation">
+              <code class="hljs solidity" data-trim data-line-numbers>
+                function test_Foo_1() external {
+                  // --- snip ---
+                }
+
+                function test_Foo_2() external {
+                  // --- snip ---
+                }
+
+                function test_Foo_3(uint256 arg0) external {
+                  // --- snip ---
+                }
+
+                function test_Foo_4(uint256 arg0, uint256 arg1) external {
+                  // --- snip ---
+                }
+              </code>
+            </pre>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+          ## 🤔 Problems
+          
+          - Undirected development
+          - Unstructured file structures
+          - Lack of categories
+          - Vague or missing plain English specifications
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+          ## Solutions
+
+          - Foundry Book best practices: [book.getfoundry.sh](https://book.getfoundry.sh/tutorials/best-practices)
+          - Recommendations given in this talk:
+              - High-level structures
+              - Low-level design and spec
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## High-level structures
+
+            - Split Foundry tests into clear-cut categories
+            - Use contract inheritance: `Base.t.sol`
+            - Treat contracts as describe blocks: `Foo.t.sol`
+          </textarea>
+        </section>
+
+        <section>
+          <h2>Foundry test categories</h2>
+          <p>Create a directory for each of the following categories:</p>
+          <table class="r-fit-text">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Unit</td>
+                <td>Functions involving a single contract</td>
+              </tr>
+              <tr>
+                <td>Integration</td>
+                <td>Function involving multiple contracts</td>
+              </tr>
+              <tr>
+                <td>Invariant</td>
+                <td>Expressions that should always hold true</td>
+              </tr>
+              <tr>
+                <td>Fork</td>
+                <td>Tests running against a production chain</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 class="r-fit-text">Foundry test subcategories</h2>
+          <table class="r-fit-text">
+            <thead>
+              <tr>
+                <th>Sub-category</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Concrete</td>
+                <td>Standard deterministic tests that take no inputs</td>
+              </tr>
+              <tr>
+                <td>Fuzz</td>
+                <td>Non-deterministic tests with fuzzed inputs</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 class="r-fit-text">Low-level design and spec</h2>
+          <ul>
+            <li>Branching Tree Technique</li>
+            <li>
+              Use a test function naming convention like this:
+              <ul>
+                <li><code>test_Foo</code></li>
+                <li><code>testFuzz_Foo</code></li>
+                <li><code>test_RevertWhen_Foo</code></li>
+                <li><code>testFuzz_RevertWhen_Foo</code></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <aside class="notes">Don't forget to slide down to show the examples</aside>
+            <h3>🌳 Branching Tree Technique (BTT)</h3>
+            <ol>
+              <li>Target a function</li>
+              <li>Create a ".tree" file</li>
+              <li>Consider all possible execution paths</li>
+              <li>Consider what contract state leads to what paths</li>
+              <li>Consider what function params lead to what paths</li>
+              <li>Define "given state is x" nodes</li>
+              <li>Define "when parameter is x" nodes</li>
+              <li>Define final "it should" tests</li>
+            </ol>
+          </section>
+          <section>
+            <h2 class="r-fit-text" data-id="code-title">Example: <code>statusOf.tree</code></h2>
+            <pre data-id="code-animation">
+              <code class="hljs gherkin" data-trim data-line-numbers>
+              ├── when the id references a null stream
+              │  └── it should revert
+              └── when the id does not reference a null stream
+                 ├── given assets have been fully withdrawn
+                 │  └── it should return DEPLETED
+                 └── given assets have not been fully withdrawn
+                    ├── given the stream has been canceled
+                    │  └── it should return CANCELED
+                    └── given the stream has not been canceled
+                       ├── given the start time is in the future
+                       │  └── it should return PENDING
+                       └── given the start time is not in the future
+                          ├── given the refundable amount is zero
+                          │  └── it should return SETTLED
+                          └── given the refundable amount is not zero
+                             └── it should return STREAMING
+					    </code>
+            </pre>
+          </section>
+          <section>
+            <h2 class="r-fit-text" data-id="code-title">Example: <code>statusOf</code></h2>
+            <pre data-id="code-animation">
+              <code class="hljs solidity" data-trim data-line-numbers>
+                function test_RevertWhen_Null() external {
+                    uint256 nullStreamId = 1729;
+                    vm.expectRevert(abi.encodeWithSelector(Errors.SablierV2Lockup_Null.selector, nullStreamId));
+                    lockup.statusOf(nullStreamId);
+                }
+                
+                modifier whenNotNull() {
+                    defaultStreamId = createDefaultStream();
+                    _;
+                }
+                
+                function test_StatusOf()
+                    external
+                    whenNotNull
+                    givenAssetsNotFullyWithdrawn
+                    givenStreamNotCanceled
+                    givenStartTimeNotInTheFuture
+                    givenRefundableAmountNotZero
+                {
+                    vm.warp({ timestamp: defaults.START_TIME() + 1 seconds });
+                    Lockup.Status actualStatus = lockup.statusOf(defaultStreamId);
+                    Lockup.Status expectedStatus = Lockup.Status.STREAMING;
+                    assertEq(actualStatus, expectedStatus);
+                }
+					    </code>
+            </pre>
+          </section>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+          ## ✅ Benefits of BTT
+
+          - Plain English
+          - Easy to learn and teach
+          - Doubles as a test structuring approach
+          - Can be shared with non-technical team members
+          - Potentially automatable
+          </textarea>
+        </section>
+
+        <section>
+          <h2>Specification Techniques</h2>
+          <table class="r-fit-text">
+            <thead>
+              <tr>
+                <th>Technique</th>
+                <th>Barrier to entry</th>
+                <th>Effectiveness</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Braching Tree Technique</td>
+                <td>Entry-level</td>
+                <td>Moderately effective</td>
+              </tr>
+              <tr>
+                <td>Cucumber Gherkin</td>
+                <td>Medium-level</td>
+                <td>Moderately effective</td>
+              </tr>
+              <tr>
+                <td>Certora, TLA+</td>
+                <td>Senior-level</td>
+                <td>Highly effective</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2>The End</h2>
+          <div style="display: flex; justify-content: center">
+            <ul style="list-style-type: none; align-items: center">
+              <li style="display: flex; align-items: center">
+                <img src="img/twitter.png" alt="Twitter Logo" style="width: 40px; height: 40px" />
+                <a href="https://twitter.com/PaulRBerg" style="margin-left: 10px" target="_blank">PaulRBerg</a>
+              </li>
+              <li style="display: flex; align-items: center">
+                <img src="img/github.png" alt="GitHub Logo" style="width: 40px; height: 40px" />
+                <a href="https://github.com/PaulRBerg" style="margin-left: 10px" target="_blank">PaulRBerg</a>
+              </li>
+              <li style="display: flex; align-items: center">
+                <img src="img/twitter.png" alt="Twitter Logo" style="width: 40px; height: 40px" />
+                <a href="https://twitter.com/Sablier" style="margin-left: 10px" target="_blank">Sablier</a>
+              </li>
+              <li style="display: flex; align-items: center">
+                <img src="img/website.png" alt="Website Icon" style="width: 40px; height: 40px" />
+                <a href="https://sablier.com" style="margin-left: 10px" target="_blank">sablier.com</a>
+              </li>
+            </ul>
+            <img src="img/qr.png" alt="V2 Core" style="width: 220px; margin-left: 250px; object-fit: contain" />
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
