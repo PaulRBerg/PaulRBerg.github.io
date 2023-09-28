@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Branching Tree Technique</title>
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/white.css" />
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+
+    <meta property="og:description" content="Paul Razvan Berg @ Spearbit 2023" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="@PaulRBerg" />
+    <meta property="og:title" content="Branching Tree Technique @ Spearbit 2023" />
+
+    <meta property="og:image" content="https://PaulRBerg.github.io/presentations/spearbit-2023/og.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1124" />
+    <meta property="og:image:height" content="818" />
+    <meta property="og:image:alt" content="Branching Tree Technique @ Spearbit 2023" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://PaulRBerg.github.io/presentations/spearbit-2023/og.jpg" />
+    <meta name="twitter:site" content="PaulRBerg" />
+    <meta name="twitter:title" content="Branching Tree Technique @ Spearbit 2023" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h3 class="r-fit-text">🌳 Branching Tree Technique (BTT)</h3>
+          <p>Paul Razvan Berg</p>
+          <p>Spearbit seminar: Sep 28, 2023</p>
+        </section>
+
+        <section>
+          <h2>Personal Background</h2>
+          <ul style="list-style-type: none">
+            <li>👨‍💻 Ethereum developer for 5+ years</li>
+            <li>
+              🐦 Exporting my brain on Twitter <a href="https://github.com/PaulRBerg" target="_blank">@PaulRBerg</a>
+            </li>
+            <li>⏳ Co-founder and Builder at Sablier Labs</li>
+            <li>📈 Sablier: >$1B in cumulative TVL since 2019</li>
+            <li>🚀 Sablier V2: 100% built with Foundry and BTT</li>
+          </ul>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+          ### 🤔 Problems with Solidity testing
+          
+          - Undirected development
+          - Unstructured file structures
+          - Lack of categories
+          - Vague or missing plain English specifications
+          </textarea>
+        </section>
+
+        <section>
+          <h2 data-id="code-title">😇 How it starts</h2>
+          <pre data-id="code-animation">
+              <code class="hljs solidity" data-trim data-line-numbers>
+                function test_Foo() external {
+                  uint256 x = 42;
+                  assertEq(contract.foo(x), x, "value mismatch");
+                }
+              </code>
+            </pre>
+        </section>
+
+        <section>
+          <h2>😵‍💫 How it ends (monolith)</h2>
+          <pre data-id="code-animation">
+              <code class="hljs solidity" data-trim data-line-numbers>
+                function test_Foo_1() external {
+                  // --- snip ---
+                }
+
+                function test_Foo_2() external {
+                  // --- snip ---
+                }
+
+                function test_Foo_3(uint256 arg0) external {
+                  // --- snip ---
+                }
+
+                function test_Foo_4(uint256 arg0, uint256 arg1) external {
+                  // --- snip ---
+                }
+              </code>
+            </pre>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### 🔏 Solution: BTT
+
+            Branching Tree Technique (BTT) is a simple specification framework for writing structured Solidity tests. It is inspired by Cucumber Gherkin.
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ### 📄 BTT: Spec
+
+            1. Target a function
+            1. Create a ".tree" file
+            1. Think about all possible execution paths
+            1. Consider what contract state leads to what paths
+            1. Consider what function params lead to what paths
+            1. Define "given state is x" nodes
+            1. Define "when parameter is x" nodes
+            1. Define "it should" leaf tests
+          </textarea>
+        </section>
+
+        <section>
+          <h2>Specification Frameworks</h2>
+          <table class="r-fit-text">
+            <thead>
+              <tr>
+                <th>Technique</th>
+                <th>Barrier to entry</th>
+                <th>Effectiveness</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Braching Tree Technique</td>
+                <td>Entry-level</td>
+                <td>Moderately effective</td>
+              </tr>
+              <tr>
+                <td>Cucumber Gherkin</td>
+                <td>Medium-level</td>
+                <td>Moderately effective</td>
+              </tr>
+              <tr>
+                <td>Certora, K Framework, TLA+</td>
+                <td>Senior-level</td>
+                <td>Highly effective</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+          ## ✅ Benefits of BTT
+
+          - Plain English
+          - Easy to learn and teach
+          - Doubles as a test structuring approach
+          - Can be shared with non-technical team members
+          - Automatable with Bulloak
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## 🪜 Bulloak: Scaffold
+
+            1. Write a ".tree" file
+            1. Run `bulloak scaffold ./file.tree`
+            1. Bulloak generates a skeleton Solidity contract
+            1. Add `-w` flag to write the contents to a Solidity file
+          </textarea>
+        </section>
+
+        <section>
+          <h2 class="r-fit-text" data-id="code-title">Example: <code>whenBranch.tree</code></h2>
+          <pre data-id="code-animation">
+              <code class="hljs gherkin" data-trim data-line-numbers>
+                WhenBranchTest
+                ├── when x is false
+                │   └── it should revert
+                └── when x is true
+                    └── it should return x
+					    </code>
+            </pre>
+        </section>
+
+        <section>
+          <h2 class="r-fit-text" data-id="code-title">Example: <code>simpleWhen.t.sol</code></h2>
+          <pre data-id="code-animation">
+              <code class="hljs solidity" data-trim data-line-numbers>
+                contract SimpleWhenTest {
+                    function test_RevertWhen_XIsFalse() external {
+                        // it should revert
+                    }
+                
+                    function test_WhenXIsTrue() external {
+                        // it should return x
+                    }
+                }              
+					    </code>
+            </pre>
+        </section>
+
+        <section>
+          <h2 class="r-fit-text" data-id="code-title">Example: <code>simpleWhen.t.sol</code></h2>
+          <pre data-id="code-animation">
+              <code class="hljs solidity" data-trim data-line-numbers="0|3-4|8-9">
+                contract SimpleWhenTest {
+                    function test_RevertWhen_XIsFalse() external {
+                        vm.expectRevert("x must not be false");
+                        foo.simpleWhen({ x: false });
+                    }
+                
+                    function test_WhenXIsTrue() external {
+                        bool result = foo.simpleWhen({ x: true });
+                        assertTrue(result);
+                    }
+                }              
+					    </code>
+            </pre>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## 🪜 Bulloak: Check
+
+            1. Work on a Solidity test file
+            1. Run `bulloak check ./file.tree`
+            1. Purpose: periodically check that the implementation matches the `.tree` spec
+          </textarea>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+            ## 🧑‍💻 Development Time
+
+            Opening VSCode to show the examples in "btt-examples"
+          </textarea>
+        </section>
+
+        <section>
+          <h2>🤔 Given or When?</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Answer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Is it a contract state that is prepared in advance?</td>
+                <td>Given</td>
+              </tr>
+              <tr>
+                <td>Is it a mode of execution, e.g. call vs delegatecall?</td>
+                <td>When</td>
+              </tr>
+              <tr>
+                <td>Is it a function parameter that the user is in control when calling the function?</td>
+                <td>When</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section data-markdown>
+          <textarea data-template>
+          ## 💡 Future development
+
+          - BTT and Bulloak are a WIP; feedback welcome
+          - Shout-outs to Alex Fertel and Matt Solomon
+          - Create a documentation website
+          - Refine the spec, e.g. modifiers or internal functions?
+          - Can we support invariant tests (stateful fuzz)?
+          - Using GPT to write the actual tests
+          - Using GPT to shorten the scaffolded code
+          </textarea>
+        </section>
+
+        <section>
+          <h2>The End</h2>
+          <span>Thanks for attending!</span>
+          <div style="display: flex; justify-content: center; margin-top: 16px">
+            <ul style="list-style-type: none; align-items: center">
+              <li style="display: flex; align-items: center">
+                <img src="img/twitter.png" alt="Twitter Logo" style="width: 40px; height: 40px" />
+                <a href="https://twitter.com/PaulRBerg" style="margin-left: 10px" target="_blank">PaulRBerg</a>
+              </li>
+              <li style="display: flex; align-items: center">
+                <img src="img/github.png" alt="GitHub Logo" style="width: 40px; height: 40px" />
+                <a href="https://github.com/PaulRBerg" style="margin-left: 10px" target="_blank">PaulRBerg</a>
+              </li>
+              <li style="display: flex; align-items: center">
+                <img src="img/github.png" alt="GitHub Logo" style="width: 40px; height: 40px" />
+                <a href="https://github.com/alexfertel/Bulloak" style="margin-left: 10px" target="_blank">Bulloak</a>
+              </li>
+            </ul>
+            <img src="img/qr.png" alt="V2 Core" style="width: 220px; margin-left: 250px; object-fit: contain" />
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
