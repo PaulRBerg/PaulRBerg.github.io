@@ -1,0 +1,112 @@
+---
+date: "2019-06-16 19:53:38 01:00"
+image: "/assets/images/paye-tax/preview.jpg"
+layout: "post"
+title: "Pay As You Earn Tax System on Ethereum"
+---
+
+![Cover](/assets/images/paye-tax/preview.jpg)
+
+## Context
+
+Pay As You Earn, henceforth referenced as PAYE, is a tax withholding mechanism currently implemented in the UK, the US
+and Australia (also called Pay As You Go). Employers are responsible to deduct tax and national insurance contributions
+before paying their employees.
+
+It is not a bad system. Economies of scale enabled a few payroll providers to become very efficient in dealing with the
+ultra-boring paperwork. Most employers don't understand what's happening under the hood, which is brilliant. It means
+they can focus on making their business great!
+
+Of course, while the system is not bad, it requires a lot of trust and human bandwidth to stay afloat. I put thought
+into how a mechanism similar to PAYE could be developed on top of Ethereum and I'll carve out a feasible solution in
+this article.
+
+Do note though that I'm strictly discussing income tax and nothing else. There's a plethora of other categories, such as
+Capital Gains Tax, Inheritance Tax and Council Tax, which are not covered here.
+
+## Say Hello to Sablier
+
+I'm the founder of [Sablier](https://twitter.com/Sablier), which we like to call the protocol for real-time finance on
+Ethereum. Our [web interface](https://sablier.com) can be used to pay your employees in real-time. For more details,
+head to the [docs](https://docs.sablier.com), since this article will require only a basic understanding of Sablier
+"streams".
+
+Let's imagine Alice, an employer, and Bob, an employee that earns \$100 a day (inclusive of weekends).
+
+1. Alice deposits \$3,000 on Sablier.
+2. Bob works for 5 days.
+3. Bob has the right but not the obligation to withdraw up to \$500 from the stream (100 x 5 days).
+4. Alice has the right but not the obligation to cancel the stream and withdraw the leftover sum in her wallet, that is,
+   $2,500. If she does this, Bob receives $500 in his wallet.
+5. If 25 additional days pass and Alice doesn't cancel the stream, Bob would be able to redeem his salary in full, that
+   is, \$3,000.
+
+We consider these streams a primitive in our income tax system.
+
+## The Fancy Proposal
+
+Let's assume the tax brackets for a non-married American citizen for 2019.
+
+The US uses a [progressive tax](https://www.investopedia.com/terms/p/progressivetax.asp) system, which means that the
+first $9,700 earned after deductions is taxed at 10%, the next $29,774 at 12%, the next \$44,724 at 22% and so forth.
+
+![US 2018-2019](/assets/images/paye-tax/us-2018-2019.jpg)
+
+Now, we need to make a few assumptions.
+
+1. The government has an Ethereum wallet. The simplest option would be something like
+   [Gnosis Safe](https://safe.gnosis.io), but they may want to use a [Ledger](https://www.ledger.com/) or a
+   [Trezor](https://trezor.io) physical wallet.
+2. The government is willing to accept tax paid in stablecoins (digital dollars issued on Ethereum).
+3. The stream can have multiple recipients. As of the time of writing this article, this is not a feature of Sablier.
+
+Let's return to the Alice <> Bob stream we previously explored. Let's imagine that:
+
+- Bob is not married and has never been
+- His only source of income is his job, so that by the end of January he will only have earned $3,000, which falls under
+  the $9,700 tax threshold for 10%
+- The stream is created on the 1st of January
+- No standard deduction or itemize is applied
+
+The stream would turn into this:
+
+1. Alice deposits \$3,000 on Sablier and pledges to deduct tax on Bob's salary.
+2. Bob works for 5 days.
+3. Bob has the right but not the obligation to withdraw up to $450. If he does this, $50 is withdrawn to the government
+   wallet.
+4. Alice has the right but not the obligation to cancel the stream and withdraw the leftover sum in her wallet, that is,
+   $2,500. If she does this, Bob receives $450 and the government \$50.
+5. If 25 additional days pass and Alice doesn't cancel the stream, Bob would be able to redeem his salary in full, that
+   is, $2,700. The government would receive their 10% share, which is $300.
+
+We can extend this process to future months and switch to a new tax bracket. For example, in April, we may tax Bob 12%
+instead, because by then Bob will have earned $12,000. This is above the first threshold of $9,700, but it is still
+below \$39,475.
+
+And that was it! Simple, beautiful, progressive taxation on Ethereum.
+
+The really big advantage in using a blockchain income tax is that it brings a **significantly lower cost of
+settlement**. The blockchain, in and of itself, becomes your accountant, making timekeeping spreadsheets obsolete.
+
+Companies could deposit an annual salary on Sablier once,
+[earn interest](https://twitter.com/LeoMorozovskii/status/1135514454072922114) on that and forget about it (if the
+employee doesn't leave the company in the meantime).
+
+## Caveats
+
+- We use block timestamps as a trustless proxy for time. Different models using oracles or sidechains may alternatively
+  be used.
+- Stablecoin prices fluctuate sometimes and no, this is not an oxymoron. While some reserve-backed coins such as USDC
+  are more stable, free-market alternatives like DAI saw swings as high as \$0.10, both downward and upward.
+- Deductions can be tricky. I abstracted them away before to make it easier to showcase the tax flow, but further
+  research is required in finding an optimal solution.
+
+## Wrap-Up
+
+What I love about an income tax on the blockchain is that it's truly "pay as you earn", compared to the fiat world,
+where it's more like "pay once per month, kind of".
+
+In the proposal herein, taxes are calculated based on a block time average (which is ~14 seconds on Ethereum). Taxes
+could be paid at any time of the month when the employee makes a withdrawal, not at the end.
+
+Find me on [Twitter](https://twitter.com/PaulRBerg) if you want to chat.
