@@ -35,6 +35,7 @@ twitter_username: PaulRBerg
 
 plugins:
   - jekyll-feed
+  - jekyll-target-blank
 theme: minima
 
 # Exclude from processing.
