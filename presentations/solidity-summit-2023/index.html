@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -44,8 +44,8 @@
             <li>
               🐦 Exporting my brain on Twitter <a href="https://github.com/PaulRBerg" target="_blank">@PaulRBerg</a>
             </li>
+            <li>➗ Author of PRBMath</li>
             <li>⏳ Co-founder and Builder at Sablier</li>
-            <li>📈 $174 median monthly TVL since 2021</li>
             <li>🚀 Sablier V2: 100% built with Foundry and BTT</li>
           </ul>
         </section>
@@ -175,7 +175,7 @@
           <h2 class="r-fit-text" data-id="code-title">Example: <code>when.tree</code></h2>
           <pre>
               <code class="hljs gherkin" data-trim data-line-numbers>
-                When
+                WhenTest
                 ├── when x is false
                 │   └── it should revert
                 └── when x is true
@@ -188,7 +188,7 @@
           <h2 class="r-fit-text" data-id="code-title">Example: <code>when.t.sol</code></h2>
           <pre>
               <code class="hljs solidity" data-trim data-line-numbers>
-                contract When {
+                contract WhenTest {
                     function test_RevertWhen_XIsFalse() external {
                         // it should revert
                     }
@@ -204,8 +204,8 @@
         <section>
           <h2 class="r-fit-text" data-id="code-title">Example: <code>when.t.sol</code></h2>
           <pre>
-              <code class="hljs solidity" data-trim data-line-numbers>
-                contract When {
+            <code class="hljs solidity" data-trim data-line-numbers="0|3-4|8-9">
+                contract WhenTest {
                     function test_RevertWhen_XIsFalse() external {
                         vm.expectRevert("x must not be false");
                         foo.simpleWhen({ x: false });
@@ -313,6 +313,7 @@
           - Plain English
           - Easy to learn and teach
           - Doubles as a test structuring approach
+          - Leads to high test coverage
           - Can be shared with non-technical team members
           - Automatable with Bulloak
           </textarea>
@@ -329,6 +330,10 @@
           - Using GPT to write the actual tests
           - Using GPT to shorten the scaffolded code
           </textarea>
+        </section>
+
+        <section>
+          <img src="img/meme.jpg" alt="BTT Meme" style="object-fit: contain" />
         </section>
 
         <section>
