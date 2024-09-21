@@ -1,11 +1,11 @@
 ---
 date: "2020-05-13 22:27:05 0000"
 layout: "post"
-image: "/assets/images/dyi-crypto-taxes/preview.jpg"
+image: "/assets/img/dyi-crypto-taxes/preview.jpg"
 title: "How to Do Your Crypto Taxes by Yourself"
 ---
 
-![Cover](/assets/images/dyi-crypto-taxes/cover.jpg)
+![Cover](/assets/img/dyi-crypto-taxes/cover.jpg)
 
 ## Context
 
@@ -37,7 +37,7 @@ Follow along! This guide is for you, the DeFi power user.
 
 ## Prerequisites
 
-![Prerequisites](/assets/images/dyi-crypto-taxes/prerequisites.jpg)
+![Prerequisites](/assets/img/dyi-crypto-taxes/prerequisites.jpg)
 
 ### Jurisdiction
 
@@ -108,7 +108,7 @@ Let's first look at what these are.
 
 ### Enums
 
-![Constants](/assets/images/dyi-crypto-taxes/constants.jpg)
+![Constants](/assets/img/dyi-crypto-taxes/constants.jpg)
 
 The Constants spreadsheet contains four columns of pre-defined values, or "enums". To be honest, you could very well
 track your cryptos in Google Sheets without this feature, but your sheets become more reliable when you confine the
@@ -126,7 +126,7 @@ the cell can't have a value other than the one from the Enums sheet.
 
 ### Rates
 
-![Rates Sheet](/assets/images/dyi-crypto-taxes/preview.jpg)
+![Rates Sheet](/assets/img/dyi-crypto-taxes/preview.jpg)
 
 This is a sheet that uses the following three functionalities to pull the price data for the full year:
 
@@ -146,7 +146,7 @@ change the base fiat currency and add or remove more columns.
 
 ### Totals
 
-![Totals](/assets/images/dyi-crypto-taxes/totals.jpg)
+![Totals](/assets/img/dyi-crypto-taxes/totals.jpg)
 
 This is as easy as it sounds. The "Totals" sheet is like a receipt of that spreadsheet, summing up the results from all
 categories and assets tracked in there.
@@ -165,7 +165,7 @@ sheets, you'll see:
 The calculation rules are the same for each category, so let's take an arbitrary example and see how it works for
 "Freelance".
 
-![Incomes Freelance Sheet](/assets/images/dyi-crypto-taxes/incomes-freelance-sheet.jpg)
+![Incomes Freelance Sheet](/assets/img/dyi-crypto-taxes/incomes-freelance-sheet.jpg)
 
 The DAI trades are easy, because you can safely substitute DAI, USDC and most stablecoins with \$1. But how do you
 calculate the fiat value when someone pays you in a fluctuating asset like Ether?
@@ -205,7 +205,7 @@ bit of interest one hour later, which begs the question: how do you build a coge
 
 Simple! You keep a record of all deposits and withdrawals.
 
-![Compound DAI](/assets/images/dyi-crypto-taxes/yields-compound-dai.jpg)
+![Compound DAI](/assets/img/dyi-crypto-taxes/yields-compound-dai.jpg)
 
 Open the "Compound DAI" sheet and look at the first three rows:
 
@@ -215,7 +215,7 @@ Open the "Compound DAI" sheet and look at the first three rows:
 
 The net gain is 2503.21 - (2000 + 500) = 3.21 DAI, or approximately \$3.21.
 
-![Compound ETH](/assets/images/dyi-crypto-taxes/yields-compound-eth.jpg)
+![Compound ETH](/assets/img/dyi-crypto-taxes/yields-compound-eth.jpg)
 
 Now, open "Compound ETH" and apply the same rules, knowing that you need the ETH price in USD from the rates table. You
 once again use the INDEX and the MATCH functions in combination with the named ranges.
@@ -264,7 +264,7 @@ The rules embedded in this [spreadsheet][capital-gains-2020] are complex, so I h
 its dynamics closely. It's easier if you activate the "Show formulas" mode, either from the menu bar under "View" or by
 tapping `CTRL` and `~` simultaneously.
 
-![Capital Gains ETH](/assets/images/dyi-crypto-taxes/capital-gains-eth.jpg)
+![Capital Gains ETH](/assets/img/dyi-crypto-taxes/capital-gains-eth.jpg)
 
 Here are the highlights:
 

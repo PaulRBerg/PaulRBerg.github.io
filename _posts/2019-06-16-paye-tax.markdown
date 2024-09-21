@@ -1,11 +1,11 @@
 ---
 date: "2019-06-16 19:53:38 01:00"
-image: "/assets/images/paye-tax/preview.jpg"
+image: "/assets/img/paye-tax/preview.jpg"
 layout: "post"
 title: "Pay As You Earn Tax System on Ethereum"
 ---
 
-![Cover](/assets/images/paye-tax/preview.jpg)
+![Cover](/assets/img/paye-tax/preview.jpg)
 
 ## Context
 
@@ -50,7 +50,7 @@ Let's assume the tax brackets for a non-married American citizen for 2019.
 The US uses a [progressive tax](https://www.investopedia.com/terms/p/progressivetax.asp) system, which means that the
 first $9,700 earned after deductions is taxed at 10%, the next $29,774 at 12%, the next \$44,724 at 22% and so forth.
 
-![US 2018-2019](/assets/images/paye-tax/us-2018-2019.jpg)
+![US 2018-2019](/assets/img/paye-tax/us-2018-2019.jpg)
 
 Now, we need to make a few assumptions.
 

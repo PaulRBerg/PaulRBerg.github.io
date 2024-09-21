@@ -17,11 +17,11 @@
 
 author: "Paul Razvan Berg"
 baseurl: "" # the subpath of your site, e.g. /blog
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   I am a tech entrepreneur and software engineer. I am interested in blockchain, longevity, philosophy, and physics.
 google_analytics: "G-TJ49HZ4TM9"
 locale: "en_US"
-permalink: "/:categories/:year/:month/:title"
+permalink: "/:year/:month/:title"
 tagline: "Personal Website"
 title: "Paul R. Berg"
 url: "https://prberg.com" # the base hostname & protocol for your site
@@ -48,3 +48,4 @@ theme: minima
 
 exclude:
   - presentations/
+  - reveal-js/

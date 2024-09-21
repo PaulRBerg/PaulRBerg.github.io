@@ -1,11 +1,11 @@
 ---
 date: "2018-12-31 17:22:34 0000"
-image: ["/assets/images/radical-markets/preview.jpg"]
+image: ["/assets/img/radical-markets/preview.jpg"]
 layout: "post"
 title: "Critique on Radical Markets"
 ---
 
-![Radical Markets Cover](/assets/images/radical-markets/radical-markets.jpg)
+![Radical Markets Cover](/assets/img/radical-markets/radical-markets.jpg)
 
 ## Context
 
@@ -40,7 +40,7 @@ We shall see how all of them intersect with the concerns I had for each policy.
 
 ### The Hyperloop Dilemma
 
-![Hyperloop](/assets/images/radical-markets/hyperloop.jpg)
+![Hyperloop](/assets/img/radical-markets/hyperloop.jpg)
 
 The vignette at the beginning of the chapter describes a hypothetical scenario whereby Alejandro, the manager of
 Hyperloop, has to buy all the properties required for building a railroad between Los Angeles (LA) and San Francisco
@@ -83,7 +83,7 @@ should be considered in advance.
 
 ### Shallow Prescription for Irrationality
 
-![Irrationality](/assets/images/radical-markets/irrationality.jpg)
+![Irrationality](/assets/img/radical-markets/irrationality.jpg)
 
 On numerous occasions, Glen Weyl [talks](https://youtu.be/uj186urDU8c?t=323) about how Marketopia (a world in which RM
 is ubiquitously implemented) is immune to the discretionary control of the rich, because there's no such thing as
@@ -139,7 +139,7 @@ properties? Wouldn't this create a precedent for other loopholes? I don't know.
 
 ## Quadratic Voting
 
-![Voting](/assets/images/radical-markets/voting.jpg)
+![Voting](/assets/img/radical-markets/voting.jpg)
 
 As stated before, mobile apps and technology in general are supposed to be an ancillary component to Marketopia. At the
 high level, I totally love this! After watching the 2018 testimonial shows starring Mark Zuckerberg, Sundar Pinchai and
@@ -189,7 +189,7 @@ device in my backpack.
 
 ## Uniting the World's Workers
 
-![Agreeement](/assets/images/radical-markets/agreement-bw.jpg)
+![Agreeement](/assets/img/radical-markets/agreement-bw.jpg)
 
 The immigration policy proposed in the third chapter of the book is well-intentioned as it aims to bridge the gap
 between excessively wealthy countries and the rest of the world by aligning the incentives of all participants:
@@ -210,7 +210,7 @@ actually aims to make the lives of these tens of millions of people safer and be
 
 ## Dismembering the Octopus
 
-![Octopus](/assets/images/radical-markets/octopus-cut.jpg)
+![Octopus](/assets/img/radical-markets/octopus-cut.jpg)
 
 This has been one of the most interesting chapters from a factual point of view. Even if I did know about BlackRock,
 Vanguard et al, I wasn't aware of the financial control they exert over the market. Given my current understanding of
@@ -248,7 +248,7 @@ concentrate on other more urgent matters, it might take a while before the octop
 
 ## Data as Labor
 
-![Data](/assets/images/radical-markets/dollar.jpg)
+![Data](/assets/img/radical-markets/dollar.jpg)
 
 Given enough time, I concur with Posner and Weyl that people will become more aware of the value of their data. We just
 need a few more Cambridge Analytica incidents and we'll get there. The main difficulty is then centred around the

@@ -1,11 +1,11 @@
 ---
 date: "2019-02-07 01:02:56 0000"
-image: "/assets/images/serendipity-visa/preview.jpg"
+image: "/assets/img/serendipity-visa/preview.jpg"
 layout: "post"
 title: "Serendipity Visa: Discourse On Talent Allocation"
 ---
 
-![Cover](/assets/images/serendipity-visa/preview.jpg)
+![Cover](/assets/img/serendipity-visa/preview.jpg)
 
 ## Preamble
 
@@ -92,7 +92,7 @@ write books and research papers can bring compound benefits to the world as a wh
 
 It can get a bit tricky to quantify the positive outcomes of immigration, but this is pretty suggestive:
 
-![Built By Immigrants](/assets/images/serendipity-visa/built-by-immigrants.jpg)
+![Built By Immigrants](/assets/img/serendipity-visa/built-by-immigrants.jpg)
 
 And I'm sure the list can go on. In the UK, most rising fintech startups were built by immigrants dissatisfied by how
 financial products used to work across Europe.
