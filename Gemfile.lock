@@ -274,7 +274,6 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages (~> 232)
-  jekyll-feed (~> 0.12)
   jekyll-target-blank
   minima (~> 2.5)
 

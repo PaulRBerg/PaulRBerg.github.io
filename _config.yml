@@ -15,16 +15,16 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-author: "Paul Razvan Berg"
+author: Paul Razvan Berg
 baseurl: "" # the subpath of your site, e.g. /blog
 description: >-
   I am a tech entrepreneur and software engineer. I am interested in blockchain, longevity, philosophy, and physics.
-google_analytics: "G-TJ49HZ4TM9"
-locale: "en_US"
+google_analytics: G-TJ49HZ4TM9
+locale: en_US
 permalink: "/:year/:month/:title"
-tagline: "Personal Website"
-title: "Paul R. Berg"
-url: "https://prberg.com" # the base hostname & protocol for your site
+tagline: Personal Website
+title: Paul R. Berg
+url: https://prberg.com # the base hostname & protocol for your site
 
 # Social media
 github_username: PaulRBerg
@@ -34,10 +34,8 @@ twitter:
 twitter_username: PaulRBerg
 
 plugins:
-  - jekyll-feed
   - jekyll-target-blank
 theme: minima
-
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -45,7 +43,5 @@ theme: minima
 #
 # Alternatively, excluded items can be processed by explicitly listing the directories
 # or their entries' file path in the `include:` list.
-
 exclude:
-  - presentations/
-  - reveal-js/
+  - assets/reveal-js/**/*.md

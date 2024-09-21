@@ -7,10 +7,10 @@
     <title>Branching Tree Technique</title>
 
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
-    <link rel="stylesheet" href="../../reveal-js/dist/reset.css" />
-    <link rel="stylesheet" href="../../reveal-js/dist/reveal.css" />
-    <link rel="stylesheet" href="../../reveal-js/dist/theme/white.css" />
-    <link rel="stylesheet" href="../../reveal-js/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../../assets/reveal-js/dist/reset.css" />
+    <link rel="stylesheet" href="../../assets/reveal-js/dist/reveal.css" />
+    <link rel="stylesheet" href="../../assets/reveal-js/dist/theme/white.css" />
+    <link rel="stylesheet" href="../../assets/reveal-js/plugin/highlight/monokai.css" />
 
     <meta property="og:description" content="Paul Razvan Berg @ Solidity Summit 2023" />
     <meta property="og:locale" content="en_US" />
@@ -53,7 +53,7 @@
         <section data-markdown>
           <textarea data-template>
           ### 🤔 Problems with Solidity testing
-          
+
           - Undirected development
           - Unstructured file structures
           - Lack of categories
@@ -192,11 +192,11 @@
                     function test_RevertWhen_XIsFalse() external {
                         // it should revert
                     }
-                
+
                     function test_WhenXIsTrue() external {
                         // it should return x
                     }
-                }              
+                }
 					    </code>
             </pre>
         </section>
@@ -210,12 +210,12 @@
                         vm.expectRevert("x must not be false");
                         foo.simpleWhen({ x: false });
                     }
-                
+
                     function test_WhenXIsTrue() external {
                         bool result = foo.simpleWhen({ x: true });
                         assertTrue(result);
                     }
-                }              
+                }
 					    </code>
             </pre>
         </section>
@@ -246,26 +246,26 @@
                     {
                         // it should revert
                     }
-                
+
                     modifier givenValueIsNotLessThan100() {
                         foo.setValue({ newValue: 1337 });
                         _;
                     }
-                
+
                     function test_RevertWhen_XIsFalse()
                         external
                         givenValueIsNotLessThan100
                     {
                         // it should revert
                     }
-                
+
                     function test_WhenXIsTrue()
                         external
                         givenValueIsNotLessThan100
                     {
                         // it should return x
                     }
-                }                            
+                }
 					    </code>
             </pre>
         </section>
@@ -342,19 +342,19 @@
           <div style="display: flex; justify-content: center; margin-top: 16px">
             <ul style="list-style-type: none; align-items: center">
               <li style="display: flex; align-items: center">
-                <img src="../shared/img/twitter-black.png" alt="Twitter Logo" style="width: 40px; height: 40px" />
+                <img src="../../assets/img/twitter-black.png" alt="Twitter Logo" style="width: 40px; height: 40px" />
                 <a href="https://twitter.com/PaulRBerg" style="margin-left: 10px" target="_blank">PaulRBerg</a>
               </li>
               <li style="display: flex; align-items: center">
-                <img src="../shared/img/github-black.png" alt="GitHub Logo" style="width: 40px; height: 40px" />
+                <img src="../../assets/img/github-black.png" alt="GitHub Logo" style="width: 40px; height: 40px" />
                 <a href="https://github.com/PaulRBerg" style="margin-left: 10px" target="_blank">PaulRBerg</a>
               </li>
               <li style="display: flex; align-items: center">
-                <img src="../shared/img/github-black.png" alt="GitHub Logo" style="width: 40px; height: 40px" />
+                <img src="../../assets/img/github-black.png" alt="GitHub Logo" style="width: 40px; height: 40px" />
                 <a href="https://github.com/alexfertel/Bulloak" style="margin-left: 10px" target="_blank">Bulloak</a>
               </li>
               <li style="display: flex; align-items: center">
-                <img src="../shared/img/github-black.png" alt="GitHub Logo" style="width: 40px; height: 40px" />
+                <img src="../../assets/img/github-black.png" alt="GitHub Logo" style="width: 40px; height: 40px" />
                 <a href="https://github.com/sablier-labs/v2-core" style="margin-left: 10px" target="_blank"
                   >Sablier Lockup</a
                 >
@@ -366,10 +366,10 @@
       </div>
     </div>
 
-    <script src="../../reveal-js/dist/reveal.js"></script>
-    <script src="../../reveal-js/plugin/notes/notes.js"></script>
-    <script src="../../reveal-js/plugin/markdown/markdown.js"></script>
-    <script src="../../reveal-js/plugin/highlight/highlight.js"></script>
+    <script src="../../assets/reveal-js/dist/reveal.js"></script>
+    <script src="../../assets/reveal-js/plugin/notes/notes.js"></script>
+    <script src="../../assets/reveal-js/plugin/markdown/markdown.js"></script>
+    <script src="../../assets/reveal-js/plugin/highlight/highlight.js"></script>
     <script>
       // More info about initialization & config:
       // - https://revealjs.com/initialization/

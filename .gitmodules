@@ -1,4 +1,4 @@
 [submodule "reveal-js"]
 	branch = "main"
-	path = "reveal-js"
+	path = "assets/reveal-js"
 	url = "git@github.com:hakimel/reveal.js"
