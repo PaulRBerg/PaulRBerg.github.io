@@ -5,7 +5,7 @@ I use this GitHub Pages site to host my presentations.
 ## Domain
 
 The canonical domain name for this site is [prberg.com](https://prberg.com), but you can also access it via
-[paulrberg.github.io](https://paulrberg.github.io).
+[PaulRBerg.github.io](https://PaulRBerg.github.io).
 
 ## Jekyll
 
