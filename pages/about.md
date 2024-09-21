@@ -1,7 +1,7 @@
 ---
-layout: "page"
-permalink: "/about/"
-title: "About"
+layout: page
+permalink: /about/
+title: About
 ---
 
 I am a tech entrepreneur and software engineer. I am the co-founder of [Sablier](https://sablier.com), the project that
