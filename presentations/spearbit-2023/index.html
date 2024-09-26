@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../reveal-js/dist/theme/white.css" />
     <link rel="stylesheet" href="../../reveal-js/plugin/highlight/monokai.css" />
 
-    <meta property="og:description" content="Paul Razvan Berg @ Spearbit 2023" />
+    <meta property="og:description" content="Paul Berg @ Spearbit 2023" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="@PaulRBerg" />
     <meta property="og:title" content="Branching Tree Technique @ Spearbit 2023" />
@@ -33,7 +33,7 @@
       <div class="slides">
         <section>
           <h3 class="r-fit-text">🌳 Branching Tree Technique (BTT)</h3>
-          <p>Paul Razvan Berg</p>
+          <p>Paul Berg</p>
           <p>Spearbit seminar: Sep 28, 2023</p>
         </section>
 
@@ -53,7 +53,7 @@
         <section data-markdown>
           <textarea data-template>
           ### 🤔 Problems with Solidity testing
-          
+
           - Undirected development
           - Unstructured file structures
           - Lack of categories
@@ -193,11 +193,11 @@
                     function test_RevertWhen_XIsFalse() external {
                         // it should revert
                     }
-                
+
                     function test_WhenXIsTrue() external {
                         // it should return x
                     }
-                }              
+                }
 					    </code>
             </pre>
         </section>
@@ -211,12 +211,12 @@
                         vm.expectRevert("x must not be false");
                         foo.simpleWhen({ x: false });
                     }
-                
+
                     function test_WhenXIsTrue() external {
                         bool result = foo.simpleWhen({ x: true });
                         assertTrue(result);
                     }
-                }              
+                }
 					    </code>
             </pre>
         </section>

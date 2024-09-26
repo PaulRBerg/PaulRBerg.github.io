@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../reveal-js/dist/theme/serif.css" />
     <link rel="stylesheet" href="../../reveal-js/plugin/highlight/monokai.css" />
 
-    <meta property="og:description" content="Paul Razvan Berg @ EthCC 2023" />
+    <meta property="og:description" content="Paul Berg @ EthCC 2023" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="@PaulRBerg" />
     <meta property="og:title" content="Testing Best Practices in Foundry" />
@@ -33,7 +33,7 @@
       <div class="slides">
         <section>
           <h3 class="r-fit-text">⚒️ Testing Best Practices in Foundry</h3>
-          <h4>Paul Razvan Berg @ EthCC 2023</h4>
+          <h4>Paul Berg @ EthCC 2023</h4>
           <p style="font-size: 32px">
             ▶️ Watch on <a href="https://youtube.com/watch?v=V6KBy8QQnCo" target="_blank">YouTube</a>
           </p>
@@ -93,7 +93,7 @@
         <section data-markdown>
           <textarea data-template>
           ## 🤔 Problems
-          
+
           - Undirected development
           - Unstructured file structures
           - Lack of categories
@@ -238,12 +238,12 @@
                     vm.expectRevert(abi.encodeWithSelector(Errors.SablierV2Lockup_Null.selector, nullStreamId));
                     lockup.statusOf(nullStreamId);
                 }
-                
+
                 modifier whenNotNull() {
                     defaultStreamId = createDefaultStream();
                     _;
                 }
-                
+
                 function test_StatusOf()
                     external
                     whenNotNull
