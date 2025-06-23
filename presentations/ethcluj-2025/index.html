@@ -31,12 +31,14 @@
   <body>
     <div class="reveal">
       <div class="slides">
+        <!-- ------------------------------- Slide 1 ------------------------------- -->
         <section>
           <h3>🐈 Schrodinger's TVL: Until You Hack It, It's Not Real</h3>
           <p>Paul Razvan Berg</p>
           <p>ETHCluj - June 27, 2025</p>
         </section>
 
+        <!-- ------------------------------- Slide 2 ------------------------------- -->
         <section>
           <h2>Paul's Background</h2>
           <ul style="list-style-type: none">
@@ -46,25 +48,172 @@
           </ul>
         </section>
 
-        <section data-visibility="hidden">
-          <img src="img/meme.jpg" alt="BTT Meme" style="object-fit: contain" />
+        <!-- ------------------------------- Slide 3 ------------------------------- -->
+        <section data-markdown>
+          <textarea data-template>
+            ## 🐱 Quantum Cat Physics 101
+
+            ![Schrodinger's Cat](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Schrodingers_cat.svg/400px-Schrodingers_cat.svg.png)
+
+            **Raise your hand if you understand this reference! 🙋‍♂️**
+
+            _Spoiler: The cat is both alive and dead until observed_
+          </textarea>
+        </section>
+
+        <!-- ------------------------------- Slide 4 ------------------------------- -->
+        <section>
+          <img src="img/pepe-smug.png" alt="Smug Pepe" style="width: 20%" />
+
+          <h3 class="r-fit-text">📈 Classic TVL: The Ultimate Vanity Metric</h3>
+
+          <ul>
+            <li>💸 Price &#215; Token Count = Magic Number</li>
+            <li>🎭 Makes protocols look bigger than they are</li>
+            <li>🤡 $100M TVL for $10M market cap? Seems legit!</li>
+            <li>📊 DAO treasuries and vested tokens = inflated</li>
+          </ul>
+        </section>
+
+        <!-- ------------------------------- Slide 5 ------------------------------- -->
+        <section>
+          <img src="https://raw.githubusercontent.com/sablier-labs/branding/main/logo/wide/png/logo-wide-gradient-dark.png" alt="Sablier Logo" style="width: 40%" />
+
+          <h3>🔎 Example: Sablier TVL Analysis</h3>
+
+          <p>Data for contract 0xCD18...8888 in Oct 2023</p>
+
+          <ul>
+            <li><strong>TVL:</strong> $51.8M (Price &#215; Token Count)</li>
+            <li><strong>Stablecoins and ETH:</strong> $3.4M</li>
+            <li><strong>The Problem:</strong> $48.4M of vesting tokens</li>
+          </ul>
+
+          <p><em>Are vesting tokens worthless? 🤔</em></p>
+        </section>
+
+        <section data-background-image="img/sablier-tvl.jpg" data-background-size="contain"></section>
+
+        <!-- ------------------------------- Slide 6 ------------------------------- -->
+        <section>
+          <img src="img/pepe-brain.png" alt="Pepe Galaxy Brain" width="18%" />
+
+          <h3 class="r-fit-text">💡 Solution: Total Obtainable Value (TOV)</h3>
+
+          <ul>
+            <li>🔓 What if a hacker stole all funds?</li>
+            <li>💱 How much USDC/ETH could they actually get?</li>
+            <li>🔍 Query DEX aggregators (like 1inch)</li>
+            <li>📊 Real liquidation value > fantasy numbers</li>
+          </ul>
+
+          <p><strong>TOV = value obtainable through post-hack swaps</strong></p>
+        </section>
+
+        <!-- ------------------------------- Slide 7 ------------------------------- -->
+        <section>
+          <img src="img/pepe-scheming.png" alt="Scheming Pepe" style="float: right" width="30%" />
+
+          <h3>💭 Thought Experiment: Sablier Gets REKT</h3>
+
+          <ol>
+            <li>🔓 Drain all vesting tokens</li>
+            <li>💱 Swap them for USDC/ETH</li>
+            <li>🏃‍♂️ Run to non-extradition country</li>
+            <li>🏖️ Retire on a beach</li>
+          </ol>
+
+          <p><strong>Question:</strong> Are those tokens (FOX, ICHI) worth $0?</p>
+
+          <p class="fragment"><em>No, they're worth whatever the hacker can get!</em></p>
+        </section>
+
+        <!-- ------------------------------- Slide 8 ------------------------------- -->
+        <section data-markdown>
+          <textarea data-template>
+            ## 📊 Sablier TOV Example
+
+            **Real 1inch Quotes:**
+            - 38,358 $COMP → ~$879k USDC 💰
+            - 103M $FOX → ~$840k USDC 🦊
+            - 301,556 $ICHI → ~$145k USDC 🍣
+
+            **TOV:** >$1.86M (at least)
+
+            *Not $48M, but definitely not $0!*
+          </textarea>
         </section>
 
         <section>
-          <h2>Thank You!</h2>
-          <span>Thanks! Follow me on X</span>
-          <div style="display: flex; justify-content: center; margin-top: 16px">
-            <ul style="list-style-type: none; align-items: center">
+          <div class="r-stack">
+            <img
+              class="fragment fade-out"
+              data-fragment-index="0"
+              src="https://pbs.twimg.com/media/F85xIRHXsAEptTa?format=jpg"
+              width="80%"
+            />
+            <img
+              class="fragment current-visible"
+              data-fragment-index="0"
+              src="https://pbs.twimg.com/media/F85xIRTXcAAjQHt?format=jpg"
+              width="80%"
+            />
+            <img class="fragment" src="https://pbs.twimg.com/media/F85xIRpWEAAaCj4?format=jpg" width="80%" />
+          </div>
+        </section>
+
+        <!-- ------------------------------- Slide 9 ------------------------------- -->
+        <section data-markdown>
+          <textarea data-template>
+            ## 🚀 Advanced TOV Features
+
+            - 🌉 Cross-chain liquidity
+            - 🏦 Source CEX liquidity (Binance, Coinbase)
+            - 🔪 Order slicing strategies
+            - ⏰ Time-distributed selling
+
+            **Clearly:** TOV >> Standard TVL
+          </textarea>
+        </section>
+
+        <section data-background-image="img/defi-traders.jpg" data-background-size="contain"></section>
+
+        <!-- ------------------------------- Slide 10 ------------------------------- -->
+        <section data-markdown>
+          <textarea data-template>
+
+            <img src="img/pepe-thumbs-up.png" alt="Thumbs Up Pepe" width="20%" />
+
+            ## 🎯 Conclusion: TOV > TVL
+
+            - 📊 TVL aggregators: Please adopt TOV
+            - 🔍 Time to evolve our metrics
+            - 💰 DAO treasuries/ vesting tokens ARE funds at risk
+            - 🎭 No more vanity metrics!
+
+            **TOV = The future of accurate DeFi analytics**
+          </textarea>
+        </section>
+
+        <!-- ------------------------------- Slide 11 ------------------------------- -->
+        <section>
+          <h2>The End, Thank You 🙏</h2>
+
+          <p>Follow me on X</p>
+
+          <div style="display: flex; align-items: center; justify-content: center; gap: 100px">
+            <ul style="list-style-type: none">
               <li style="display: flex; align-items: center">
-                <img src="../shared/img/twitter-black.png" alt="Twitter Logo" style="width: 40px; height: 40px" />
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter Logo" style="width: 40px; height: 40px" />
                 <a href="https://twitter.com/PaulRBerg" style="margin-left: 10px" target="_blank">PaulRBerg</a>
               </li>
               <li style="display: flex; align-items: center">
-                <img src="../shared/img/github-black.png" alt="GitHub Logo" style="width: 40px; height: 40px" />
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub Logo" style="width: 40px; height: 40px" />
                 <a href="https://github.com/PaulRBerg" style="margin-left: 10px" target="_blank">PaulRBerg</a>
               </li>
             </ul>
-            <img src="img/qr.png" alt="X.com PaulRBerg" style="width: 220px; margin-left: 250px; object-fit: contain" />
+
+            <img src="img/qr.png" alt="X.com PaulRBerg" style="object-fit: contain" width="25%" />
           </div>
         </section>
       </div>
