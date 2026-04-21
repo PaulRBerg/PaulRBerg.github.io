@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "slidev build",
+    "deploy": "vercel build --prod --token=$VERCEL_TOKEN && vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN",
     "dev": "slidev --open",
     "export": "slidev export"
   },
@@ -12,5 +13,8 @@
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "vue": "^3.5.29"
+  },
+  "devDependencies": {
+    "vercel": "^51.4.0"
   }
 }

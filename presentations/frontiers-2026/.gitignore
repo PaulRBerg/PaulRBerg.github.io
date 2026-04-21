@@ -5,3 +5,7 @@ dist
 .vite-inspect
 .remote-assets
 components.d.ts
+.vercel
+.env
+.env.*
+!.env.example
