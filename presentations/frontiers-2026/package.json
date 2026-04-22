@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "slidev build",
-    "deploy": "vercel build --prod --token=$VERCEL_TOKEN && vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN",
+    "deploy": "set -a && . ./.env && set +a && vercel build --prod --token=$VERCEL_TOKEN && vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN",
     "dev": "slidev --open",
     "export": "slidev export"
   },
