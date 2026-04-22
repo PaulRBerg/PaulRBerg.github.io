@@ -6,6 +6,14 @@ info: |
   Opinionated, portable skills in the era of post-vendor AI tooling.
 
   By Paul Berg (PRB), Co-Founder and CEO of Sablier.
+seoMeta:
+  ogTitle: "PRB Agent Skills — Frontiers 2026"
+  ogDescription: "A tour of Paul Berg's Claude Code agent skills and how he invokes them — portable, opinionated tooling for the post-vendor AI era."
+  ogImage: "https://paulrberg.github.io/presentations/frontiers-2026/og.jpg"
+  twitterCard: "summary_large_image"
+  twitterTitle: "PRB Agent Skills — Frontiers 2026"
+  twitterDescription: "A tour of Paul Berg's Claude Code agent skills and how he invokes them — portable, opinionated tooling for the post-vendor AI era."
+  twitterImage: "https://paulrberg.github.io/presentations/frontiers-2026/og.jpg"
 fonts:
   sans: "Inter"
   mono: "JetBrains Mono"
