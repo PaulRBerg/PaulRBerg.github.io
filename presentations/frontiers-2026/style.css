@@ -131,18 +131,6 @@ body,
   color: #374151;
 }
 
-.pill.accent {
-  color: var(--c-accent);
-  border-color: rgba(217, 119, 6, 0.35);
-  background: rgba(217, 119, 6, 0.06);
-}
-
-.pill.warn {
-  color: #b91c1c;
-  border-color: #fecaca;
-  background: #fef2f2;
-}
-
 /* ---------- Cover ---------- */
 
 .cover-root {
@@ -313,58 +301,6 @@ body,
 .slidev-layout.cover-slide::after,
 .slidev-layout.no-footer::after {
   content: none;
-}
-
-/* ---------- Mono title (styled monospace h1 without nested <code>) ---------- */
-
-.mono-title {
-  font-family: var(--font-mono);
-  font-size: 2.9rem;
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
-  margin: 0;
-  color: #0a0a0a;
-  word-break: break-all;
-  display: inline-block;
-  padding: 0.2em 0.4em;
-  background: #eef0f3;
-  border: 1px solid var(--c-border);
-  border-radius: 6px;
-}
-
-/* ---------- Agent grid ---------- */
-
-.agent-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-}
-
-.agent-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55em;
-  padding: 0.5em 0.9em;
-  border: 1px solid var(--c-border);
-  background: #fff;
-  border-radius: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.88rem;
-  color: #0a0a0a;
-  line-height: 1;
-  transition: border-color 0.15s ease, transform 0.15s ease;
-}
-
-.agent-chip [class^="i-"] {
-  font-size: 1em;
-  color: var(--c-accent);
-}
-
-.agent-chip.muted {
-  color: var(--c-text-faint);
-  background: transparent;
-  border-style: dashed;
 }
 
 /* ---------- Good / Bad comparison ---------- */
@@ -548,39 +484,6 @@ body,
   color: var(--c-text-faint);
 }
 
-/* ---------- Screenshot placeholder ---------- */
-
-.screenshot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  border: 1.5px dashed #cfd2d7;
-  background: repeating-linear-gradient(
-      135deg,
-      #f4f5f7 0 10px,
-      #eceef1 10px 20px
-    );
-  color: var(--c-text-dim);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  border-radius: 8px;
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.screenshot-label {
-  color: #374151;
-  font-size: 0.82rem;
-  letter-spacing: 0.04em;
-}
-
-.screenshot-sub {
-  color: var(--c-text-faint);
-  font-size: 0.72rem;
-}
-
 /* ---------- Real screenshots ---------- */
 
 .slide-image {
@@ -596,11 +499,6 @@ body,
 .slide-image.dark {
   background: #0f0f10;
   border-color: #2a2a2d;
-}
-
-.slide-image.contain {
-  object-fit: contain;
-  max-height: 100%;
 }
 
 /* ---------- Full-bleed meme slide ---------- */
@@ -824,10 +722,6 @@ body,
   border-bottom: 1px solid var(--c-border);
 }
 
-.callout.dark {
-  border-left-color: var(--c-accent-2);
-}
-
 .callout-hero {
   padding: 1.6rem 1.8rem;
   border-left-width: 4px;
@@ -846,41 +740,6 @@ body,
   text-transform: uppercase;
   color: var(--c-text-faint);
   margin-bottom: 0.35rem;
-}
-
-/* ---------- Metric ---------- */
-
-.metric {
-  border: 1px solid var(--c-border);
-  background: #fff;
-  border-radius: 10px;
-  padding: 1rem 1.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.metric .label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--c-text-faint);
-}
-
-.metric .value {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-}
-
-.metric .sub {
-  font-size: 0.8rem;
-  color: var(--c-text-dim);
-}
-
-.metric.accent .value {
-  color: var(--c-accent);
 }
 
 /* ---------- Table of contents ---------- */
