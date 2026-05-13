@@ -1,6 +1,7 @@
 {
   "editor.formatOnSave": true,
   "search.exclude": {
+    "**/.vercel": true,
     "**/dist": true,
     "**/reveal-js": true
   },

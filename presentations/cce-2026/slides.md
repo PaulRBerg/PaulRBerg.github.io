@@ -51,7 +51,7 @@ layoutClass: gap-12 px-14
 # Hello, Crit Rats 👋
 
 <div style="margin-top: 1.4rem; display: flex; flex-direction: column; gap: 0.5rem;">
-  <span class="pill">👔 Tech Founder @ Sablier Labs</span>
+  <span class="pill">👔 Tech Founder @ Sablier</span>
   <span class="pill">👨‍💻 Software engineer for 11+ years</span>
   <span class="pill">📖 Studying David's work for 4+ years, as a hobby</span>
   <span class="pill">✍️ Working on a paper this talk is based on</span>
@@ -64,16 +64,16 @@ layoutClass: gap-12 px-14
 <div style="display: flex; flex-direction: column; justify-content: center; height: 100%; gap: 1.2rem;">
 
 <div class="callout callout-hero gold">
-  <div class="label">Today's claim</div>
+  <div class="label">The idea</div>
   <p>
-    There is a <strong>universal cultural memeplex</strong> that — once instantiated — enables the open-ended evolution of <em>every other</em> rational meme.
+    There is a <strong>universal cultural memeplex</strong> that once instantiated enables the open-ended evolution of <u>every other</u> rational meme.
   </p>
 </div>
 
 <div class="callout callout-hero">
   <div class="label">Naming it</div>
   <p>
-    I'll call it the <strong>Ultimate Rational Meme</strong> — the <strong>URM</strong> for short.
+    I'll call it the <strong>Ultimate Rational Meme</strong> — or <strong>URM</strong> for short.
   </p>
 </div>
 
@@ -92,10 +92,10 @@ layout: default
 # What we'll cover
 
 <ol class="toc-list">
-  <li><div>Not all memes are created <em>equal</em></div></li>
-  <li><div>The Ultimate Rational Meme: <em>defined</em></div></li>
-  <li><div>The Enlightenment as our best real-world approximation</div></li>
-  <li><div>...and what this means for <em>physics</em></div></li>
+  <li><div>Not all memes are created <em>equal</em></div><span class="toc-tag">2 min</span></li>
+  <li><div>The Ultimate Rational Meme: <em>defined</em></div><span class="toc-tag">3 min</span></li>
+  <li><div>The Enlightenment as our best real-world approximation</div><span class="toc-tag">3 min</span></li>
+  <li><div>...and what this means for <em>physics</em></div><span class="toc-tag">2 min</span></li>
 </ol>
 
 <!--

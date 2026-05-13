@@ -17,7 +17,6 @@ defineProps<{
         <p class="cover-sub" v-if="sub">{{ sub }}</p>
         <div class="cover-marks">
           <span class="pill">🧬 memetics</span>
-          <span class="pill">🧠 critical rationalism</span>
           <span class="pill">⚛️ everett</span>
           <span class="pill">🏛 enlightenment</span>
         </div>
@@ -71,7 +70,7 @@ defineProps<{
       </div>
     </div>
     <div class="cover-footer">
-      <div><strong>{{ author }}</strong> · co-founder @ Sablier</div>
+      <div><strong>{{ author }}</strong></div>
       <div>{{ event }} · {{ date }}</div>
     </div>
   </div>
