@@ -10,12 +10,13 @@ seoMeta:
   ogTitle: "The Ultimate Rational Meme — CCE 2026"
   ogDescription:
     "Paul Razvan Berg argues there's a universal cultural memeplex that unlocks open-ended knowledge creation — and the
-    Enlightenment is our closest approximation."
+    West is our closest approximation."
   ogImage: "https://prberg.com/presentations/cce-2026/og.svg"
   twitterCard: "summary_large_image"
   twitterTitle: "The Ultimate Rational Meme — CCE 2026"
-  twitterDescription: "Why the Enlightenment is our best shot at the stars."
+  twitterDescription: "Why the West is our best shot at the stars."
   twitterImage: "https://prberg.com/presentations/cce-2026/og.svg"
+favicon: "/favicon.svg"
 fonts:
   sans: "Inter"
   mono: "JetBrains Mono"
@@ -24,6 +25,7 @@ drawings:
   persist: false
 transition: fade
 mdc: true
+selectable: true
 src: ./slides/01.md
 ---
 
@@ -85,8 +87,4 @@ src: ./slides/15.md
 
 ---
 src: ./slides/16.md
----
-
----
-src: ./slides/17.md
 ---

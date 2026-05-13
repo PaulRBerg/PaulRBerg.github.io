@@ -117,7 +117,6 @@ body,
 }
 
 /* serif accent for emphasis */
-em.serif,
 .serif-em {
   font-family: var(--font-serif);
   font-style: italic;
@@ -696,71 +695,6 @@ em.serif,
   font-size: 0.95rem;
 }
 
-/* ---------- Real screenshots / images ---------- */
-
-.slide-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--c-border);
-  border-radius: 10px;
-  box-shadow: 0 12px 32px -16px rgba(15, 15, 16, 0.25);
-  background: var(--c-paper);
-}
-
-.slide-image.dark {
-  background: #15121f;
-  border-color: #2a2336;
-}
-
-/* ---------- Full-bleed meme slide ---------- */
-
-.slidev-layout:has(.meme-slide) {
-  padding: 0 !important;
-  background: var(--c-bg) !important;
-}
-
-.slidev-layout:has(.meme-slide)::after,
-.slidev-layout:has(.meme-slide)::before {
-  content: none;
-}
-
-.meme-slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--c-bg);
-  overflow: hidden;
-}
-
-.meme-slide img {
-  max-width: 90%;
-  max-height: 88%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 24px 64px -24px rgba(15, 23, 42, 0.22);
-}
-
-.meme-caption {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--c-ink-dim);
-  background: var(--c-paper);
-  border: 1px solid var(--c-border);
-  padding: 0.55rem 1.1rem;
-  border-radius: 999px;
-  box-shadow: 0 10px 24px -16px rgba(15, 15, 16, 0.2);
-}
-
 /* ---------- Manifesto slide (centered hero statement) ---------- */
 
 .slidev-layout:has(.manifesto) {
@@ -924,10 +858,6 @@ em.serif,
   grid-template-columns: 1.2fr 1fr;
 }
 
-.two-col.weighted-rev {
-  grid-template-columns: 1fr 1.2fr;
-}
-
 /* ---------- Table of contents ---------- */
 
 .toc-list {
@@ -1027,73 +957,10 @@ em.serif,
   line-height: 1.5;
 }
 
-.logic .arrow {
-  color: var(--c-accent);
-  margin: 0 0.4em;
-}
-
 .logic .therefore {
   color: var(--c-gold);
   margin-right: 0.4em;
   font-weight: 600;
-}
-
-.logic .strike {
-  text-decoration: line-through;
-  color: var(--c-ink-faint);
-}
-
-/* ---------- Timeline ---------- */
-
-.timeline {
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border: 1px solid var(--c-border);
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--c-paper);
-}
-
-.timeline-step {
-  position: relative;
-  padding: 0.8rem 0.95rem;
-  border-right: 1px solid var(--c-border);
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.timeline-step:last-child { border-right: 0; }
-
-.timeline-step .step-emoji {
-  font-size: 1.3rem;
-  line-height: 1;
-}
-
-.timeline-step .step-when {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--c-ink-faint);
-}
-
-.timeline-step .step-what {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--c-ink);
-  line-height: 1.15;
-}
-
-.timeline-step.glow {
-  background: linear-gradient(180deg, rgba(217, 119, 6, 0.08), transparent);
-}
-
-.timeline-step.glow .step-what {
-  color: var(--c-gold);
 }
 
 /* ---------- Big claim ---------- */
@@ -1129,47 +996,6 @@ em.serif,
   background-repeat: no-repeat;
   padding-bottom: 2px;
 }
-
-/* ---------- Final closing slide ---------- */
-
-.closing {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  height: 100%;
-  padding: 0 4rem;
-}
-
-.closing h1 {
-  font-family: var(--font-serif);
-  font-size: 4.2rem;
-  letter-spacing: -0.025em;
-  line-height: 1;
-  margin: 0;
-}
-
-.closing .signoff {
-  margin-top: 1.4rem;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.3rem;
-  color: var(--c-ink-dim);
-  max-width: 30ch;
-}
-
-.closing .credits {
-  margin-top: 2rem;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--c-ink-dim);
-  letter-spacing: 0.05em;
-  border-top: 1px solid var(--c-border);
-  padding-top: 1rem;
-  max-width: 36rem;
-}
-
-.closing .credits strong { color: var(--c-ink); }
 
 /* ---------- Annotation chip ---------- */
 

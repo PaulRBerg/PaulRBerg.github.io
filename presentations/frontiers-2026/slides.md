@@ -21,6 +21,7 @@ fonts:
 drawings:
   persist: false
 transition: fade
+selectable: true
 src: ./slides/01.md
 ---
 

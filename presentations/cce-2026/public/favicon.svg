@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="The Ultimate Rational Meme">
+  <rect width="32" height="32" rx="6" fill="#faf9f5"/>
+  <g stroke="#0c0c1c" stroke-width="2" stroke-linecap="round" fill="none">
+    <path d="M16 17 L6 7"/>
+    <path d="M16 17 L26 7"/>
+    <path d="M16 17 L16 28"/>
+  </g>
+  <g fill="#5b21b6">
+    <circle cx="6" cy="7" r="3"/>
+    <circle cx="26" cy="7" r="3"/>
+    <circle cx="16" cy="28" r="3"/>
+  </g>
+  <circle cx="16" cy="17" r="4" fill="#d97706"/>
+</svg>

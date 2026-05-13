@@ -1,10 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
   <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf6e3"/>
+      <stop offset="55%" stop-color="#f4e7c1"/>
+      <stop offset="100%" stop-color="#c8b07a"/>
+    </linearGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#a68b56" fill-opacity="0.18"/>
+    </pattern>
     <radialGradient id="qr-glow" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#fff7c2" stop-opacity="0.8"/>
       <stop offset="100%" stop-color="#fff7c2" stop-opacity="0"/>
     </radialGradient>
   </defs>
+  <rect width="220" height="220" fill="url(#sky)"/>
+  <rect width="220" height="220" fill="url(#dots)"/>
   <circle cx="110" cy="110" r="100" fill="url(#qr-glow)"/>
   <g stroke="#0c0c1c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.95">
     <path d="M 110 200 L 110 110"/>
