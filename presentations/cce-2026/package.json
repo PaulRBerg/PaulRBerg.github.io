@@ -1,5 +1,5 @@
 {
-  "name": "frontiers-2026",
+  "name": "cce-2026",
   "type": "module",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^52.14.2",
+    "@slidev/cli": "^52.15.2",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "vue": "^3.5.29"

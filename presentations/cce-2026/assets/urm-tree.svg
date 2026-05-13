@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
+  <defs>
+    <radialGradient id="qr-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff7c2" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fff7c2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="110" cy="110" r="100" fill="url(#qr-glow)"/>
+  <g stroke="#0c0c1c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.95">
+    <path d="M 110 200 L 110 110"/>
+    <path d="M 110 150 L 70 110"/>
+    <path d="M 110 150 L 150 110"/>
+    <path d="M 110 110 L 80 70"/>
+    <path d="M 110 110 L 140 70"/>
+    <path d="M 70 110 L 50 70"/>
+    <path d="M 150 110 L 170 70"/>
+    <path d="M 80 70 L 70 40"/>
+    <path d="M 80 70 L 90 40"/>
+    <path d="M 140 70 L 130 40"/>
+    <path d="M 140 70 L 150 40"/>
+  </g>
+  <g fill="#5b21b6">
+    <circle cx="70" cy="40" r="4"/>
+    <circle cx="90" cy="40" r="4"/>
+    <circle cx="130" cy="40" r="4"/>
+    <circle cx="150" cy="40" r="4"/>
+    <circle cx="50" cy="70" r="4"/>
+    <circle cx="170" cy="70" r="4"/>
+  </g>
+  <circle cx="110" cy="110" r="6" fill="#d97706"/>
+</svg>

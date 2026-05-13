@@ -1,6 +1,11 @@
 {
   "editor.formatOnSave": true,
   "search.exclude": {
-    "reveal-js": true
-  }
+    "**/dist": true,
+    "**/reveal-js": true
+  },
+  "markdownlint.config": {
+    "default": true,
+    "MD003": false
+  },
 }

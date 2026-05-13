@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="The Ultimate Rational Meme — Conjecture Con Europe 2026">
+  <defs>
+    <linearGradient id="og-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf9f5"/>
+      <stop offset="100%" stop-color="#ede7d6"/>
+    </linearGradient>
+    <pattern id="og-dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#0c0c1c" fill-opacity="0.08"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og-bg)"/>
+  <rect width="1200" height="630" fill="url(#og-dots)"/>
+  <text x="80" y="120" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="0.22em" fill="#5b21b6">CONJECTURE CON EUROPE · 2026</text>
+  <text x="80" y="280" font-family="'Crimson Pro', Georgia, serif" font-size="96" font-weight="700" fill="#0c0c1c">The <tspan fill="#5b21b6" font-style="italic">Ultimate</tspan></text>
+  <text x="80" y="380" font-family="'Crimson Pro', Georgia, serif" font-size="96" font-weight="700" fill="#0c0c1c">Rational Meme</text>
+  <text x="80" y="460" font-family="Inter, sans-serif" font-size="28" fill="#0c0c1c" opacity="0.75">On the meme that lets every other rational meme evolve.</text>
+  <text x="80" y="560" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="0.08em" fill="#0c0c1c" opacity="0.85">Paul Razvan Berg  ·  prberg.com</text>
+</svg>

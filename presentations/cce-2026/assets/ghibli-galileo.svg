@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ghibli placeholder: child with lantern, forest of branching ideas">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf6e3"/>
+      <stop offset="55%" stop-color="#f4e7c1"/>
+      <stop offset="100%" stop-color="#c8b07a"/>
+    </linearGradient>
+    <radialGradient id="lantern" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff7c2" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#f6c560" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#f6c560" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#a68b56" fill-opacity="0.18"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <rect width="1200" height="800" fill="url(#dots)"/>
+
+  <!-- distant hills -->
+  <path d="M 0 540 Q 200 460 420 510 T 820 500 T 1200 540 L 1200 800 L 0 800 Z" fill="#b8a06a" fill-opacity="0.55"/>
+  <path d="M 0 600 Q 240 540 480 590 T 940 580 T 1200 610 L 1200 800 L 0 800 Z" fill="#8c7747" fill-opacity="0.7"/>
+
+  <!-- fractal idea-tree (stylized) -->
+  <g stroke="#3d3322" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.85">
+    <path d="M 820 720 L 820 480"/>
+    <path d="M 820 580 L 720 500"/>
+    <path d="M 820 540 L 920 460"/>
+    <path d="M 820 480 L 760 410"/>
+    <path d="M 820 480 L 880 410"/>
+    <path d="M 760 410 L 720 360"/>
+    <path d="M 760 410 L 800 370"/>
+    <path d="M 880 410 L 850 360"/>
+    <path d="M 880 410 L 930 370"/>
+    <path d="M 920 460 L 970 410"/>
+    <path d="M 720 500 L 680 460"/>
+    <circle cx="720" cy="360" r="6" fill="#d97706"/>
+    <circle cx="800" cy="370" r="6" fill="#d97706"/>
+    <circle cx="850" cy="360" r="6" fill="#d97706"/>
+    <circle cx="930" cy="370" r="6" fill="#d97706"/>
+    <circle cx="970" cy="410" r="6" fill="#d97706"/>
+    <circle cx="680" cy="460" r="6" fill="#d97706"/>
+  </g>
+
+  <!-- child silhouette -->
+  <g transform="translate(280 580)">
+    <ellipse cx="0" cy="160" rx="80" ry="12" fill="#3d3322" fill-opacity="0.18"/>
+    <path d="M -22 150 Q -28 110 -18 80 L -10 50 Q 2 30 18 50 L 26 80 Q 34 110 28 150 Z" fill="#4b3a23"/>
+    <circle cx="6" cy="32" r="22" fill="#e6c79c"/>
+    <path d="M -14 26 Q 4 5 30 22 L 28 38 Q 12 30 -10 38 Z" fill="#2a2113"/>
+    <!-- arm holding lantern -->
+    <path d="M 26 70 Q 60 80 78 110 L 76 122 Q 56 102 22 100 Z" fill="#4b3a23"/>
+  </g>
+
+  <!-- lantern + glow -->
+  <g transform="translate(366 700)">
+    <circle cx="0" cy="0" r="130" fill="url(#lantern)"/>
+    <rect x="-14" y="-30" width="28" height="34" rx="3" fill="#f6c560" stroke="#3d3322" stroke-width="2"/>
+    <rect x="-18" y="-34" width="36" height="6" rx="2" fill="#3d3322"/>
+    <path d="M 0 -34 Q -16 -50 0 -60 Q 16 -50 0 -34" fill="none" stroke="#3d3322" stroke-width="2"/>
+  </g>
+
+  <!-- placeholder badge -->
+  <g transform="translate(60 60)">
+    <rect x="0" y="0" width="280" height="42" rx="21" fill="#0c0c1c" fill-opacity="0.78"/>
+    <text x="22" y="27" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#fff7c2" letter-spacing="0.12em">GHIBLI · PLACEHOLDER · 01</text>
+  </g>
+  <text x="60" y="138" font-family="'Crimson Pro', Georgia, serif" font-size="34" fill="#1a140a" font-style="italic">"a child at the edge of a forest of ideas"</text>
+  <text x="60" y="168" font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="14" fill="#3d3322" opacity="0.85">replace with: ./assets/ghibli-galileo.{png|jpg}</text>
+</svg>
