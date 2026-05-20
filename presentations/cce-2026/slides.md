@@ -11,11 +11,11 @@ seoMeta:
   ogDescription:
     "Paul Razvan Berg argues there's a universal cultural memeplex that unlocks open-ended knowledge creation — and the
     West is our closest approximation."
-  ogImage: "https://prberg.com/presentations/cce-2026/og.svg"
+  ogImage: "https://prberg.com/presentations/cce-2026/og.png"
   twitterCard: "summary_large_image"
   twitterTitle: "The Ultimate Rational Meme — CCE 2026"
   twitterDescription: "Why the West is our best shot at the stars."
-  twitterImage: "https://prberg.com/presentations/cce-2026/og.svg"
+  twitterImage: "https://prberg.com/presentations/cce-2026/og.png"
 favicon: "/favicon.svg"
 fonts:
   sans: "Inter"
