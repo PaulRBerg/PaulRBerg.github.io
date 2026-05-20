@@ -20,12 +20,6 @@ bun run build      # → dist/
 bun run deploy     # → Vercel (needs .env with VERCEL_TOKEN)
 ```
 
-## Assets to swap in
+## Assets
 
-Some slides reference `./assets/*.svg` placeholders. Replace each with a real image (PNG/JPG) at the same path — the markup is already in place.
-
-- `assets/ghibli-galileo.svg` — Ghibli-style: a child holding a lantern at the edge of a forest of branching ideas.
-- `assets/ghibli-crystals.svg` — Ghibli-style: crystalline knowledge structures growing across parallel branches of reality.
-- `assets/meme-galileo.svg` — Galileo / "eppur si muove" meme.
-
-Once you save a real image at the same path (you can also keep the SVG and add a real one alongside, then edit `slides.md`), it will appear automatically.
+Slide images live in `public/img/` and are referenced from the slides with deck-relative paths (e.g. `src="img/urm-tree.svg"`). Vite copies everything under `public/` to the deck root at build time, so a file at `public/img/foo.png` is served from `<deck-base>/img/foo.png`.

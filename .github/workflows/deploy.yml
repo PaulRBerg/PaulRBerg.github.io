@@ -1,0 +1,81 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Required for actions/deploy-pages (OIDC token + Pages write).
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two publishes at once; let an in-flight deploy finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with the reveal-js submodule)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          # Pin so CI matches local dev and stays reproducible across runs.
+          bun-version: 1.3.14
+
+      # Copy the whole site as-is, minus the two Slidev source dirs (built below)
+      # and anything that must never ship (.git, node_modules, .env*, ...).
+      - name: Assemble static site
+        run: |
+          mkdir -p _site
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='_site' \
+            --exclude='node_modules' \
+            --exclude='.DS_Store' \
+            --exclude='.env*' \
+            --exclude='/presentations/cce-2026' \
+            --exclude='/presentations/frontiers-2026' \
+            ./ _site/
+
+      # Each deck must be built with its own --base so asset/JS URLs resolve
+      # under prberg.com/presentations/<deck>/ instead of the domain root.
+      - name: Build Slidev decks
+        run: |
+          for deck in cce-2026 frontiers-2026; do
+            ( cd "presentations/$deck"
+              bun install --frozen-lockfile
+              bunx slidev build \
+                --base "/presentations/$deck/" \
+                --out "$GITHUB_WORKSPACE/_site/presentations/$deck" )
+          done
+
+      # Without this, Jekyll strips Vite's _-prefixed JS chunks and the decks
+      # render blank.
+      - name: Disable Jekyll
+        run: touch _site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

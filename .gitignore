@@ -1,0 +1,4 @@
+.DS_Store
+
+# dotenvx private decryption keys — never commit (the encrypted .env is fine).
+.env.keys

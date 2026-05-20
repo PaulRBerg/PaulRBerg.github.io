@@ -22,6 +22,7 @@ drawings:
   persist: false
 transition: fade
 selectable: true
+routerMode: hash
 src: ./slides/01.md
 ---
 
