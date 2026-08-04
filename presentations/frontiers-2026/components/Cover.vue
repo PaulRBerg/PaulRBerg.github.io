@@ -28,7 +28,7 @@ defineProps<{
             <div><span class="prompt">&gt;</span> /commit --all</div>
             <div><span class="prompt">&gt;</span> /code-polish</div>
             <div><span class="prompt">&gt;</span> /oracle-codex</div>
-            <div><span class="prompt">&gt;</span> /bump-release <span class="dim">--beta</span></div>
+            <div><span class="prompt">&gt;</span> /release-bumper <span class="dim">--beta</span></div>
             <div><span class="prompt">&gt;</span> /yeet</div>
             <div><span class="prompt">&gt;</span> /tailwind-css</div>
             <div><span class="prompt">&gt;</span> /effect-ts</div>
