@@ -91,9 +91,17 @@ const socialImageURL = new URL(ogImage, Astro.url).toString();
 
     <script is:inline>
       (() => {
-        const themeValue =
-          localStorage.getItem("theme") ??
-          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        let themeValue = window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+        try {
+          const preference = localStorage.getItem("theme");
+          if (preference === "dark" || preference === "light") {
+            themeValue = preference;
+          }
+        } catch {
+          // Use the system theme when browser storage is unavailable.
+        }
 
         document.documentElement.dataset.theme = themeValue;
 

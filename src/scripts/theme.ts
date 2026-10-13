@@ -6,6 +6,13 @@ const getThemeValue = (): string =>
   window.theme?.themeValue ?? document.documentElement.dataset.theme ?? LIGHT;
 
 let themeValue = getThemeValue();
+let hasPreference = false;
+try {
+  const preference = localStorage.getItem(THEME);
+  hasPreference = preference === LIGHT || preference === DARK;
+} catch {
+  // Theme controls still work when browser storage is unavailable.
+}
 
 const reflectPreference = (): void => {
   document.documentElement.dataset.theme = themeValue;
@@ -20,7 +27,12 @@ const reflectPreference = (): void => {
 };
 
 const setPreference = (): void => {
-  localStorage.setItem(THEME, themeValue);
+  hasPreference = true;
+  try {
+    localStorage.setItem(THEME, themeValue);
+  } catch {
+    // Retain the chosen theme for this page when persistence is unavailable.
+  }
   reflectPreference();
 };
 
@@ -73,7 +85,10 @@ document.addEventListener("astro:before-swap", (event) => {
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", ({ matches: isDark }) => {
+    if (hasPreference) {
+      return;
+    }
     themeValue = isDark ? DARK : LIGHT;
     window.theme?.setTheme(themeValue);
-    setPreference();
+    reflectPreference();
   });

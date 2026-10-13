@@ -2,7 +2,8 @@
 import { SHARE_LINKS } from "@/constants";
 import IconLinks from "./IconLinks.astro";
 
-const hrefResolver = (link: (typeof SHARE_LINKS)[number]) => `${link.href}${Astro.url}`;
+const hrefResolver = (link: (typeof SHARE_LINKS)[number]) =>
+  `${link.href}${encodeURIComponent(Astro.url.toString())}`;
 const shareLinks = SHARE_LINKS;
 ---
 

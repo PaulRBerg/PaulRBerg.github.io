@@ -70,10 +70,10 @@ const showSearchError = (container: HTMLElement) => {
 };
 
 const openSearch = async (trigger: HTMLElement | null) => {
+  const modal = getModal();
   try {
     const module = await loadComponents();
-    const modal = getModal();
-    if (!modal?.dialogEl || modal.isOpen) {
+    if (modal?.isConnected !== true || !modal.dialogEl || modal.isOpen) {
       return;
     }
     const instance = module.getInstanceManager().getInstance("site-search");
@@ -96,7 +96,9 @@ const openSearch = async (trigger: HTMLElement | null) => {
     headerTrigger?.setAttribute("aria-controls", modal.dialogEl.id);
     modal.open();
   } catch {
-    window.location.assign("/search");
+    if (modal?.isConnected === true) {
+      window.location.assign("/search");
+    }
   }
 };
 

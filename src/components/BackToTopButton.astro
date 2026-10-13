@@ -5,6 +5,7 @@ import IconChevronLeft from "@tabler/icons/outline/chevron-left.svg";
 
 <div
   id="btt-btn-container"
+  inert
   class:list={[
     "fixed end-4 bottom-8 z-50",
     "md:sticky md:end-auto md:float-end md:me-1",
@@ -66,6 +67,7 @@ import IconChevronLeft from "@tabler/icons/outline/chevron-left.svg";
 
         const isVisible = scrollTotal > 0 && scrollTop / scrollTotal > 0.3;
         if (isVisible !== lastVisible) {
+          btnContainer.inert = !isVisible;
           btnContainer.classList.toggle("opacity-100", isVisible);
           btnContainer.classList.toggle("translate-y-0", isVisible);
           btnContainer.classList.toggle("opacity-0", !isVisible);

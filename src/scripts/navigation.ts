@@ -1,27 +1,37 @@
 const BACK_URL_STORAGE_KEY = "backUrl";
+let backUrl: string | null = null;
+try {
+  backUrl = sessionStorage.getItem(BACK_URL_STORAGE_KEY);
+} catch {
+  // Keep navigation state in memory when browser storage is unavailable.
+}
 
 const getBackUrlFromPage = () =>
   document.querySelector<HTMLElement>("[data-back-url]")?.dataset.backUrl;
 
 const syncBackButton = () => {
   const backButton = document.querySelector<HTMLAnchorElement>("[data-back-button]");
-  const backUrl = sessionStorage.getItem(BACK_URL_STORAGE_KEY);
 
   if (backButton && backUrl !== null && backUrl !== "") {
     backButton.href = backUrl;
   }
 };
 
-const setBackUrl = (backUrl: string) => {
-  sessionStorage.setItem(BACK_URL_STORAGE_KEY, backUrl);
+const setBackUrl = (url: string) => {
+  backUrl = url;
+  try {
+    sessionStorage.setItem(BACK_URL_STORAGE_KEY, url);
+  } catch {
+    // The current navigation still retains its return destination.
+  }
   syncBackButton();
 };
 
 const syncNavigationState = () => {
-  const backUrl = getBackUrlFromPage();
+  const pageBackUrl = getBackUrlFromPage();
 
-  if (backUrl !== undefined && backUrl !== "") {
-    setBackUrl(backUrl);
+  if (pageBackUrl !== undefined && pageBackUrl !== "") {
+    setBackUrl(pageBackUrl);
     return;
   }
 
