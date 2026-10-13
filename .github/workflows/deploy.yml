@@ -17,8 +17,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  # Build and publish in one job: a separate deploy job costs a second runner
+  # allocation (~10s) for a single API call plus status polling.
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -71,13 +76,10 @@ jobs:
           path: dist
           include-hidden-files: true
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          # Status polling starts here and backs off 1.5x per poll (max 30s), so
+          # the default 5000ms overshoots a ~15-40s deployment by up to 15s.
+          reporting_interval: 1000
