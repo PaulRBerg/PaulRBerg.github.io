@@ -1,6 +1,6 @@
 export const SITE = {
   author: "Paul Berg",
-  desc: "Paul Berg has co-founded Sablier and is known for his contributions to the Ethereum ecosystem, particularly through the creation of Sablier, Solidity libraries such as PRBMath, and educational content posted on StackExchange.",
+  desc: "I'm a software engineer and open-source developer with 12+ years of experience, now on sabbatical and dabbling with AI agents. I co-founded Sablier, a VC-backed crypto payments startup, and ran it from 2022 to 2026. I also created PRBMath, the most popular fixed-point math library in Solidity.",
   dir: "ltr",
   dynamicOgImage: true,
   editPost: {
