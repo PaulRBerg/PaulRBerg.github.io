@@ -1,0 +1,19 @@
+---
+import { SHARE_LINKS } from "@/constants";
+import IconLinks from "./IconLinks.astro";
+
+const hrefResolver = (link: (typeof SHARE_LINKS)[number]) => `${link.href}${Astro.url}`;
+const shareLinks = SHARE_LINKS;
+---
+
+{shareLinks.length > 0 && <div
+  class="flex flex-none flex-col items-center justify-center gap-1 md:items-start"
+>
+  <span class="italic">Share this post on:</span>
+  <IconLinks
+    links={shareLinks}
+    class="text-center"
+    itemClass="scale-90 p-2 hover:rotate-6 sm:p-1"
+    hrefResolver={hrefResolver}
+  />
+</div>}

@@ -1,0 +1,59 @@
+{
+  "name": "@prb/site",
+  "version": "0.0.1",
+  "license": "SEE LICENSE IN LICENSE",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run build:slides && astro dev",
+    "build": "bun run build:slides && astro build && pagefind --site dist && mkdir -p public && rm -rf public/pagefind && cp -r dist/pagefind public/pagefind",
+    "build:slides": "rm -rf public/presentations/cce-2026 public/presentations/frontiers-2026 && slidev build slides/cce-2026/slides.md --base /presentations/cce-2026/ --out ../../public/presentations/cce-2026 && slidev build slides/frontiers-2026/slides.md --base /presentations/frontiers-2026/ --out ../../public/presentations/frontiers-2026",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.1",
+    "@astrojs/mdx": "^8.0.2",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@expressive-code/plugin-collapsible-sections": "^0.44.2",
+    "@expressive-code/plugin-line-numbers": "^0.44.2",
+    "@pagefind/component-ui": "^1.5.2",
+    "@resvg/resvg-js": "^2.6.2",
+    "@slidev/cli": "52.15.2",
+    "@slidev/theme-default": "0.25.0",
+    "@tabler/icons": "^3.49.0",
+    "astro": "^7.3.5",
+    "astro-expressive-code": "^0.44.2",
+    "dayjs": "^1.11.23",
+    "hast-util-from-html": "^2.0.3",
+    "lodash.kebabcase": "^4.1.1",
+    "reveal.js": "6.0.2",
+    "satori": "^0.35.0",
+    "sharp": "^0.35.5",
+    "slugify": "^1.6.9",
+    "vue": "^3.5.33"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/lodash.kebabcase": "^4.1.9",
+    "@typescript/native-preview": "^7.0.0-dev.20260707.2",
+    "oxfmt": "^0.71.0",
+    "oxlint": "^1.86.0",
+    "oxlint-tsgolint": "^7.0.2003",
+    "pagefind": "^1.5.2",
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^1.1.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3",
+    "ultracite": "^7.12.2",
+    "vercel": "^62.0.0"
+  },
+  "overrides": {
+    "floating-vue": "5.2.2"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

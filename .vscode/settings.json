@@ -1,12 +1,28 @@
 {
   "editor.formatOnSave": true,
+  "css.validate": false, // disable because files are TailwindCSS
+  "tailwindCSS.classFunctions": ["cn", "tw", "tw.*"],
+  "tailwindCSS.validate": true,
+  "typescript.experimental.useTsgo": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.oxc": "always"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "search.exclude": {
     "**/.vercel": true,
-    "**/dist": true,
-    "**/reveal-js": true
+    "**/reveal-js": true,
+    "dist": true
   },
   "markdownlint.config": {
     "default": true,
     "MD003": false
   },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[css][javascript][javascriptreact][html][json][jsonc][md][typescript][typescriptreact][yaml]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
+  }
 }

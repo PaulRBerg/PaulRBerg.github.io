@@ -1,0 +1,23 @@
+---
+import { SITE } from "@/config";
+import Main from "@/layouts/Main.astro";
+import SiteShell from "@/layouts/SiteShell.astro";
+---
+
+<SiteShell title={`Search | ${SITE.title}`}>
+  <Main pageTitle="Search" pageDesc="Search articles and jump to matching sections.">
+    <div id="pagefind-search" class="search-page" data-pagefind-ignore>
+      <pagefind-config
+        instance="search-page"
+        bundle-path="/pagefind/"
+        highlight-param="highlight"
+      ></pagefind-config>
+      <pagefind-input instance="search-page" placeholder="Search articles…"></pagefind-input>
+      <pagefind-summary instance="search-page"></pagefind-summary>
+      <pagefind-results instance="search-page"></pagefind-results>
+      <noscript
+        ><p>Enable JavaScript to search, or <a href="/posts">browse all posts</a>.</p></noscript
+      >
+    </div>
+  </Main>
+</SiteShell>

@@ -1,0 +1,100 @@
+---
+import IconArrowNarrowUp from "@tabler/icons/outline/arrow-narrow-up.svg";
+import IconChevronLeft from "@tabler/icons/outline/chevron-left.svg";
+---
+
+<div
+  id="btt-btn-container"
+  class:list={[
+    "fixed end-4 bottom-8 z-50",
+    "md:sticky md:end-auto md:float-end md:me-1",
+    "translate-y-14 opacity-0 transition duration-500",
+  ]}
+>
+  <button
+    data-button="back-to-top"
+    class:list={[
+      "group relative bg-background px-2 py-1",
+      "size-14 rounded-full shadow-xl",
+      "md:h-8 md:w-fit md:rounded-md md:shadow-none md:focus-visible:rounded-none",
+      "md:bg-background/35 md:bg-clip-padding md:backdrop-blur-lg",
+    ]}
+  >
+    <span
+      id="progress-indicator"
+      class="absolute inset-0 -z-10 block size-14 scale-110 rounded-full bg-transparent md:hidden md:h-8 md:rounded-md"
+    ></span>
+    <IconChevronLeft class="inline-block rotate-90 md:hidden" />
+    <span class="sr-only text-sm group-hover:text-accent md:not-sr-only">
+      <IconArrowNarrowUp class="inline-block size-4" />
+      Back To Top
+    </span>
+  </button>
+</div>
+
+<script is:inline data-astro-rerun>
+  (() => {
+    const noop = () => null;
+    const scrollToTop = () => {
+      window.scrollTo({ left: 0, top: 0 });
+    };
+
+    const backToTop = () => {
+      const rootElement = document.documentElement;
+      const btnContainer = document.querySelector("#btt-btn-container");
+      const backToTopBtn = document.querySelector("[data-button='back-to-top']");
+      const progressIndicator = document.querySelector("#progress-indicator");
+
+      if (!btnContainer || !backToTopBtn || !progressIndicator) {
+        return noop;
+      }
+
+      backToTopBtn.addEventListener("click", scrollToTop);
+
+      let lastVisible = null;
+
+      const handleScroll = () => {
+        const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+        const { scrollTop } = rootElement;
+        const scrollPercent =
+          scrollTotal > 0 ? Math.floor(Math.min(scrollTop / scrollTotal, 1) * 100) : 0;
+
+        progressIndicator.style.setProperty(
+          "background-image",
+          `conic-gradient(var(--accent), var(--accent) ${scrollPercent}%, transparent ${scrollPercent}%)`,
+        );
+
+        const isVisible = scrollTotal > 0 && scrollTop / scrollTotal > 0.3;
+        if (isVisible !== lastVisible) {
+          btnContainer.classList.toggle("opacity-100", isVisible);
+          btnContainer.classList.toggle("translate-y-0", isVisible);
+          btnContainer.classList.toggle("opacity-0", !isVisible);
+          btnContainer.classList.toggle("translate-y-14", !isVisible);
+          lastVisible = isVisible;
+        }
+      };
+
+      let ticking = false;
+      const queueScrollUpdate = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      document.addEventListener("scroll", queueScrollUpdate, { passive: true });
+      handleScroll();
+
+      return () => {
+        backToTopBtn.removeEventListener("click", scrollToTop);
+        document.removeEventListener("scroll", queueScrollUpdate);
+      };
+    };
+
+    const cleanupBackToTop = backToTop();
+    document.addEventListener("astro:before-swap", cleanupBackToTop, { once: true });
+  })();
+</script>

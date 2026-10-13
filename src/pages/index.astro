@@ -1,0 +1,134 @@
+---
+import { Image } from "astro:assets";
+import LinkButton from "@/components/LinkButton.astro";
+import Card from "@/components/Card.astro";
+import Socials from "@/components/Socials.astro";
+import IconRss from "@tabler/icons/outline/rss.svg";
+import IconArrowRight from "@tabler/icons/outline/arrow-right.svg";
+import portrait from "@/assets/portrait.jpg";
+import { SITE } from "@/config";
+import SiteShell from "@/layouts/SiteShell.astro";
+import { getVisibleBlogPosts } from "@/utils/blog";
+
+const posts = await getVisibleBlogPosts();
+const featuredPosts = posts.filter(({ data }) => data.featured);
+const recentPosts = posts.filter(({ data }) => !data.featured);
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  author: {
+    "@type": "Person",
+    name: SITE.author,
+    url: SITE.profile,
+  },
+  description: SITE.desc,
+  name: SITE.title,
+  url: SITE.website,
+};
+---
+
+<SiteShell structuredData={structuredData}>
+  <main id="main-content" data-back-url="/" class="app-layout">
+    <section id="hero" class="relative border-b border-border py-10 sm:py-14">
+      <div
+        class="pointer-events-none absolute inset-0 overflow-hidden [mask-image:linear-gradient(90deg,transparent_0,black_10%,black_100%)] [-webkit-mask-image:linear-gradient(90deg,transparent_0,black_10%,black_100%)]"
+      >
+        <div
+          class="absolute inset-y-0 left-0 w-[24rem] sm:w-[32rem]"
+          style="
+            background: radial-gradient(
+              circle at 28% 32%,
+              color-mix(in srgb, var(--accent) 14%, transparent) 0%,
+              color-mix(in srgb, var(--accent) 10%, transparent) 26%,
+              color-mix(in srgb, var(--accent) 6%, transparent) 48%,
+              transparent 76%
+            );
+          "
+        ></div>
+      </div>
+
+      <div class="relative grid gap-8 sm:grid-cols-[minmax(0,16rem)_1fr] sm:items-center sm:gap-10">
+        <div class="mx-auto w-full max-w-56">
+          <div class="relative">
+            <div class="absolute -inset-3 rounded-[2rem] border border-accent/15 bg-accent/5"></div>
+            <Image
+              src={portrait}
+              alt={`Portrait of ${SITE.author}`}
+              width={224}
+              height={224}
+              widths={[224, 280, 448, 460]}
+              sizes="14rem"
+              layout="none"
+              format="webp"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+              class="relative aspect-square w-full rounded-[2rem] border border-border bg-muted object-cover shadow-[0_20px_60px_-28px_rgba(0,0,0,0.45)]"
+            />
+          </div>
+        </div>
+
+        <div class="relative">
+          <p class="mb-3 text-sm uppercase tracking-[0.28em] text-accent">
+            Founder / Engineer / Writer
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <h1 class="text-4xl font-bold sm:text-5xl">Hi, I&apos;m PRB</h1>
+            <a
+              href="/rss.xml"
+              class="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3 py-1.5 text-sm backdrop-blur transition hover:border-accent/60 hover:text-accent"
+              aria-label="rss feed"
+              title="RSS Feed"
+            >
+              <IconRss width={18} height={18} class="stroke-accent stroke-3 rtl:-rotate-90" />
+              <span>RSS</span>
+            </a>
+          </div>
+
+          <p class="mt-4 max-w-2xl text-base leading-8 text-foreground/80 sm:text-lg">
+            {SITE.desc}
+          </p>
+
+          <Socials
+            class="mt-6 gap-2"
+            itemClass="rounded-full border border-border bg-background/80 p-3 transition duration-200 hover:-translate-y-1 hover:rotate-0 hover:border-accent/60 hover:bg-accent/5 sm:p-3"
+            iconClass="size-5 scale-100 sm:scale-100"
+          />
+        </div>
+      </div>
+    </section>
+
+    {featuredPosts.length > 0 && <section
+      id="featured"
+      class:list={["pt-12 pb-6", { "border-b border-border": recentPosts.length > 0 }]}
+    >
+      <h2 class="text-2xl font-semibold tracking-wide">Featured Posts</h2>
+      <ul>
+        {featuredPosts.map((data) => (
+          <Card variant="h3" {...data} />
+        ))}
+      </ul>
+    </section>}
+
+    {recentPosts.length > 0 && <section id="recent-posts" class="pt-12 pb-6">
+      <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+      <ul>
+        {recentPosts.map(
+          (data, index) =>
+            index < SITE.postPerIndex && (
+              <Card variant="h3" dateFormat="MMMM D, YYYY" showReadingTime {...data} />
+            ),
+        )}
+      </ul>
+    </section>}
+
+    <div class="my-8 text-center">
+      <LinkButton href="/posts/">
+        Browse All Posts
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div>
+  </main>
+</SiteShell>

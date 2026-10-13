@@ -1,0 +1,20 @@
+<dialog
+  class="image-dialog"
+  data-image-dialog
+  data-pagefind-ignore
+  aria-labelledby="image-dialog-title"
+>
+  <div class="image-dialog-header">
+    <h2 id="image-dialog-title">Image viewer</h2>
+    <div class="image-dialog-actions">
+      <button type="button" data-image-original-size aria-pressed="false">
+        View original size
+      </button>
+      <button type="button" data-image-close aria-label="Close image viewer">Close</button>
+    </div>
+  </div>
+  <div class="image-dialog-viewport" data-image-viewport>
+    <img data-image-dialog-image alt="" />
+  </div>
+  <p class="image-dialog-caption" id="image-dialog-caption" data-image-caption hidden></p>
+</dialog>

@@ -1,0 +1,70 @@
+:root {
+  --pf-font: var(--font-app);
+  --pf-text: var(--foreground);
+  --pf-text-secondary: color-mix(in srgb, var(--foreground) 80%, var(--background));
+  --pf-text-muted: color-mix(in srgb, var(--foreground) 65%, var(--background));
+  --pf-background: var(--background);
+  --pf-border: var(--border);
+  --pf-border-focus: var(--accent);
+  --pf-outline-focus: var(--accent);
+  --pf-hover: color-mix(in srgb, var(--muted) 45%, var(--background));
+  --pf-skeleton: var(--muted);
+  --pf-skeleton-shine: var(--background);
+  --pf-mark: var(--accent);
+  --pf-modal-max-width: 48rem;
+  --pf-input-height: 3rem;
+  --pf-input-font-size: 1rem;
+  --pf-summary-font-size: 0.875rem;
+  --pf-result-title-font-size: 1rem;
+  --pf-result-excerpt-font-size: 0.875rem;
+  --pf-results-gap: 0.75rem;
+}
+
+/* Hiding the unknown element also keeps modal contents out of the no-JS page. */
+pagefind-modal:not(:defined) {
+  display: none;
+}
+
+html:has(#site-search dialog[open]) {
+  overflow-y: hidden;
+}
+
+.search-page > pagefind-summary {
+  margin-block: 1rem;
+}
+
+.search-page-link,
+.search-close {
+  font: inherit;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.search-page-link {
+  margin-inline-start: auto;
+}
+
+.search-close {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+}
+
+.search-error {
+  padding: 1rem;
+  color: var(--foreground);
+}
+
+#article mark.pagefind-highlight {
+  padding-inline: 0.1em;
+  border-radius: 0.125rem;
+  color: inherit;
+  background: color-mix(in srgb, var(--accent) 25%, var(--background));
+  box-decoration-break: clone;
+}
+
+@media (width < 40rem) {
+  #site-search pagefind-keyboard-hints {
+    display: none;
+  }
+}

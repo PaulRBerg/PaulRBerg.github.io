@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="24" fill="#18181b"/>
+  <path fill-rule="evenodd" fill="#fff" d="
+    M20 98V30h14C52 30 62 39 62 49 62 59 52 68 34 68V98Z
+    M34 40C44 40 50 43 50 49 50 55 44 58 34 58Z
+  "/>
+  <path fill-rule="evenodd" fill="#fff" d="
+    M66 98V30h14C98 30 106 37 106 47 106 57 98 64 80 64 100 64 110 72 110 81 110 91 100 98 80 98Z
+    M80 40C90 40 94 43 94 47 94 51 90 54 80 54Z
+    M80 74C92 74 98 77 98 81 98 85 92 88 80 88Z
+  "/>
+</svg>

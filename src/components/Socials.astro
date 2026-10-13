@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { SOCIALS } from "@/constants";
+import IconLinks from "./IconLinks.astro";
+
+type Props = {
+  itemClass?: HTMLAttributes<"a">["class"];
+  iconClass?: string;
+  openInNewTab?: boolean;
+} & HTMLAttributes<"div">;
+
+const {
+  class: className,
+  itemClass,
+  iconClass,
+  openInNewTab = true,
+  ...attrs
+} = Astro.props as Props;
+
+const socialLinks = SOCIALS;
+const relResolver = (_link: (typeof SOCIALS)[number], href: string) =>
+  href.startsWith("http") ? "me noreferrer noopener" : undefined;
+---
+
+<IconLinks
+  links={socialLinks}
+  class={className}
+  {itemClass}
+  {iconClass}
+  {openInNewTab}
+  {relResolver}
+  {...attrs}
+/>

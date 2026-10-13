@@ -1,0 +1,51 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import type { IconLinkDefinition } from "@/constants";
+import LinkButton from "./LinkButton.astro";
+
+type Props = {
+  links: IconLinkDefinition[];
+  hrefResolver?: (link: IconLinkDefinition) => string;
+  relResolver?: (link: IconLinkDefinition, href: string) => string | undefined;
+  itemClass?: HTMLAttributes<"a">["class"];
+  iconClass?: string;
+  openInNewTab?: boolean;
+} & HTMLAttributes<"div">;
+
+const {
+  links,
+  hrefResolver = (link) => link.href,
+  relResolver,
+  class: className,
+  itemClass,
+  iconClass,
+  openInNewTab = true,
+  ...attrs
+} = Astro.props as Props;
+---
+
+<div class:list={["flex flex-wrap items-center gap-1", className]} {...attrs}>
+  {links.map((link) => {
+    const href = hrefResolver(link);
+    const isExternal = href.startsWith("http");
+
+    return <LinkButton
+      href={href}
+      class:list={["p-2 hover:rotate-6 sm:p-1", itemClass]}
+      title={link.linkTitle}
+      target={openInNewTab && isExternal ? "_blank" : undefined}
+      rel={
+        relResolver?.(link, href) ??
+        (openInNewTab && isExternal ? "noopener noreferrer" : undefined)
+      }
+    >
+      <link.icon
+        class:list={[
+          "inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110",
+          iconClass,
+        ]}
+      />
+      <span class="sr-only">{link.linkTitle}</span>
+    </LinkButton>;
+  })}
+</div>

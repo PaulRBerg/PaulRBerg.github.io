@@ -1,4 +1,18 @@
-.DS_Store
+# Directories
+.ai/
+.vercel/
+.astro/
+dist/
+.vite/
+node_modules/
+public/pagefind/
+public/presentations/cce-2026/
+public/presentations/frontiers-2026/
 
-# dotenvx private decryption keys — never commit (the encrypted .env is fine).
-.env.keys
+# Environment
+.env*
+.envrc
+
+# Files
+.DS_Store
+*.log*

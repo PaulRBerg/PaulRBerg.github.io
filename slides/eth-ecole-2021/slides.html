@@ -1,0 +1,111 @@
+<section
+  data-background-image="/presentations/eth-ecole-2021/img/prbmath-cover.png"
+  data-background-size="contain"
+></section>
+
+<section>
+  <h2>Mathematics is the language in which God has written the universe</h2>
+  <p>Galileo Galilei</p>
+</section>
+
+<section>
+  <h2>Problem</h2>
+  <ul>
+    <li>No support for fixed-point arithmetic in Solidity</li>
+    <li>Implementing advanced math functions is hard</li>
+    <li>No popular fixed-point math library upgraded to v0.8</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Solution</h1>
+  <h2>PRBMath</h2>
+  <ul>
+    <li>Logarithms, exponentials, square roots and more</li>
+    <li>Gas efficient, but still user-friendly</li>
+    <li>Operating with decimal numbers with 18 decimals</li>
+  </ul>
+</section>
+
+<section>
+  <div style="display: flex; align-items: center; gap: 32px; text-align: left">
+    <div style="flex: 1">
+      <h2>Comparison</h2>
+      <p style="font-size: 32px">
+        PRBMath is the fastest, the most-well documented and the only offering Solidity v0.8.4
+        custom errors.
+      </p>
+    </div>
+    <img
+      src="/presentations/eth-ecole-2021/img/prbmath-comparison.png"
+      alt="Comparison of fixed-point math libraries"
+      style="width: 44%; height: 560px; object-fit: contain"
+    />
+  </div>
+</section>
+
+<section>
+  <div style="display: flex; align-items: center; gap: 32px; text-align: left">
+    <div style="flex: 1">
+      <h2>Dev UX</h2>
+      <p style="font-size: 32px">
+        I added NatSpec comments to each and every single piece of code in the library.
+      </p>
+    </div>
+    <img
+      src="/presentations/eth-ecole-2021/img/prbmath-natspec.jpeg"
+      alt="PRBMath source code with NatSpec comments"
+      style="width: 50%; height: 560px; object-fit: contain"
+    />
+  </div>
+</section>
+
+<section>
+  <h2>Testing and Security</h2>
+  <ul>
+    <li>1102 test cases w/ Hardhat and Waffle</li>
+    <li>98% coverage</li>
+    <li>Audit coming later this year</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Use Cases</h2>
+  <ul>
+    <li>AMM Curves</li>
+    <li>Calculating interest rates</li>
+    <li>Pricing derivatives like options</li>
+    <li>TWAP oracles</li>
+    <li>Custom trading algos for Uniswap v3</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Case in Point: Hifi AMM</h2>
+  <img
+    src="/presentations/eth-ecole-2021/img/yield-space-formula.png"
+    alt="YieldSpace formula used by the Hifi AMM"
+    style="width: 80%; height: 300px; object-fit: contain"
+  />
+</section>
+
+<section>
+  <h2>Case in Point: Hifi AMM</h2>
+  <img
+    src="/presentations/eth-ecole-2021/img/hifi-amm.png"
+    alt="Hifi AMM Solidity implementation"
+    style="width: 95%; height: 440px; object-fit: contain"
+  />
+</section>
+
+<section>
+  <h1>License: Unlicense</h1>
+</section>
+
+<section>
+  <h2>Thanks for Coming!</h2>
+  <ul>
+    <li>Twitter: @PaulRBerg</li>
+    <li>GitHub: @paulrberg</li>
+  </ul>
+</section>

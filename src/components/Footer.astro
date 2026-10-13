@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { SITE } from "@/config";
+import { SOCIALS } from "@/constants";
+import Socials from "./Socials.astro";
+
+type Props = {
+  noMarginTop?: boolean;
+} & HTMLAttributes<"footer">;
+
+const { noMarginTop = false, class: className, ...attrs } = Astro.props;
+---
+
+<footer class:list={["app-layout", { "mt-auto": !noMarginTop }, className]} {...attrs}>
+  <div
+    class:list={[
+      "py-6 sm:py-4",
+      "border-t border-border",
+      "flex flex-col items-center justify-between sm:flex-row-reverse",
+    ]}
+  >
+    {SOCIALS.length > 0 && <Socials />}
+    <div
+      class="my-2 flex min-w-0 max-w-full flex-col items-center text-center sm:flex-row sm:text-start"
+    >
+      <a href={SITE.repo} target="_blank" rel="noopener noreferrer" class="hover:text-accent">
+        Steal this post &rarr; CC BY 4.0 &middot; Code MIT
+      </a>
+    </div>
+  </div>
+</footer>

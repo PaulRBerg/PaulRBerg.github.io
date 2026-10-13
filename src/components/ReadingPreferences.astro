@@ -1,0 +1,40 @@
+<details class="reading-preferences" data-reading-preferences data-pagefind-ignore hidden>
+  <summary>Reading appearance</summary>
+  <div class="reading-preferences-controls">
+    <label>
+      <span>Font</span>
+      <select name="article-font" data-reading-font>
+        <option value="mono">Original monospace</option>
+        <option value="serif">Serif</option>
+        <option value="sans">Sans serif</option>
+      </select>
+    </label>
+    <label>
+      <span>Text size</span>
+      <select name="article-size" data-reading-size>
+        <option value="small">Small</option>
+        <option value="standard" selected>Standard</option>
+        <option value="large">Large</option>
+      </select>
+    </label>
+  </div>
+</details>
+
+<script is:inline data-astro-rerun>
+  (() => {
+    try {
+      const preferences = JSON.parse(localStorage.getItem("article-reading-preferences") ?? "{}");
+      const font = ["mono", "serif", "sans"].includes(preferences?.font)
+        ? preferences.font
+        : "mono";
+      const size = ["small", "standard", "large"].includes(preferences?.size)
+        ? preferences.size
+        : "standard";
+      document.documentElement.dataset.articleFont = font;
+      document.documentElement.dataset.articleSize = size;
+    } catch {
+      document.documentElement.dataset.articleFont = "mono";
+      document.documentElement.dataset.articleSize = "standard";
+    }
+  })();
+</script>

@@ -1,0 +1,32 @@
+---
+import IconHash from "@tabler/icons/outline/hash.svg";
+
+interface Props {
+  tagName: string;
+  size?: "sm" | "lg";
+  count?: number;
+}
+
+const { tagName, size = "lg", count } = Astro.props;
+---
+
+<li class="flex">
+  <span
+    class:list={[
+      "flex items-center gap-0.5",
+      "border-b-2 border-dashed border-foreground",
+      { "text-sm": size === "sm" },
+      { "text-lg": size === "lg" },
+    ]}
+  >
+    <IconHash
+      class:list={["opacity-80", { "size-5": size === "lg" }, { "size-4": size === "sm" }]}
+    />
+    {tagName}
+    {typeof count === "number" && <span
+      class:list={["opacity-70", { "text-xs": size === "sm" }, { "text-sm": size === "lg" }]}
+    >
+      ({count})
+    </span>}
+  </span>
+</li>

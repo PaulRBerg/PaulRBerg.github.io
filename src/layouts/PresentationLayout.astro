@@ -1,0 +1,65 @@
+---
+import { SITE } from "@/config";
+import type { RevealSlide } from "@/data/slides";
+import "reveal.js/reset.css";
+import "reveal.js/reveal.css";
+import "reveal.js/plugin/highlight/monokai.css";
+import serifTheme from "reveal.js/theme/serif.css?url";
+import whiteTheme from "reveal.js/theme/white.css?url";
+
+interface Props {
+  slide: RevealSlide;
+  content: string;
+}
+
+const { slide, content } = Astro.props;
+const canonicalURL = new URL(`/presentations/${slide.slug}/`, SITE.website).toString();
+const imageURL = new URL(slide.image, SITE.website).toString();
+---
+
+<!doctype html>
+<html lang={SITE.lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{slide.title}</title>
+    <meta name="description" content={slide.description} />
+    <meta name="author" content={SITE.author} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" href={slide.favicon} />
+    <link rel="stylesheet" href={slide.theme === "serif" ? serifTheme : whiteTheme} />
+    <meta property="og:title" content={slide.title} />
+    <meta property="og:description" content={slide.description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="@PaulRBerg" />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:image:type" content={slide.imageType} />
+    <meta property="og:image:width" content={String(slide.imageWidth)} />
+    <meta property="og:image:height" content={String(slide.imageHeight)} />
+    <meta property="og:image:alt" content={slide.title} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={slide.title} />
+    <meta name="twitter:description" content={slide.description} />
+    <meta name="twitter:image" content={imageURL} />
+    <meta name="twitter:site" content="@PaulRBerg" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" set:html={content} />
+    </div>
+    <script>
+      import Reveal from "reveal.js";
+      import Markdown from "reveal.js/plugin/markdown";
+      import Highlight from "reveal.js/plugin/highlight";
+      import Notes from "reveal.js/plugin/notes";
+
+      const deck = new Reveal({
+        hash: true,
+        plugins: [Markdown, Highlight, Notes],
+        scrollActivationWidth: 0,
+      });
+      deck.initialize();
+    </script>
+  </body>
+</html>

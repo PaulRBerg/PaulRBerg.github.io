@@ -1,0 +1,32 @@
+---
+import Main from "@/layouts/Main.astro";
+import Card from "@/components/Card.astro";
+import { SITE } from "@/config";
+import SiteShell from "@/layouts/SiteShell.astro";
+import { getVisibleBlogPosts, groupBlogPostsByYearAndMonth } from "@/utils/blog";
+
+const posts = await getVisibleBlogPosts();
+const groupedPosts = groupBlogPostsByYearAndMonth(posts);
+---
+
+<SiteShell title={`Posts | ${SITE.title}`}>
+  <Main pageTitle="All Posts" pageDesc="Browse all blog posts by year and month.">
+    {groupedPosts.map(({ year, months }) => <div>
+      <span class="text-2xl font-bold">{year}</span>
+      <sup class="text-sm">
+        {months.reduce((count, month) => count + month.posts.length, 0)}
+      </sup>
+      {months.map((monthGroup) => <div class="flex flex-col sm:flex-row">
+        <div class="mt-6 min-w-36 text-lg sm:my-6">
+          <span class="font-bold">{monthGroup.name}</span>
+          <sup class="text-xs">{monthGroup.posts.length}</sup>
+        </div>
+        <ul>
+          {monthGroup.posts.map((post) => (
+            <Card {...post} />
+          ))}
+        </ul>
+      </div>)}
+    </div>)}
+  </Main>
+</SiteShell>

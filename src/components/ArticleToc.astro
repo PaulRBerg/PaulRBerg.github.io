@@ -1,0 +1,43 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const headings = Astro.props.headings.filter(
+  ({ depth, slug, text }) =>
+    (depth === 2 || depth === 3) &&
+    slug !== "footnote-label" &&
+    text.trim().toLowerCase() !== "footnotes",
+);
+---
+
+{headings.length > 1 && (
+  <>
+    <aside class="article-toc-desktop" data-pagefind-ignore>
+      <nav class="article-toc-nav" aria-label="Article contents">
+        <h2 class="article-toc-title">Contents</h2>
+        <ol class="article-toc-list">
+          {headings.map(({ depth, slug, text }) => <li
+            class:list={{ "article-toc-subsection": depth === 3 }}
+          >
+            <a href={`#${slug}`} data-toc-link data-heading-id={slug}>{text}</a>
+          </li>)}
+        </ol>
+      </nav>
+    </aside>
+    <details class="article-toc-mobile" data-pagefind-ignore>
+      <summary>Contents</summary>
+      <nav aria-label="Article contents">
+        <ol class="article-toc-list">
+          {headings.map(({ depth, slug, text }) => <li
+            class:list={{ "article-toc-subsection": depth === 3 }}
+          >
+            <a href={`#${slug}`} data-toc-link data-heading-id={slug}>{text}</a>
+          </li>)}
+        </ol>
+      </nav>
+    </details>
+  </>
+)}

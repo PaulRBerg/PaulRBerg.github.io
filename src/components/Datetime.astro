@@ -1,0 +1,55 @@
+---
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+import IconCalendar from "@tabler/icons/outline/calendar-week.svg";
+import { SITE } from "@/config";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
+interface Props {
+  class?: string;
+  size?: "sm" | "lg";
+  pubDatetime: string | Date;
+  timezone?: string;
+  modDatetime?: string | Date | null;
+  dateFormat?: string;
+  readingTime?: string;
+}
+
+const {
+  pubDatetime,
+  modDatetime,
+  size = "sm",
+  class: className = "",
+  timezone: postTimezone,
+  dateFormat = "D MMM, YYYY",
+  readingTime,
+} = Astro.props;
+
+/* ========== Formatted Datetime ========== */
+const isModified = modDatetime && modDatetime > pubDatetime;
+
+const datetime = dayjs(isModified ? modDatetime : pubDatetime).tz(postTimezone || SITE.timezone);
+
+const date = datetime.format(dateFormat);
+---
+
+<div class:list={["flex items-center gap-x-2 opacity-80", className]}>
+  <IconCalendar class:list={["inline-block size-6 min-w-5.5", { "scale-90": size === "sm" }]} />
+  {isModified && <span class:list={["text-sm", { "sm:text-base": size === "lg" }]}>Updated:</span>}
+  <time
+    class:list={["text-sm", { "sm:text-base": size === "lg" }]}
+    datetime={datetime.toISOString()}
+    >{date}</time
+  >
+  {readingTime && (
+    <>
+      <span aria-hidden="true" class:list={["text-sm", { "sm:text-base": size === "lg" }]}>
+        •
+      </span>
+      <span class:list={["text-sm", { "sm:text-base": size === "lg" }]}>{readingTime}</span>
+    </>
+  )}
+</div>

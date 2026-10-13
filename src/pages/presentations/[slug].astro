@@ -1,0 +1,31 @@
+---
+import type { GetStaticPaths } from "astro";
+import { revealSlides } from "@/data/slides";
+import type { RevealSlide } from "@/data/slides";
+import PresentationLayout from "@/layouts/PresentationLayout.astro";
+
+export const getStaticPaths = (() => {
+  const fragments = import.meta.glob<string>("../../../slides/*/slides.html", {
+    eager: true,
+    import: "default",
+    query: "?raw",
+  });
+
+  return revealSlides.map((slide) => ({
+    params: { slug: slide.slug },
+    props: {
+      content: fragments[`../../../slides/${slide.slug}/slides.html`],
+      slide,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  slide: RevealSlide;
+  content: string;
+}
+
+const { slide, content } = Astro.props;
+---
+
+<PresentationLayout slide={slide} content={content} />

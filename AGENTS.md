@@ -1,73 +1,51 @@
-# AGENTS.md
+# prberg
 
-Personal GitHub Pages site hosting slide decks, served at [prberg.com](https://prberg.com). Two kinds of decks live under
-`presentations/`: static reveal.js pages and Slidev (Vue) apps. CI builds the Slidev decks and publishes the whole tree
-to GitHub Pages.
+Personal website, blog, and presentation archive built with Astro and Bun at
+[prberg.com](https://prberg.com). Slidev sources under `slides/` build into the git-ignored
+`public/presentations/` directories. Reveal decks use the npm Reveal.js runtime through Astro.
 
-## Stack
+Run commands from the repository root. Invoke package scripts and local binaries with
+`bun run <script|bin>`, not `na`. Install dependencies with `bun install --frozen-lockfile`. Use
+`just dev`, `just build`, and `just preview` for development, production builds, and previews. Use
+`bun run build:slides` to rebuild only the Slidev decks.
 
-- **Static decks** — plain `index.html` using the [reveal.js](https://revealjs.com) submodule at `reveal-js/`.
-- **Slidev decks** — [Slidev](https://sli.dev) (Vue 3), bundled with Vite.
-- **Package manager** — Bun (pinned to 1.3.14 in CI).
-- **Secrets** — dotenvx (encrypted `.env` committed; `.env.keys` never committed).
-- **Formatting** — Prettier + EditorConfig.
-- **Hosting** — GitHub Pages via GitHub Actions (Jekyll disabled with `.nojekyll`).
+## Checks
 
-## Commands
+Run `just full-write` and then `just full-check` after every change, before committing. Do not wait
+until the end of a task. Keep `just full-check` passing at each commit. Scope formatters and fixes
+to changed files when other agents share the working tree.
 
-The repo root has no package manager; commands run inside a Slidev deck directory or against the submodule.
+- `just full-check` runs `astro check`, oxfmt, Prettier, and oxlint.
+- `just full-write` applies the oxfmt, Prettier, and oxlint fixes.
 
-### Setup
+## Formatting
 
-- `git submodule update --init --recursive` — fetch the `reveal-js` submodule (required for the static decks).
-- `npx prettier . --write` — format the repo (respects `.prettierignore`).
+Use oxfmt for TS, JS, and JSON. Keep its exclusions in `.oxfmtrc.json`. Use Prettier for `.astro`,
+`.md`, and `.mdx` files. Keep `.prettierrc.mjs` in sync with `.oxfmtrc.json`. Exclude Slidev
+entrypoints (`slides/*/slides.md`) from Prettier. Prettier turns their `---` slide separators into
+prose, which breaks the decks. Preserve `slides/cce-2026/NOTES.md` verbatim. Leave the retained
+`reveal-js/` submodule and `.gitmodules` untouched. Exclude that submodule from formatters, lint,
+type checks, and builds.
 
-### Slidev decks (run inside `presentations/<deck>/`, e.g. `cce-2026`, `frontiers-2026`)
+## Speaking
 
-- `bun install` — install deck dependencies.
-- `bun run dev` — start Slidev with live reload at <http://localhost:3030>.
-- `bun run build` — build the deck to `dist/`.
-- `bun run export` — export the deck to PDF.
-- `bun run deploy` — build and deploy to Vercel (needs `.env` with `VERCEL_TOKEN`; runs through dotenvx).
+Keep `src/pages/speaking.md` sections in this order: Podcasts, Talks, Slides. Read
+[slides/AGENTS.md](slides/AGENTS.md) before importing presentations or adding talks to the speaking
+archive. Reference Slidev assets with deck-relative paths such as `img/foo.svg`. Build each Slidev
+deck with its `/presentations/<deck>/` base URL. Keep the CCE paper in
+`slides/cce-2026/public/Draft Paper.pdf` so deck rebuilds preserve its legacy URL.
 
-### Deploy the site
+## Deployment and commits
 
-- Push to `main` → `.github/workflows/deploy.yml` builds and publishes to GitHub Pages.
-- The workflow builds each Slidev deck with `slidev build --base /presentations/<deck>/` so asset URLs resolve under the
-  subpath, rsyncs everything else as-is, and touches `_site/.nojekyll`.
+Use Conventional Commits with per-deck scopes such as `feat(cce-2026): ...` and
+`chore(frontiers-2026): ...`. Use `ci: ...` for workflow changes. Push to `main` to deploy through
+`.github/workflows/deploy.yml`. Build the complete site with `bun run build`. Upload `dist/` with
+`.nojekyll` to GitHub Pages. Keep `public/CNAME` set to `prberg.com`. Keep `.ai/`, generated output,
+and secret files out of Git and published assets.
 
-## Project Structure
+## Blog Link Previews
 
-- `presentations/` — one directory per talk.
-  - Static reveal.js decks (`ethcc-2023`, `ethcluj-2025`, `ratfest-2024`, `ratfest-2025`, `solidity-summit-2023`,
-    `spearbit-2023`) — `index.html` linking `../../reveal-js/dist/...`, plus an `img/` folder (and usually an `og.jpg`
-    social image).
-  - Slidev decks (`cce-2026`, `frontiers-2026`) — `slides.md` (+ `slides/` partials), `components/`, `public/img/`,
-    `style.css`, built to `dist/`.
-  - `shared/img/` — images shared across decks.
-- `reveal-js/` — git submodule ([hakimel/reveal.js](https://github.com/hakimel/reveal.js), `master`). Do not edit.
-- `.github/workflows/deploy.yml` — build + deploy pipeline.
-- `CNAME` — custom domain (`prberg.com`).
-- `pfp-2022.jpg` — profile image used by decks.
-
-## Code Style
-
-- Prettier: `printWidth` 120, `trailingComma: all`, `proseWrap: always` for Markdown (`.prettierrc.yml`).
-- `.prettierignore` excludes `presentations/**/slides.md` (Slidev's Markdown dialect isn't standard).
-- EditorConfig: UTF-8, LF, 2-space indent, final newline, trim trailing whitespace.
-- markdownlint defaults with `MD003` (heading style) disabled.
-- VS Code formats on save (`.vscode/settings.json`).
-
-## Conventions
-
-- **Commits** — Conventional Commits with a per-deck scope: `feat(cce-2026): ...`, `chore(frontiers-2026): ...`, `ci: ...`.
-- **Secrets** — managed by dotenvx. Commit the encrypted `.env`; never commit `.env.keys`.
-- **Slidev asset paths** — reference assets deck-relative (e.g. `img/foo.svg`); Vite copies `public/` to the deck root at
-  build time. Always build with the matching `--base` so URLs resolve under `/presentations/<deck>/`.
-- **Jekyll is off** — CI ships `.nojekyll`; don't rely on Jekyll processing (Vite's `_`-prefixed chunks would be stripped).
-
-## Contribution Workflow
-
-- Default branch: `main`.
-- Pushing to `main` auto-deploys via GitHub Actions; there is no manual publish step.
-- Use Conventional Commit messages and run `npx prettier . --write` before committing.
+Use `.mdx` for posts that import `src/components/LinkPreview.astro`. Render standalone links with
+`<LinkPreview href="https://example.com" />`. Metadata is fetched at build time. Unavailable pages
+fall back to ordinary links. Run `node --test src/utils/linkPreview.test.ts` after changing metadata
+parsing or fetching.

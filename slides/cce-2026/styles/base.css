@@ -1,0 +1,185 @@
+/* ---------------------------------------------------------
+   CCE 2026 — The Ultimate Rational Meme
+   Cream paper + indigo accent · literary / Enlightenment feel
+--------------------------------------------------------- */
+
+@import url("https://rsms.me/inter/inter.css");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap");
+
+:root {
+  --c-bg: #faf9f5;
+  --c-bg-2: #f3eee0;
+  --c-paper: #fffdf6;
+  --c-ink: #0c0c1c;
+  --c-ink-dim: #4b3a5a;
+  --c-ink-faint: #8c7da3;
+  --c-border: #e6dfca;
+  --c-border-strong: #c8bda1;
+  --c-accent: #5b21b6;      /* indigo / royal violet */
+  --c-accent-soft: #ede9fe;
+  --c-gold: #d97706;
+  --c-red: #b91c1c;
+  --c-green: #047857;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Crimson Pro", "Crimson Text", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+}
+
+html,
+body,
+#app,
+.slidev-page {
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+  color: var(--c-ink);
+}
+
+.slidev-layout {
+  background: var(--c-bg) !important;
+  color: var(--c-ink);
+}
+
+/* warm paper grain across every slide */
+.slidev-layout::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(91, 33, 182, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.55;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.slidev-layout > * { position: relative; z-index: 1; }
+
+/* Full-bleed slides: remove layout padding when a cover or divider is inside */
+.slidev-layout:has(.cover-root),
+.slidev-layout:has(.divider) {
+  padding: 0 !important;
+}
+.slidev-layout:has(.cover-root)::before,
+.slidev-layout:has(.divider)::before {
+  display: none;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  color: var(--c-ink);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.slidev-layout h1 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  font-weight: 600;
+}
+
+.slidev-layout h2 {
+  font-size: 1.55rem;
+}
+
+.slidev-layout p,
+.slidev-layout li {
+  color: #1e1530;
+  line-height: 1.55;
+}
+
+.slidev-layout code:not(pre code) {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: #efeadb;
+  color: var(--c-ink);
+  padding: 0.1em 0.38em;
+  border-radius: 4px;
+  border: 1px solid var(--c-border);
+}
+
+.slidev-layout pre,
+.slidev-code {
+  background: #15121f !important;
+  border-radius: 8px;
+  font-family: var(--font-mono) !important;
+  font-size: 0.82rem !important;
+  line-height: 1.55 !important;
+}
+
+.slidev-layout a {
+  color: var(--c-accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(91, 33, 182, 0.35);
+}
+
+/* serif accent for emphasis */
+.serif-em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--c-accent);
+}
+
+/* ---------- Shared utility classes ---------- */
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-ink-faint);
+}
+
+.rule {
+  height: 1px;
+  background: var(--c-border);
+  border: 0;
+  margin: 1.2rem 0;
+}
+
+.kbd {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72em;
+  padding: 0.1em 0.5em;
+  border: 1px solid var(--c-border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  background: var(--c-paper);
+  color: var(--c-ink);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.22em 0.7em;
+  border: 1px solid var(--c-border);
+  border-radius: 999px;
+  background: var(--c-paper);
+  color: #2a1f3d;
+}
+
+.pill.accent {
+  color: var(--c-accent);
+  border-color: rgba(91, 33, 182, 0.35);
+  background: rgba(91, 33, 182, 0.06);
+}
+
+.pill.gold {
+  color: var(--c-gold);
+  border-color: rgba(217, 119, 6, 0.35);
+  background: rgba(217, 119, 6, 0.06);
+}
+
+.pill.warn {
+  color: var(--c-red);
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+

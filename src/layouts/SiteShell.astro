@@ -1,0 +1,25 @@
+---
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+
+interface Props {
+  [key: string]: unknown;
+  footerNoMarginTop?: boolean;
+  showFooter?: boolean;
+  showHeader?: boolean;
+}
+
+const {
+  footerNoMarginTop = false,
+  showFooter = true,
+  showHeader = true,
+  ...layoutProps
+} = Astro.props;
+---
+
+<Layout {...layoutProps}>
+  {showHeader && <Header />}
+  <slot />
+  {showFooter && <Footer noMarginTop={footerNoMarginTop} />}
+</Layout>

@@ -1,0 +1,23 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import { SITE } from "@/config";
+import SiteShell from "@/layouts/SiteShell.astro";
+
+type Props = MarkdownLayoutProps<{ title: string }>;
+
+const { frontmatter } = Astro.props;
+---
+
+<SiteShell title={`${frontmatter.title} | ${SITE.title}`}>
+  <main id="main-content" class="app-layout">
+    <section id="about" class="app-prose mb-28 max-w-app prose-img:border-0">
+      <h1 class="mt-8 text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
+      <style is:global>
+        #about td:last-child {
+          white-space: nowrap;
+        }
+      </style>
+      <slot />
+    </section>
+  </main>
+</SiteShell>

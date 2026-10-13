@@ -1,0 +1,114 @@
+---
+import { getLinkPreview } from "@/utils/linkPreview";
+
+interface Props {
+  href: string;
+  image?: string;
+}
+
+const { href, image } = Astro.props;
+const preview = await getLinkPreview(href);
+const domain = new URL(href).hostname;
+const previewImage = image ?? preview?.image;
+---
+
+{preview?.title ? (
+  <a class="link-preview not-prose" href={href}>
+    {previewImage && <span class="link-preview-image">
+      <img
+        src={previewImage}
+        alt={preview.imageAlt}
+        loading="lazy"
+        decoding="async"
+        onerror="this.parentElement.remove()"
+      />
+    </span>}
+    <span class="link-preview-content">
+      <span class="link-preview-domain">{domain}</span>
+      <span class="link-preview-title">{preview.title}</span>
+      {preview.description && <span class="link-preview-description">{preview.description}</span>}
+    </span>
+  </a>
+) : (
+  <p><a href={href}>{href}</a></p>
+)}
+
+<style>
+  .link-preview {
+    display: flex;
+    margin-block: 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--muted);
+    border-radius: 0.5rem;
+    color: var(--foreground);
+    text-decoration: none;
+  }
+
+  .link-preview:hover,
+  .link-preview:focus-visible {
+    border-color: var(--accent);
+    color: var(--foreground);
+  }
+
+  .link-preview:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  .link-preview-image {
+    display: flex;
+    flex: 0 0 38%;
+    align-items: center;
+    background: #fff;
+  }
+
+  .link-preview-image img {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    margin: 0;
+    border: 0;
+    object-fit: contain;
+  }
+
+  .link-preview-content {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    overflow-wrap: anywhere;
+  }
+
+  .link-preview-domain {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    opacity: 0.75;
+  }
+
+  .link-preview-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .link-preview-description {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.6;
+    opacity: 0.8;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  @media (max-width: 540px) {
+    .link-preview {
+      flex-direction: column;
+    }
+
+    .link-preview-image {
+      flex-basis: auto;
+    }
+  }
+</style>

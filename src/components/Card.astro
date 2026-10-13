@@ -1,0 +1,60 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getPath } from "@/utils/getPath";
+import { getPostTransitionName, getReadingTime } from "@/utils/postPresentation";
+import Datetime from "./Datetime.astro";
+
+type Props = {
+  variant?: "h2" | "h3";
+  dateFormat?: string;
+  showImage?: boolean;
+  showReadingTime?: boolean;
+} & CollectionEntry<"blog">;
+
+const {
+  variant: Heading = "h2",
+  id,
+  data,
+  filePath,
+  body,
+  dateFormat,
+  showImage = true,
+  showReadingTime = false,
+} = Astro.props;
+
+const { title, description, ogImage, ...props } = data;
+const postHref = getPath(id, filePath);
+const cardImage = typeof ogImage === "string" ? ogImage : ogImage?.src;
+
+const readingTime = showReadingTime ? getReadingTime(body ?? "") : undefined;
+---
+
+<li class="my-6">
+  <a
+    href={postHref}
+    class:list={[
+      "inline-block text-lg font-medium text-accent",
+      "decoration-dashed underline-offset-4 hover:underline",
+      "focus-visible:no-underline focus-visible:underline-offset-0",
+    ]}
+  >
+    <Heading style={{ viewTransitionName: getPostTransitionName(title) }}>
+      {title}
+    </Heading>
+  </a>
+  <Datetime {...props} {dateFormat} readingTime={readingTime} />
+  <div class="mt-3 flex items-start gap-4">
+    {showImage && cardImage && <a href={postHref} class="hidden shrink-0 sm:block">
+      <img
+        src={cardImage}
+        alt={title}
+        width="140"
+        height="79"
+        loading="lazy"
+        decoding="async"
+        class="h-[79px] w-[140px] rounded-md border border-border object-cover shadow-sm"
+      />
+    </a>}
+    <p class="flex-1">{description}</p>
+  </div>
+</li>

@@ -1,0 +1,181 @@
+---
+import Datetime from "@/components/Datetime.astro";
+import EditPost from "@/components/EditPost.astro";
+import ShareLinks from "@/components/ShareLinks.astro";
+import Tag from "@/components/Tag.astro";
+import BackButton from "@/components/BackButton.astro";
+import BackToTopButton from "@/components/BackToTopButton.astro";
+import ArticleToc from "@/components/ArticleToc.astro";
+import ReadingPreferences from "@/components/ReadingPreferences.astro";
+import ImageDialog from "@/components/ImageDialog.astro";
+import IconChevronLeft from "@tabler/icons/outline/chevron-left.svg";
+import IconChevronRight from "@tabler/icons/outline/chevron-right.svg";
+import { SITE } from "@/config";
+import SiteShell from "@/layouts/SiteShell.astro";
+import { getPath } from "@/utils/getPath";
+import { getPostTransitionName, getReadingTime } from "@/utils/postPresentation";
+import "@/styles/article.css";
+import { render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  posts: CollectionEntry<"blog">[];
+}
+
+const { post, posts } = Astro.props;
+
+const {
+  title,
+  author,
+  description,
+  ogImage: initialOgImage,
+  canonicalURL,
+  pubDatetime,
+  modDatetime,
+  timezone,
+  tags,
+  hideEditPost,
+} = post.data;
+
+const { Content, headings } = await render(post);
+const readingTime = getReadingTime(post.body ?? "");
+
+let ogImageUrl: string | undefined;
+if (typeof initialOgImage === "string") {
+  ogImageUrl = initialOgImage;
+} else if (initialOgImage?.src) {
+  ogImageUrl = initialOgImage.src;
+}
+
+if (!ogImageUrl && SITE.dynamicOgImage) {
+  ogImageUrl = `${getPath(post.id, post.filePath)}/index.png`;
+}
+
+const ogImage = ogImageUrl ? new URL(ogImageUrl, Astro.url.origin).href : undefined;
+const pageURL = new URL(
+  canonicalURL ?? getPath(post.id, post.filePath),
+  Astro.site ?? Astro.url.origin,
+).toString();
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  author: [
+    {
+      "@type": "Person",
+      name: author,
+      ...(SITE.profile && { url: SITE.profile }),
+    },
+  ],
+  datePublished: pubDatetime.toISOString(),
+  description,
+  headline: title,
+  keywords: tags,
+  mainEntityOfPage: pageURL,
+  ...(modDatetime && { dateModified: modDatetime.toISOString() }),
+  ...(ogImage && { image: ogImage }),
+};
+
+const layoutProps = {
+  author,
+  canonicalURL,
+  description,
+  modDatetime,
+  ogImage,
+  pubDatetime,
+  scrollSmooth: true,
+  structuredData,
+  title: `${title} | ${SITE.title}`,
+};
+
+const allPosts = posts.map(({ data: { title: postTitle }, id, filePath }) => ({
+  filePath,
+  id,
+  title: postTitle,
+}));
+
+const currentPostIndex = allPosts.findIndex((entry) => entry.id === post.id);
+const prevPost = currentPostIndex > 0 ? allPosts[currentPostIndex - 1] : null;
+const nextPost = currentPostIndex < allPosts.length - 1 ? allPosts[currentPostIndex + 1] : null;
+---
+
+<SiteShell {...layoutProps}>
+  <div
+    aria-hidden="true"
+    data-post-progress
+    class="article-progress pointer-events-none fixed inset-x-0 top-0 z-[100] h-1 overflow-hidden bg-background"
+  >
+    <div data-post-progress-bar class="article-progress-bar h-full w-full bg-accent"></div>
+  </div>
+  <BackButton />
+  <main
+    id="main-content"
+    class:list={["app-layout pb-12", { "mt-8": !SITE.showBackButton }]}
+    data-pagefind-body
+  >
+    <h1
+      transition:name={getPostTransitionName(title)}
+      class="inline-block text-2xl font-bold text-accent sm:text-3xl"
+    >
+      {title}
+    </h1>
+    <div class="my-2 flex flex-wrap items-center gap-2">
+      <Datetime {pubDatetime} {modDatetime} {timezone} {readingTime} size="lg" />
+      <span
+        aria-hidden="true"
+        class:list={["max-sm:hidden", { hidden: !SITE.editPost.enabled || hideEditPost }]}
+      >
+        |
+      </span>
+      <EditPost {hideEditPost} {post} class="max-sm:hidden" />
+    </div>
+    <ReadingPreferences />
+    <div class="article-reading-layout mt-8">
+      <ArticleToc {headings} />
+      <article id="article" class="app-prose article-body w-full max-w-app">
+        <Content />
+      </article>
+    </div>
+    <ImageDialog />
+
+    <hr class="my-8 border-dashed" />
+
+    <EditPost class="sm:hidden" {hideEditPost} {post} />
+
+    <ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8">
+      {tags.map((tag) => (
+        <Tag tagName={tag} size="sm" />
+      ))}
+    </ul>
+
+    <BackToTopButton />
+    <ShareLinks />
+
+    <hr class="my-6 border-dashed" />
+
+    <div data-pagefind-ignore class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      {prevPost && <a
+        href={getPath(prevPost.id, prevPost.filePath)}
+        class="flex w-full gap-1 hover:opacity-75"
+      >
+        <IconChevronLeft class="inline-block flex-none rtl:rotate-180" />
+        <div>
+          <span>Previous Post</span>
+          <div class="text-sm text-accent/85">{prevPost.title}</div>
+        </div>
+      </a>}
+      {nextPost && <a
+        href={getPath(nextPost.id, nextPost.filePath)}
+        class="flex w-full justify-end gap-1 text-end hover:opacity-75 sm:col-start-2"
+      >
+        <div>
+          <span>Next Post</span>
+          <div class="text-sm text-accent/85">{nextPost.title}</div>
+        </div>
+        <IconChevronRight class="inline-block flex-none rtl:rotate-180" />
+      </a>}
+    </div>
+  </main>
+</SiteShell>
+
+<script src="../scripts/article.ts"></script>

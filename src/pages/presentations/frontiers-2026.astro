@@ -1,0 +1,7 @@
+---
+import { readFile } from "node:fs/promises";
+
+const content = await readFile("public/presentations/frontiers-2026/index.html", "utf-8");
+---
+
+<Fragment set:html={content} />
