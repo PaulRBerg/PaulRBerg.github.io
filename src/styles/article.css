@@ -331,7 +331,7 @@
   }
 }
 
-@media (min-width: 85rem) {
+@media (min-width: 90rem) {
   .article-toc-mobile {
     display: none;
   }
@@ -339,7 +339,7 @@
   .article-toc-desktop {
     position: absolute;
     inset-block: 0;
-    inset-inline-start: calc(100% + 2rem);
+    inset-inline-start: calc(100% + 5rem);
     display: block;
     width: 14rem;
     font-size: 0.8125rem;
