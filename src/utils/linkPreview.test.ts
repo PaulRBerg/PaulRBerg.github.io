@@ -43,6 +43,50 @@ await test("Twitter metadata and ordinary HTML metadata provide fallbacks", () =
   );
 });
 
+await test("GitHub repository previews show the repository name and description once", () => {
+  const description =
+    "An agent-run installer for persistent memory, recursive self-improvement, and optional parallel coordination.";
+  const preview = parseLinkPreview(
+    `
+    <meta property="og:title" content="GitHub - PaulRBerg/autonomy-trifecta: ${description}">
+    <meta property="og:description" content="${description} - PaulRBerg/autonomy-trifecta">
+  `,
+    "https://github.com/PaulRBerg/autonomy-trifecta"
+  );
+
+  assert.equal(preview.title, "PaulRBerg/autonomy-trifecta");
+  assert.equal(preview.description, description);
+  assert.equal(
+    parseLinkPreview(
+      "<title>GitHub - PaulRBerg/autonomy-trifecta</title>",
+      "https://github.com/PaulRBerg/autonomy-trifecta/"
+    ).title,
+    "PaulRBerg/autonomy-trifecta"
+  );
+});
+
+await test("GitHub repository title cleanup preserves other page titles and descriptions", () => {
+  const html = `
+    <meta property="og:title" content="GitHub - PaulRBerg/autonomy-trifecta: Project description">
+    <meta property="og:description" content="Project description - PaulRBerg/autonomy-trifecta">
+  `;
+  for (const url of [
+    "https://example.com/PaulRBerg/autonomy-trifecta",
+    "https://github.com/PaulRBerg/autonomy-trifecta/issues/1"
+  ]) {
+    const preview = parseLinkPreview(html, url);
+    assert.equal(preview.title, "GitHub - PaulRBerg/autonomy-trifecta: Project description");
+    assert.equal(preview.description, "Project description - PaulRBerg/autonomy-trifecta");
+  }
+  assert.equal(
+    parseLinkPreview(
+      "<title>Custom title: Project description</title>",
+      "https://github.com/PaulRBerg/autonomy-trifecta"
+    ).title,
+    "Custom title: Project description"
+  );
+});
+
 await test("missing metadata and unsafe image URLs never produce an image", () => {
   // eslint-disable-next-line no-script-url -- Verify that untrusted metadata cannot inject a script URL.
   for (const value of ["javascript:alert(1)", "data:image/svg+xml,test", "http://["]) {

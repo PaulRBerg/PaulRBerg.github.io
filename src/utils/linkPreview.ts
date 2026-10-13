@@ -42,15 +42,33 @@ export const parseLinkPreview = (html: string, pageUrl: string) => {
   const imageValue = metadata.get("og:image") ?? metadata.get("twitter:image");
   const imageUrl = imageValue === undefined ? null : URL.parse(imageValue, pageUrl);
   const image = imageUrl && /^https?:$/u.test(imageUrl.protocol) ? imageUrl.href : undefined;
+  let title = metadata.get("og:title") ?? metadata.get("twitter:title") ?? pageTitle;
+  let description =
+    metadata.get("og:description") ??
+    metadata.get("twitter:description") ??
+    metadata.get("description");
+  const url = new URL(pageUrl);
+  const repository =
+    url.hostname === "github.com"
+      ? /^\/(?<repository>[^/]+\/[^/]+)\/?$/u.exec(url.pathname)?.groups?.repository
+      : undefined;
+
+  if (repository !== undefined) {
+    const repositoryTitle = `GitHub - ${repository}`;
+    if (title === repositoryTitle || title.startsWith(`${repositoryTitle}: `)) {
+      title = repository;
+      const repositorySuffix = ` - ${repository}`;
+      if (description?.endsWith(repositorySuffix) === true) {
+        description = description.slice(0, -repositorySuffix.length).trim();
+      }
+    }
+  }
 
   return {
-    description:
-      metadata.get("og:description") ??
-      metadata.get("twitter:description") ??
-      metadata.get("description"),
+    description,
     image,
     imageAlt: metadata.get("og:image:alt") ?? metadata.get("twitter:image:alt") ?? "",
-    title: metadata.get("og:title") ?? metadata.get("twitter:title") ?? pageTitle
+    title
   };
 };
 

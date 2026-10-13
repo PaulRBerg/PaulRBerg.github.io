@@ -13,7 +13,7 @@ const previewImage = image ?? preview?.image;
 ---
 
 {preview?.title ? (
-  <a class="link-preview not-prose" href={href}>
+  <a class="link-preview not-prose" href={href} target="_blank" rel="noopener noreferrer">
     {previewImage && <span class="link-preview-image">
       <img
         src={previewImage}
@@ -30,7 +30,7 @@ const previewImage = image ?? preview?.image;
     </span>
   </a>
 ) : (
-  <p><a href={href}>{href}</a></p>
+  <p><a href={href} target="_blank" rel="noopener noreferrer">{href}</a></p>
 )}
 
 <style>
