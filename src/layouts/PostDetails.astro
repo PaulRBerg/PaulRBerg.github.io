@@ -30,6 +30,7 @@ const {
   author,
   description,
   ogImage: initialOgImage,
+  twitterImage: initialTwitterImage,
   canonicalURL,
   pubDatetime,
   modDatetime,
@@ -53,6 +54,8 @@ if (!ogImageUrl && SITE.dynamicOgImage) {
 }
 
 const ogImage = ogImageUrl ? new URL(ogImageUrl, Astro.url.origin).href : undefined;
+const twitterImage =
+  typeof initialTwitterImage === "string" ? initialTwitterImage : initialTwitterImage?.src;
 const pageURL = new URL(
   canonicalURL ?? getPath(post.id, post.filePath),
   Astro.site ?? Astro.url.origin,
@@ -82,10 +85,13 @@ const layoutProps = {
   description,
   modDatetime,
   ogImage,
+  ogImageAlt: title,
+  ogImageMetadata: typeof initialOgImage === "object" ? initialOgImage : undefined,
   pubDatetime,
   scrollSmooth: true,
   structuredData,
   title: `${title} | ${SITE.title}`,
+  twitterImage,
 };
 
 const allPosts = posts.map(({ data: { title: postTitle }, id, filePath }) => ({

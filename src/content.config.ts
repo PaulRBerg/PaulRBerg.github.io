@@ -25,7 +25,8 @@ const blog = defineCollection({
       pubDatetime: z.coerce.date(),
       tags: z.array(z.string()).default(["others"]),
       timezone: z.string().optional(),
-      title: z.string()
+      title: z.string(),
+      twitterImage: publicOrRemoteImage.or(image()).optional()
     })
 });
 
