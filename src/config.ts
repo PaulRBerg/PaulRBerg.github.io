@@ -11,7 +11,7 @@ export const SITE = {
   lang: "en",
   lightAndDarkMode: true,
   ogImage: "",
-  postPerIndex: 4,
+  postPerIndex: 10,
   profile: "https://github.com/PaulRBerg",
   repo: "https://github.com/PaulRBerg/PaulRBerg.github.io",
   scheduledPostMargin: 15 * 60 * 1000,
