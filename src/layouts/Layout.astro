@@ -5,6 +5,7 @@ import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 import { ClientRouter } from "astro:transitions";
 import SearchDialog from "@/components/SearchDialog.astro";
 import { SITE } from "@/config";
+import { markdownURL, pageURL, serializeStructuredData, socialImageURL } from "@/utils/seo";
 import "@/styles/global.css";
 import "@pagefind/component-ui/css/pagefind-component-ui.css";
 import "@/styles/search.css";
@@ -18,6 +19,8 @@ interface Props {
   ogImageAlt?: string;
   twitterImage?: string;
   canonicalURL?: string | URL;
+  noindex?: boolean;
+  ogType?: "website" | "article";
   pubDatetime?: Date;
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
@@ -32,16 +35,18 @@ const {
   ogImageMetadata,
   ogImageAlt = title,
   twitterImage = ogImage,
-  canonicalURL = new URL(Astro.url.pathname, Astro.url),
+  canonicalURL,
+  noindex = false,
+  ogType = "website",
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
   structuredData,
 } = Astro.props;
 
-const canonicalHref = canonicalURL instanceof URL ? canonicalURL.toString() : canonicalURL;
-const socialImageURL = new URL(ogImage, Astro.url).toString();
-const twitterImageURL = new URL(twitterImage, Astro.url).toString();
+const canonicalHref = pageURL(Astro.url.pathname, canonicalURL);
+const imageURL = socialImageURL(ogImage);
+const twitterImageURL = socialImageURL(twitterImage);
 const imageFormat = ogImageMetadata?.format;
 let imageMimeType = imageFormat ? `image/${imageFormat}` : undefined;
 if (imageFormat === "jpg") {
@@ -58,6 +63,16 @@ if (imageFormat === "jpg") {
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalHref} />
+    <link rel="help" type="text/plain" href="/llms.txt" title="Site guide for language models" />
+    {!noindex && (
+      <link
+        rel="alternate"
+        type="text/markdown"
+        href={markdownURL(Astro.url.pathname)}
+        title="Markdown"
+      />
+    )}
+    {noindex && <meta name="robots" content="noindex,follow" />}
     <meta name="generator" content={Astro.generator} />
 
     <Font
@@ -71,10 +86,13 @@ if (imageFormat === "jpg") {
     <meta name="author" content={author} />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalHref} />
-    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image" content={imageURL} />
     <meta property="og:image:alt" content={ogImageAlt} />
     {ogImageMetadata && <meta property="og:image:width" content={String(ogImageMetadata.width)} />}
     {ogImageMetadata && (
@@ -85,6 +103,8 @@ if (imageFormat === "jpg") {
     {pubDatetime && <meta property="article:published_time" content={pubDatetime.toISOString()} />}
     {modDatetime && <meta property="article:modified_time" content={modDatetime.toISOString()} />}
 
+    <meta name="twitter:site" content="@PaulRBerg" />
+    <meta name="twitter:creator" content="@PaulRBerg" />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalHref} />
     <meta property="twitter:title" content={title} />
@@ -93,7 +113,11 @@ if (imageFormat === "jpg") {
     <meta property="twitter:image:alt" content={ogImageAlt} />
 
     {structuredData && (
-      <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+      <script
+        type="application/ld+json"
+        is:inline
+        set:html={serializeStructuredData(structuredData)}
+      />
     )}
 
     <link

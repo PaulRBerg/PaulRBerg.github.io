@@ -330,8 +330,8 @@ As a bonus, don't forget to take a look at the data platforms emerging in the bl
 
 I hope this writing served as a smooth introduction to Radical Markets and that you found Posner and
 Weyl's ideas thought-provoking, at worst. I also wrote a
-[follow-up article](https://prberg.com/2018/12/critique-radical-markets/) in which I expressed my
-concerns regarding Radical Markets.
+[follow-up article](/posts/2018/critique-radical-markets/) in which I expressed my concerns
+regarding Radical Markets.
 
 If you enjoyed what it was presented here, you may want to follow
 [@RadxChange](https://twitter.com/RadxChange) on Twitter and consider joining the RadicalXChange

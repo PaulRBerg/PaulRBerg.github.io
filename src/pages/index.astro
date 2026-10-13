@@ -7,6 +7,8 @@ import IconRss from "@tabler/icons/outline/rss.svg";
 import IconArrowRight from "@tabler/icons/outline/arrow-right.svg";
 import portrait from "@/assets/portrait.jpg";
 import { SITE } from "@/config";
+import { SOCIALS } from "@/constants";
+import { pageURL } from "@/utils/seo";
 import SiteShell from "@/layouts/SiteShell.astro";
 import { getVisibleBlogPosts } from "@/utils/blog";
 
@@ -19,21 +21,31 @@ const descriptionLinks = new Map([
   ["PRBMath", "https://github.com/PaulRBerg/prb-math"],
 ]);
 
+const personID = `${pageURL("/")}#person`;
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  author: {
-    "@type": "Person",
-    name: SITE.author,
-    url: SITE.profile,
-  },
-  description: SITE.desc,
-  name: SITE.title,
-  url: SITE.website,
+  "@graph": [
+    {
+      "@id": personID,
+      "@type": "Person",
+      alternateName: "PRB",
+      name: SITE.author,
+      sameAs: SOCIALS.filter(({ href }) => href.startsWith("https:")).map(({ href }) => href),
+      url: pageURL("/"),
+    },
+    {
+      "@id": `${pageURL("/")}#website`,
+      "@type": "WebSite",
+      author: { "@id": personID },
+      description: SITE.metadataDescription,
+      name: SITE.title,
+      url: pageURL("/"),
+    },
+  ],
 };
 ---
 
-<SiteShell structuredData={structuredData}>
+<SiteShell description={SITE.metadataDescription} structuredData={structuredData}>
   <main id="main-content" data-back-url="/" class="app-layout">
     <section id="hero" class="relative border-b border-border py-10 sm:py-14">
       <div

@@ -9,7 +9,10 @@ const posts = await getVisibleBlogPosts();
 const groupedPosts = groupBlogPostsByYearAndMonth(posts);
 ---
 
-<SiteShell title={`Posts | ${SITE.title}`}>
+<SiteShell
+  title={`Posts | ${SITE.title}`}
+  description="Essays by Paul Berg on software engineering, crypto, economics, philosophy, and books. Browse the complete blog archive."
+>
   <Main pageTitle="All Posts" pageDesc="Browse all blog posts by year and month.">
     {groupedPosts.map(({ year, months }) => <div>
       <span class="text-2xl font-bold">{year}</span>

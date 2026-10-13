@@ -19,7 +19,7 @@ faith that this article will be read and appreciated by someone, somewhere, some
 
 I'll further assume that you're familiar with the social reforms presented in
 [Radical Markets](http://radicalmarkets.com). If you're not, go check out my loose
-[introduction](https://prberg.com/2018/12/radical-markets/) to the book.
+[introduction](/posts/2018/radical-markets/) to the book.
 
 This article critically analyses the feasibility of implementing RM at scale. I grouped the analysis
 by chapters, but I entertained a few holistic observations at the beginning. Whatever the future
@@ -266,13 +266,13 @@ octopus can be dismembered.
    pouring capital in other startups if she's not an accredited investor.
 2. Although it's hard to hack Metcalfe's Law, how could we prevent giant tech corporations from
    accumulating more power? As mentioned in my introductory
-   [article](https://prberg.com/2018/12/radical-markets#data-as-labour) to RM, GAFA managed to
-   acquire fast growing contenders (e.g. Facebook buying rival app Instagram for \$1 billion).
-   Similar mergers and acquisitions are unequivocally prohibited in traditional industries, so how
-   should this situation be handled? Given the fact that Instagram actually became more fun thanks
-   to the integration with Facebook, should tech companies be exempted? Hard to tell. What we do
-   know is that we need more educated policymakers and more emphasis on technological literacy in
-   secondary and tertiary education.
+   [article](/posts/2018/radical-markets/#data-as-labour) to RM, GAFA managed to acquire fast
+   growing contenders (e.g. Facebook buying rival app Instagram for \$1 billion). Similar mergers
+   and acquisitions are unequivocally prohibited in traditional industries, so how should this
+   situation be handled? Given the fact that Instagram actually became more fun thanks to the
+   integration with Facebook, should tech companies be exempted? Hard to tell. What we do know is
+   that we need more educated policymakers and more emphasis on technological literacy in secondary
+   and tertiary education.
 
 ## Data as Labour
 

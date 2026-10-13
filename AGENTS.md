@@ -55,6 +55,28 @@ CI caches `node_modules/.astro` and both Slidev outputs. Run `bun run build:site
 building or restoring the decks. If deck inputs move outside `slides/`, update the presentation
 cache key in `.github/workflows/deploy.yml` to include them.
 
+## SEO and agent discovery
+
+Use `src/utils/seo.ts` for production canonical URLs, social image URLs, and safe JSON-LD
+serialization. Keep article canonical, Open Graph, and structured-data URLs identical. Preserve
+deliberate external canonical overrides. Give indexable pages descriptive titles and page-specific
+descriptions. Keep search, 404, and redirect pages out of the sitemap. Search and 404 pages use
+`noindex,follow`.
+
+`build:site` generates `/llms.txt` and directory `index.md` exports from rendered, indexable HTML.
+Keep Markdown alternate links aligned with these outputs. Exports require a canonical URL and
+`<main>` content. Presentation pages link to `/llms.txt` without advertising unavailable Markdown.
+Never export raw MDX, drafts, archived sources, or presentation notes. Preserve article metadata,
+absolute links, images, code whitespace, tables, and footnotes. Run
+`node --test src/utils/seo.test.ts src/utils/agentContent.test.ts` after changing this pipeline.
+Verify generated files with `just build` and a production preview, rather than the dev server.
+
+Keep robots crawling allowed and retain the sitemap directive. Content signals permit `search` and
+`ai-input`; leave `ai-train` unspecified unless Paul requests a training policy. GitHub Pages serves
+static Markdown files. Runtime `Accept: text/markdown` negotiation and custom HTTP `Link` headers
+require a hosting or proxy change. An `_headers` file or Astro endpoint response header cannot
+configure GitHub Pages response headers.
+
 ## Blog Link Previews
 
 Use `.mdx` for posts that import `src/components/LinkPreview.astro`. Render standalone links with

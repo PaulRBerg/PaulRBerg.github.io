@@ -54,7 +54,16 @@ export default defineConfig({
       useDarkModeMediaQuery: false
     }),
     mdx(),
-    sitemap()
+    sitemap({
+      filter: (page) =>
+        ![
+          "/search/",
+          "/404/",
+          "/404.html",
+          "/2018/12/radical-markets/",
+          "/2018/12/critique-radical-markets/"
+        ].includes(new URL(page).pathname)
+    })
   ],
   markdown: {
     processor: unified({
@@ -62,7 +71,12 @@ export default defineConfig({
       remarkPlugins: [remarkArticleImages]
     })
   },
+  redirects: {
+    "/2018/12/critique-radical-markets": "/posts/2018/critique-radical-markets/",
+    "/2018/12/radical-markets": "/posts/2018/radical-markets/"
+  },
   site: SITE.website,
+  trailingSlash: "always",
   vite: {
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"]

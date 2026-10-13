@@ -4,7 +4,11 @@ import Main from "@/layouts/Main.astro";
 import SiteShell from "@/layouts/SiteShell.astro";
 ---
 
-<SiteShell title={`Search | ${SITE.title}`}>
+<SiteShell
+  title={`Search | ${SITE.title}`}
+  description="Search Paul Berg’s articles and find matching sections in the blog archive."
+  noindex
+>
   <Main pageTitle="Search" pageDesc="Search articles and jump to matching sections.">
     <div id="pagefind-search" class="search-page" data-pagefind-ignore>
       <pagefind-config

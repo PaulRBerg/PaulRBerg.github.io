@@ -10,6 +10,8 @@ export const SITE = {
   },
   lang: "en",
   lightAndDarkMode: true,
+  metadataDescription:
+    "Paul Berg: software engineer, open-source developer, Sablier co-founder, and creator of PRBMath. Essays on technology, markets, and ideas.",
   ogImage: "",
   postPerIndex: 10,
   profile: "https://github.com/PaulRBerg",

@@ -36,8 +36,8 @@ understand stuff.
 
 Well, that didn't work as expected… because it's been 12 months and I'm still on the same learning
 curve! What I do know though is that I topped up my computer science game, went through a dozen
-white papers, got my feet wet with [economics](https://prberg.com/2018/12/radical-markets) by
-reading a few books and met a lot of insightful people I had great time with.
+white papers, got my feet wet with [economics](/posts/2018/radical-markets/) by reading a few books
+and met a lot of insightful people I had great time with.
 
 This had never happened before. I worked as an
 [mobile and backend freelance engineer](https://www.behance.net/PaulRBerg),
@@ -103,8 +103,7 @@ Keen to keep an eye on Radical Markets over the following years. Although I'm in
 its propositions— and I always aim to stay open-minded to new ideas — attaining the said goals in
 the book would require coordination of multiple actors and a lot of individuals willingly giving up
 a lot of financial power. Check out my
-[introduction to Radical Markets](https://prberg.com/2018/12/radical-markets) if this seems
-interesting to you.
+[introduction to Radical Markets](/posts/2018/radical-markets/) if this seems interesting to you.
 
 You might also want to take a look at:
 

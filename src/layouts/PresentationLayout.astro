@@ -26,8 +26,10 @@ const imageURL = new URL(slide.image, SITE.website).toString();
     <meta name="description" content={slide.description} />
     <meta name="author" content={SITE.author} />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="help" type="text/plain" href="/llms.txt" title="Site guide for language models" />
     <link rel="icon" href={slide.favicon} />
     <link rel="stylesheet" href={slide.theme === "serif" ? serifTheme : whiteTheme} />
+    <meta property="og:type" content="website" />
     <meta property="og:title" content={slide.title} />
     <meta property="og:description" content={slide.description} />
     <meta property="og:url" content={canonicalURL} />

@@ -4,7 +4,7 @@ import { SITE } from "@/config";
 import SiteShell from "@/layouts/SiteShell.astro";
 ---
 
-<SiteShell title={`404 Not Found | ${SITE.title}`}>
+<SiteShell title={`404 Not Found | ${SITE.title}`} noindex>
   <main id="main-content" class="app-layout flex flex-1 items-center justify-center">
     <div class="mb-14 flex flex-col items-center justify-center">
       <h1 class="text-9xl font-bold text-accent">404</h1>

@@ -1,5 +1,8 @@
 ---
 layout: ../layouts/AboutLayout.astro
+description:
+  "Paul Berg’s interests, favorite thinkers, and books on knowledge, progress, markets, evolution,
+  risk, and technology."
 title: "About"
 ---
 

@@ -12,6 +12,7 @@ import IconChevronLeft from "@tabler/icons/outline/chevron-left.svg";
 import IconChevronRight from "@tabler/icons/outline/chevron-right.svg";
 import { SITE } from "@/config";
 import SiteShell from "@/layouts/SiteShell.astro";
+import { pageURL, socialImageURL } from "@/utils/seo";
 import { getPath } from "@/utils/getPath";
 import { getPostTransitionName, getReadingTime } from "@/utils/postPresentation";
 import "@/styles/article.css";
@@ -53,15 +54,13 @@ if (!ogImageUrl && SITE.dynamicOgImage) {
   ogImageUrl = `${getPath(post.id, post.filePath)}/index.png`;
 }
 
-const ogImage = ogImageUrl ? new URL(ogImageUrl, Astro.url.origin).href : undefined;
+const ogImage = ogImageUrl ? socialImageURL(ogImageUrl) : undefined;
 const twitterImage =
   typeof initialTwitterImage === "string" ? initialTwitterImage : initialTwitterImage?.src;
-const pageURL = new URL(
-  canonicalURL ?? getPath(post.id, post.filePath),
-  Astro.site ?? Astro.url.origin,
-).toString();
+const canonicalHref = pageURL(getPath(post.id, post.filePath), canonicalURL);
 const structuredData = {
   "@context": "https://schema.org",
+  "@id": canonicalHref,
   "@type": "BlogPosting",
   author: [
     {
@@ -74,19 +73,21 @@ const structuredData = {
   description,
   headline: title,
   keywords: tags,
-  mainEntityOfPage: pageURL,
+  mainEntityOfPage: canonicalHref,
+  url: canonicalHref,
   ...(modDatetime && { dateModified: modDatetime.toISOString() }),
   ...(ogImage && { image: ogImage }),
 };
 
 const layoutProps = {
   author,
-  canonicalURL,
+  canonicalURL: canonicalHref,
   description,
   modDatetime,
   ogImage,
   ogImageAlt: title,
   ogImageMetadata: typeof initialOgImage === "object" ? initialOgImage : undefined,
+  ogType: "article" as const,
   pubDatetime,
   scrollSmooth: true,
   structuredData,
