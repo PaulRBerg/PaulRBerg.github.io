@@ -36,8 +36,31 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
-      - name: Build site and presentations
-        run: bun run build
+      - name: Cache Astro assets
+        uses: actions/cache@v6
+        with:
+          path: node_modules/.astro
+          # Astro hashes individual images; reuse unchanged assets across commits.
+          key: ${{ runner.os }}-${{ runner.arch }}-astro-v1-${{ hashFiles('bun.lock', 'astro.config.mts') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-${{ runner.arch }}-astro-v1-${{ hashFiles('bun.lock', 'astro.config.mts') }}-
+
+      - name: Cache presentations
+        id: presentations
+        uses: actions/cache@v6
+        with:
+          path: |
+            public/presentations/cce-2026
+            public/presentations/frontiers-2026
+          # Only an exact match can skip the build; include sources, assets and toolchain.
+          key: ${{ runner.os }}-${{ runner.arch }}-slides-v1-${{ hashFiles('slides/**', 'bun.lock', 'package.json', 'tsconfig.json', '.github/workflows/deploy.yml') }}
+
+      - name: Build presentations
+        if: steps.presentations.outputs.cache-hit != 'true'
+        run: bun run build:slides
+
+      - name: Build site and search index
+        run: bun run build:site
 
       - name: Disable Jekyll
         run: touch dist/.nojekyll

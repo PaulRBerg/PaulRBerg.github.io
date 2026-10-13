@@ -43,6 +43,10 @@ Use Conventional Commits with per-deck scopes such as `feat(cce-2026): ...` and
 `.nojekyll` to GitHub Pages. Keep `public/CNAME` set to `prberg.com`. Keep `.ai/`, generated output,
 and secret files out of Git and published assets.
 
+CI caches `node_modules/.astro` and both Slidev outputs. Run `bun run build:site` only after
+building or restoring the decks. If deck inputs move outside `slides/`, update the presentation
+cache key in `.github/workflows/deploy.yml` to include them.
+
 ## Blog Link Previews
 
 Use `.mdx` for posts that import `src/components/LinkPreview.astro`. Render standalone links with

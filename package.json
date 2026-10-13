@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "bun run build:slides && astro dev",
-    "build": "bun run build:slides && astro build && pagefind --site dist && mkdir -p public && rm -rf public/pagefind && cp -r dist/pagefind public/pagefind",
+    "build": "bun run build:slides && bun run build:site",
+    "build:site": "astro build && pagefind --site dist && mkdir -p public && rm -rf public/pagefind && cp -r dist/pagefind public/pagefind",
     "build:slides": "rm -rf public/presentations/cce-2026 public/presentations/frontiers-2026 && slidev build slides/cce-2026/slides.md --base /presentations/cce-2026/ --out ../../public/presentations/cce-2026 && slidev build slides/frontiers-2026/slides.md --base /presentations/frontiers-2026/ --out ../../public/presentations/frontiers-2026",
     "preview": "astro preview",
     "astro": "astro"

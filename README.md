@@ -15,8 +15,9 @@ Run `bun install --frozen-lockfile` from the repository root. Use `just dev` for
 
 Push to `main` to deploy through
 [GitHub Pages](https://github.com/PaulRBerg/PaulRBerg.github.io/actions/workflows/deploy.yml). The
-workflow builds both Slidev decks, the Astro site, and the Pagefind search index. `public/CNAME`
-preserves the custom domain, and the Pages artifact includes `.nojekyll`.
+workflow caches Astro assets and both Slidev decks. It rebuilds the decks when their sources or
+build configuration change, and rebuilds the Astro site and Pagefind search index on every run.
+`public/CNAME` preserves the custom domain, and the Pages artifact includes `.nojekyll`.
 
 ## Reading experience
 
