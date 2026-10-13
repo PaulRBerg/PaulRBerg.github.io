@@ -1,0 +1,7 @@
+[mcp_servers.analytics]
+command = "/opt/homebrew/bin/pipx"
+args = ["run", "analytics-mcp"]
+startup_timeout_sec = 120
+
+[mcp_servers.analytics.env]
+GOOGLE_APPLICATION_CREDENTIALS = "/Users/prb/.config/gcloud/application_default_credentials.json"

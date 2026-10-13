@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "analytics": {
+      "type": "stdio",
+      "command": "/opt/homebrew/bin/pipx",
+      "args": ["run", "analytics-mcp"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "/Users/prb/.config/gcloud/application_default_credentials.json"
+      }
+    }
+  }
+}
