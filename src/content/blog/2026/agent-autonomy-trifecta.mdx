@@ -3,8 +3,8 @@ title: "The Agent Autonomy Trifecta, or How to Build AI Agents That Need Less Ba
 description:
   "My setup for AI agents that retain knowledge, improve their own workflows, and work in parallel
   without overwriting each other's work"
-ogImage: "../../../assets/posts/2026/autonomy-trifecta/social-v2/og.jpg"
-twitterImage: "../../../assets/posts/2026/autonomy-trifecta/social-v2/x-card.jpg"
+ogImage: "../../../assets/posts/2026/agent-autonomy-trifecta/social-v2/og.jpg"
+twitterImage: "../../../assets/posts/2026/agent-autonomy-trifecta/social-v2/x-card.jpg"
 pubDatetime: 2026-10-13T10:14:22Z
 tags:
   - "ai"
@@ -14,10 +14,10 @@ tags:
 ---
 
 import LinkPreview from "@/components/LinkPreview.astro";
-import autonomyTrifectaPreview from "@/assets/link-previews/autonomy-trifecta.png";
+import agentAutonomyTrifectaPreview from "@/assets/link-previews/agent-autonomy-trifecta.png";
 import agentSkillsPreview from "@/assets/link-previews/agent-skills.png";
 
-![Memory, self-improvement, and coordination connected as the three parts of an autonomous agent system](../../../assets/posts/2026/autonomy-trifecta/cover.jpg)
+![Memory, self-improvement, and coordination connected as the three parts of an autonomous agent system](../../../assets/posts/2026/agent-autonomy-trifecta/cover.jpg)
 
 The power of agentic engineering dawned on me in June 2025. I was immediately hooked. A few months
 later, I was spending all day in Claude Code, and then Codex.
@@ -37,7 +37,7 @@ trifecta:
 
 <LinkPreview
   href="https://github.com/PaulRBerg/autonomy-trifecta"
-  image={autonomyTrifectaPreview.src}
+  image={agentAutonomyTrifectaPreview.src}
 />
 
 ## The Trifecta
@@ -72,7 +72,7 @@ with things that should not be in version control, including auth tokens and the
 
 ## Property 1: Persistent Memory
 
-![Property 1: Persistent Memory. A version-controlled library of AGENTS.md rules and task-specific skills carries knowledge from one session into later sessions](../../../assets/posts/2026/autonomy-trifecta/property-1-memory.webp)
+![Property 1: Persistent Memory. A version-controlled library of AGENTS.md rules and task-specific skills carries knowledge from one session into later sessions](../../../assets/posts/2026/agent-autonomy-trifecta/property-1-memory.webp)
 
 ### Primacy of Agent Skills
 
@@ -146,7 +146,7 @@ As you can see, `AGENTS.md` files are about **constraints** and **always-on rule
 very nature, are probabilistic. `AGENTS.md` is how we turn that probabilistic haze into
 deterministic output.
 
-![Agent outputs pass through lint, test, and rule checks specified in AGENTS.md; failed outputs return for revision](../../../assets/posts/2026/autonomy-trifecta/agents-md-constraints.webp)
+![Agent outputs pass through lint, test, and rule checks specified in AGENTS.md; failed outputs return for revision](../../../assets/posts/2026/agent-autonomy-trifecta/agents-md-constraints.webp)
 
 ### Choose Your Own Adventure
 
@@ -188,7 +188,7 @@ You create a skill when you notice yourself typing the same prompt again and aga
 
 ## Property 2: Reflexivity (or Recursive Self-Improvement)
 
-![Property 2: Reflexivity. Use memory, do work, find a gap, improve the skill, and reuse the updated memory in a continuous feedback loop](../../../assets/posts/2026/autonomy-trifecta/reflexivity.webp)
+![Property 2: Reflexivity. Use memory, do work, find a gap, improve the skill, and reuse the updated memory in a continuous feedback loop](../../../assets/posts/2026/agent-autonomy-trifecta/reflexivity.webp)
 
 We have our agent skills library properly set up, and a neat collection of constraints and rules
 written in `AGENTS.md` files. What's next?
@@ -242,14 +242,14 @@ to discover errors in your code base/project files. Why not fix them on the spot
 
 ## Property 3: Scalable Parallelization
 
-![Property 3: Scalable Parallelization. Agents A and B work on separate src and docs scopes in one repository, while agent C waits for access to the src files](../../../assets/posts/2026/autonomy-trifecta/property-3-parallelization.webp)
+![Property 3: Scalable Parallelization. Agents A and B work on separate src and docs scopes in one repository, while agent C waits for access to the src files](../../../assets/posts/2026/agent-autonomy-trifecta/property-3-parallelization.webp)
 
 _This is one of the more advanced workflows. If you run only one agent at a time, you can skip
 this._
 
 I run multiple agents in parallel, often on the same repo. I do this using iTerm split panes:
 
-![Multiple coding agents running in parallel in iTerm split panes](../../../assets/posts/2026/autonomy-trifecta/iterm-panes.gif)
+![Multiple coding agents running in parallel in iTerm split panes](../../../assets/posts/2026/agent-autonomy-trifecta/iterm-panes.gif)
 
 I like split panes a lot. It's easy to spawn a new pane using CMD+D, and then close one using CMD+W.
 I find it a whole lot easier than using terminal multiplexers like `tmux` or
@@ -287,7 +287,7 @@ use every day. Here's how it works:
 
 And I monitor their coordination via a localhost dashboard UI:
 
-![The ai-coord dashboard for monitoring agent coordination](../../../assets/posts/2026/autonomy-trifecta/ai-coord-dashboard.jpg)
+![The ai-coord dashboard for monitoring agent coordination](../../../assets/posts/2026/agent-autonomy-trifecta/ai-coord-dashboard.jpg)
 
 You can think of `ai-coord` as a 'traffic control' system, or a 'semaphore'. Agents are constrained
 to wait for other agents, just like drivers in traffic wait for other drivers ahead of them, obey
