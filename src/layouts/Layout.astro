@@ -88,7 +88,7 @@ const socialImageURL = new URL(ogImage, Astro.url).toString();
     )}
 
     <ClientRouter />
-
+    <script is:inline src="/scripts/analytics.js" defer></script>
     <script is:inline>
       (() => {
         let themeValue = window.matchMedia("(prefers-color-scheme: dark)").matches
