@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist", "public/pagefind", "public/presentations", "reveal-js", "slides"],
+  "exclude": ["**/dist", "public/pagefind", "public/presentations", "reveal-js", "slides"],
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"]
