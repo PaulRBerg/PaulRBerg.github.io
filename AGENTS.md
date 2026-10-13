@@ -27,6 +27,11 @@ prose, which breaks the decks. Preserve `slides/cce-2026/NOTES.md` verbatim. Lea
 `reveal-js/` submodule and `.gitmodules` untouched. Exclude that submodule from formatters, lint,
 type checks, and builds.
 
+## AI-generated images
+
+For every image generated with `$imagegen` or an analogous AI image skill, include the X logo and
+`@PaulRBerg` in the bottom-right corner.
+
 ## Speaking
 
 Keep `src/pages/speaking.md` sections in this order: Podcasts, Talks, Slides. Read
