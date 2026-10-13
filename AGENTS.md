@@ -63,7 +63,12 @@ parsing or fetching.
 
 Use `paul.razvan.berg@gmail.com` and Cloud project `cli-paul-razvan-berg` for the `analytics` MCP
 server. The site's GA4 property is `400647317` (`@PaulRBerg`), with a web stream for
-`https://prberg.com`.
+`https://prberg.com` and measurement ID `G-TJ49HZ4TM9`.
+
+Keep tracking restricted to `prberg.com` and `www.prberg.com` in `public/scripts/analytics.js`. The
+stream's enhanced measurement tracks browser history changes, including Astro navigation. Do not add
+manual pageview events while this setting is enabled. Include the shared script in new presentation
+entrypoints.
 
 Keep the OAuth client JSON and Application Default Credentials outside Git. To reauthenticate, run
 the command below. Include the identity scopes so `gcloud` can validate the selected account.
