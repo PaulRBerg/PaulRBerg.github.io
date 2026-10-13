@@ -14,6 +14,11 @@ const posts = await getVisibleBlogPosts();
 const featuredPosts = posts.filter(({ data }) => data.featured);
 const recentPosts = posts.filter(({ data }) => !data.featured);
 
+const descriptionLinks = new Map([
+  ["Sablier", "https://sablier.com"],
+  ["PRBMath", "https://github.com/PaulRBerg/prb-math"],
+]);
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -88,7 +93,14 @@ const structuredData = {
           </div>
 
           <p class="mt-4 max-w-2xl text-base leading-8 text-foreground/80 sm:text-lg">
-            {SITE.desc}
+            {SITE.desc.split(/(Sablier|PRBMath)/).map((text) => {
+              const href = descriptionLinks.get(text);
+              return href ? (
+                <a href={href} class="underline underline-offset-4 hover:text-accent">{text}</a>
+              ) : (
+                text
+              );
+            })}
           </p>
 
           <Socials
