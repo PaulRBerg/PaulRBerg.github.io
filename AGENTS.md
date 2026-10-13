@@ -58,3 +58,18 @@ Use `.mdx` for posts that import `src/components/LinkPreview.astro`. Render stan
 `<LinkPreview href="https://example.com" />`. Metadata is fetched at build time. Unavailable pages
 fall back to ordinary links. Run `node --test src/utils/linkPreview.test.ts` after changing metadata
 parsing or fetching.
+
+## Google Analytics
+
+Use `paul.razvan.berg@gmail.com` and Cloud project `cli-paul-razvan-berg` for the `analytics` MCP
+server. The site's GA4 property is `400647317` (`@PaulRBerg`), with a web stream for
+`https://prberg.com`.
+
+Keep the OAuth client JSON and Application Default Credentials outside Git. To reauthenticate, run
+the command below. Include the identity scopes so `gcloud` can validate the selected account.
+
+```sh
+gcloud auth application-default login paul.razvan.berg@gmail.com \
+  --client-id-file="$HOME/.config/gcloud/analytics-mcp-client.json" \
+  --scopes=openid,https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/analytics.readonly,https://www.googleapis.com/auth/cloud-platform
+```
