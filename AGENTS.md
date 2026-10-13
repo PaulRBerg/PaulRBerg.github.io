@@ -32,6 +32,9 @@ type checks, and builds.
 For every image generated with `$imagegen` or an analogous AI image skill, include the X logo and
 `@PaulRBerg` in the bottom-right corner.
 
+For blog social previews, use 1200 × 630 images with inset text and branding. Verify that a centered
+16:9 crop preserves all content before publishing.
+
 ## Speaking
 
 Keep `src/pages/speaking.md` sections in this order: Podcasts, Talks, Slides. Read
