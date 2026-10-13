@@ -57,9 +57,13 @@ export const groupBlogPostsByYearAndMonth = (posts: BlogEntry[]) => {
   for (const post of posts.toSorted(
     (a, b) => getPublishedTimestamp(b) - getPublishedTimestamp(a)
   )) {
-    const publishedDate = new Date(post.data.pubDatetime);
-    const year = publishedDate.getFullYear();
-    const month = publishedDate.getMonth();
+    const publishedDate = new Intl.DateTimeFormat("en-US", {
+      month: "numeric",
+      timeZone: post.data.timezone ?? SITE.timezone,
+      year: "numeric"
+    }).formatToParts(post.data.pubDatetime);
+    const year = Number(publishedDate.find((part) => part.type === "year")?.value);
+    const month = Number(publishedDate.find((part) => part.type === "month")?.value) - 1;
     const yearGroup = groupedPosts.get(year) ?? new Map<number, BlogEntry[]>();
     const monthGroup = yearGroup.get(month) ?? [];
 

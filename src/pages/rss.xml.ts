@@ -10,7 +10,7 @@ export const GET = async () => {
     items: posts.map(({ data, id, filePath }) => ({
       description: data.description,
       link: getPath(id, filePath),
-      pubDate: new Date(data.modDatetime ?? data.pubDatetime),
+      pubDate: data.pubDatetime,
       title: data.title
     })),
     site: SITE.website,
