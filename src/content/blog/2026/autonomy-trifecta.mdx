@@ -21,23 +21,23 @@ The power of agentic engineering dawned on me in June 2025. I was immediately ho
 later, I was spending all day in Claude Code, and then Codex.
 
 I've spent copious amounts of time (to the point of developing a slight addiction) refining my AI
-agents in order to extract maximum productivity out of this wonderful technology. I think others
-will find my learnings useful.
+agents to get maximum productivity out of this wonderful technology. I think others will find my
+learnings useful.
 
 This article is aimed at software engineers and technical operators. I've strived to write it in a
-timeless manner, focusing less so on specific harness features (or lack thereof), and more so on
-generic principles on how to build a modern, autonomous agentic stack.
+timeless way, focusing less on specific harness features (or lack thereof) and more on general
+principles for building a modern, autonomous agentic stack.
 
 ## TL;DR
 
-Ask your agent to install this skill - it will review your agent setup and make it compliant with
+Ask your agent to install this skill — it will review your agent setup and install
 the autonomy trifecta:
 
 <LinkPreview href="https://github.com/PaulRBerg/autonomy-trifecta" />
 
 ## The Trifecta
 
-An autonomous AI agents system is one with three properties:
+An autonomous AI agent system is one with three properties:
 
 1. **Persistent Memory**: version-controlled library of reusable skills and `AGENTS.md` files
 2. **Reflexivity**: recursive self-improvement over those memory files
@@ -48,7 +48,7 @@ I'll go through each of those properties, but first, a few words about the harne
 ## Know Thy Harness
 
 I use [Codex CLI](https://learn.chatgpt.com/docs/codex/cli) and
-[Claude Code](https://claude.com/product/claude-code), and occasionally when I dabble with other
+[Claude Code](https://claude.com/product/claude-code), and occasionally, when I dabble with other
 models, I spin up [Oh My Pi](https://github.com/can1357/oh-my-pi). These harnesses load their
 configs from `.agents/`, `.codex/`, and `.claude/`, but your harness may use a different folder.
 
@@ -79,21 +79,21 @@ with things that should not be in version control, including auth tokens and the
 'Specialized' is the key term.
 
 Skills give us leverage. They act as a force multiplier by not clogging up the context window of
-your LLM (200k tokens, 1M tokens, etc.). Knowledge is chopped up, packaged it up, and used on the
-fly (according to the task at hand).
+your LLM (200k, 1M tokens, etc.). Knowledge is chopped up, packaged up, and used on the fly
+(according to the task at hand).
 
-To make the most out of agent skills, you need to keep track of them; to treat them as your digital
+To make the most of agent skills, you need to keep track of them and treat them as your digital
 bonsai trees — which have to be groomed and pruned with care!
 
-This is the single, most important thing you can do right now: set up **your own AI agent skills
+This is the single most important thing you can do right now: set up **your own AI agent skills
 library**. Mine is at:
 
 <LinkPreview href="https://github.com/PaulRBerg/agent-skills" image={agentSkillsPreview.src} />
 
-Whether you create this library as a separate repo (as I did) or you embed the skills within an
-`~/.agents` or `~/.claude` repo, that is an implementation detail. The point is, you should have a
-place where your AI agent skills are stored. Think of these skills as crystallized knowledge, which
-are easy to reuse, and which (very importantly) your agents don't have to re-discover on-the-fly.
+Whether you create this library as a separate repo (as I did) or you embed the skills within a
+`~/.agents` or `~/.claude`, that is an implementation detail. The point is, you should have a
+place where your AI agent skills are stored. Think of these skills as crystallized knowledge — knowledge that is
+easily reusable and (very importantly) that your agents don't have to rediscover on the fly.
 
 You should use version control (e.g., git) for this library of skills. That's super important, as
 you will see later on in the _Reflexivity_ section.
@@ -103,15 +103,15 @@ you will see later on in the _Reflexivity_ section.
 Every team/organization should have its bespoke `<ORG-NAME>/agent-skills` repository, and all
 employees should install it and make continuous improvements to it.
 
-And of course, you should split your personal skill library from your company's.
+And of course, you should keep your personal skill library separate from your company's.
 
 #### Per-Project Skills
 
-It's up to you to decide whether a skill goes into a global library (personal or organization), or a
-relative `.agents/skills` folder in a specific project/repo.
+It's up to you to decide whether a skill goes into a global library (personal or organizational), or
+a relative `.agents/skills` folder in a specific project/repo.
 
 You could, in principle, ask your agents to figure that out for you, but it's the kind of thing that
-can derail into slop.
+can devolve into slop.
 
 Plus, knowing what skills to use and in which context is basically our job now, as human operators.
 Language models have got intelligent enough that they activate skills in the right context, but if
@@ -155,7 +155,7 @@ rendering library to enforce certain construction invariants, such as adhering t
 regulations. These rules are embedded in the `AGENTS.md` file of each repo.
 
 Globally, I enforce things like git commit management, e.g., I want my agents to commit as soon as
-they complete a task, and also to push it to remote. You might not want it to work like this,
+they complete a task, and also to push to the remote. You might not want it to work like this,
 though. And that's fine!
 
 Other people do other things. For example, Uncle Bob runs a
@@ -163,7 +163,7 @@ Other people do other things. For example, Uncle Bob runs a
 
 ### Who Writes My Skills and AGENTS.md Files?
 
-I used to author them by hand. Not anymore. Language models have got sufficiently intelligent (e.g.
+I used to author them by hand. Not anymore. Language models have got sufficiently intelligent (e.g.,
 Claude Fable, GPT-6, etc.) that they can write these themselves. You just have to prompt them into
 existence[^1] by giving detailed instructions.
 
@@ -192,11 +192,11 @@ Example:
 We have our agent skills library properly set up, and a neat collection of constraints and rules
 written in `AGENTS.md` files. What's next?
 
-Enter the principle of reflexivity: we instruct our AI agents to recursively maintain and
-self-improve our agent skills library as they work on various projects on our computer.
+Enter the principle of reflexivity: we instruct our AI agents to recursively maintain and improve
+our agent skills library as they work on various projects on our computer.
 
-This can be accomplished in a variety of ways. The way I do it is that I have instructions like this
-in my global `~/.agents/AGENTS.md` file:
+This can be accomplished in a variety of ways. I do it by putting instructions like this in my
+global `~/.agents/AGENTS.md` file:
 
 ```markdown
 If using one of my personal skills reveals a problem below, make the smallest durable improvement to
@@ -234,7 +234,7 @@ Again, sharing the rule from my global `AGENTS.md`:
 You can apply the principle of recursive self-improvement to any files that are of interest to you:
 diagrams, documentation files, or whatever.
 
-Think of it like this - every interaction with an AI agent running on your machine is an opportunity
+Think of it like this — every interaction with an AI agent running on your machine is an opportunity
 to discover errors in your code base/project files. Why not fix them on the spot?
 
 ## Property 3: Scalable Parallelization
@@ -253,7 +253,7 @@ I find it a whole lot easier than using terminal multiplexers like `tmux` or
 [`zellij`](https://github.com/zellij-org/zellij).
 
 At any rate. If you run agents in parallel, you surely have faced the problem of agents stepping on
-each other's toes. That is, agent B discarding agent's A work.
+each other's toes. That is, agent B discarding agent A's work.
 
 ### Git Worktrees Suck
 
@@ -272,11 +272,11 @@ worktrees?
 
 I came up with this idea for a
 ['coordination' CLI](https://github.com/PaulRBerg/agent-skills/tree/main/toolkit/coord), which I now
-use everyday. Here's how it works:
+use every day. Here's how it works:
 
-- Agent give themselves names
-- Agents notify other agents what specific files/folders they will be working on (not necessarily
-  within the same repo; they have autonomy on my machine)
+- Agents give themselves names
+- Agents notify other agents about the specific files/folders they will be working on (not
+  necessarily within the same repo; they have autonomy on my machine)
 - If another agent is already working on some or all those files, the original agent is informed
   about it, and they will start waiting to obtain ownership
 - Agents give themselves funny names and have the ability to message each other (this is just for
@@ -287,23 +287,23 @@ And I monitor their coordination via a localhost dashboard UI:
 ![The ai-coord dashboard for monitoring agent coordination](../../../assets/posts/2026/autonomy-trifecta/ai-coord-dashboard.jpg)
 
 You can think of `ai-coord` as a 'traffic control' system, or a 'semaphore'. Agents are constrained
-to await other agents, just like drivers in traffic await other drivers ahead of them, follow
+to wait for other agents, just like drivers in traffic wait for other drivers ahead of them, obey
 traffic lights, and so on.
 
 ## Access Control
 
 A note on access control — I run my agents in YOLO mode.
 
-Apart for some commands and paths they are blocked from accessing (the exact rules are
-harness-dependent and hence outside the scope of this article), my agents can read or write to any
-folder on this machine. They can also make network requests and otherwise access the Internet
+Apart from some commands and paths they are blocked from accessing (the exact rules are
+harness-dependent and hence outside the scope of this article), my agents can read from or write to
+any folder on this machine. They can also make network requests and otherwise access the Internet
 freely.
 
 You might not be in a position to grant so much freedom to your agents. Your company may require
 stricter controls, or you may be more risk-averse.
 
 But that's fine. The autonomy trifecta can be implemented in an agentic setup with more granular
-access controls (see
+access controls (see the
 [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege)). It does
 take more time to do it, though, and your agents' performance[^2] might be affected as a result.
 
@@ -316,9 +316,9 @@ Projects my agents are working on:
 - Monitoring my investment portfolio
 - 3D modeling a house, in Blender
 - Searching my email history
-- Email drafting (using [`gws`](https://github.com/googleworkspace/cli) CLI)
-- Selling on Ebay and Vinted (I paste an image of a product into a chat, the AI figures out the
-  pricing, and posts the ad)
+- Email drafting (using the [`gws`](https://github.com/googleworkspace/cli) CLI)
+- Selling on Ebay and Vinted (I paste an image of a product into a chat, and the AI figures out the
+  pricing and posts the ad)
 
 And I could go on and on. I haven't written a single line of code in any of the projects mentioned
 above.
@@ -328,10 +328,12 @@ above.
 For a long time, I've thought that a hallmark of a good code base is that it's easy to make changes
 and add new features. Or, more poetically, a code base is good **if and only if** it is metamorphic.
 
-I think that that principle has always stood true. But now, in the age of agentic engineering, it's
-truer than ever — since changes/features can be implemented faster than ever.
+I think that principle has always held true. But now, in the age of agentic engineering, it's truer
+than ever — since changes/features can be implemented faster than ever.
 
 Thanks for reading. If you find this helpful, please share it on social!
+
+If you'd like to book me to review your business workflows and automate them, reach out via email.
 
 ## References
 
@@ -340,10 +342,10 @@ Thanks for reading. If you find this helpful, please share it on social!
 - [Dot Claude](https://github.com/PaulRBerg/dot-claude): my Claude Code config
 
 [^1]:
-    The skeptical among you might retort by pointing "but then, what's the point of skills? If
-    agents do it anyway, why not let agents figure it out on the fly?" The answer is simple: more
-    leverage. Explaining what a skill should do takes time, and multiple prompts. Afterward,
-    invoking a skill is simple. It's a few words!
+    The skeptical among you might retort by saying, "but then, what's the point of skills? If agents
+    do it anyway, why not let agents figure it out on the fly?" The answer is simple: more leverage.
+    Explaining what a skill should do takes time and multiple prompts. Afterward, invoking a skill
+    is simple. It's a few words!
 
 [^2]:
     The performance of your agents also depends on how much access they have to your data, the
