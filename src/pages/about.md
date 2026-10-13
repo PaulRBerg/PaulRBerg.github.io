@@ -29,12 +29,12 @@ I’m a generalist and an aspiring polymath. Here’s the stuff I enjoy reading 
 - Karl Popper
 - Naval Ravikant
 - Charles Darwin
-- Friedrich Hayek
-- Nassim Taleb
 - Richard Dawkins
 - Gad Saad
 - Bryan Johnson
 - Vitalik Buterin
+- Friedrich Hayek
+- Nassim Taleb
 
 ## Favorite Books
 

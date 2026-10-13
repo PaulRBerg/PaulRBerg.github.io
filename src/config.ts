@@ -1,6 +1,6 @@
 export const SITE = {
   author: "Paul Berg",
-  desc: "I'm a software engineer and open-source developer with 12+ years of experience, now on sabbatical and dabbling with AI agents. I co-founded Sablier, a VC-backed crypto payments startup, and ran it from 2022 to 2026. I also created PRBMath, the most popular fixed-point math library in Solidity.",
+  desc: "I'm a software engineer and open-source developer with 12+ years of experience, now on sabbatical. I co-founded Sablier, a VC-backed crypto payments startup, and ran it from 2022 to 2026. I also created PRBMath, the most popular fixed-point math library in Solidity.",
   dir: "ltr",
   dynamicOgImage: true,
   editPost: {
