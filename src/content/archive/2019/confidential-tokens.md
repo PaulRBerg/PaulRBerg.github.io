@@ -1,7 +1,7 @@
 ---
 title: "How to Code Your Own Confidential Token on Ethereum"
 description: "Step-by-step tutorial on how to develop your own confidential token with AZTEC"
-ogImage: "../../../assets/posts/confidential-tokens/preview.jpg"
+ogImage: "../../../assets/posts/2019/confidential-tokens/preview.jpg"
 pubDatetime: 2019-02-15T19:30:41Z
 tags:
   - "ethereum"
@@ -11,7 +11,7 @@ tags:
   - "aztec"
 ---
 
-![Cover](../../../assets/posts/confidential-tokens/cover.jpg)
+![Cover](../../../assets/posts/2019/confidential-tokens/cover.jpg)
 
 ## Context
 
@@ -60,7 +60,7 @@ The stock picture below represents my (silly) attempt to portray the idea of fad
 crystal clear what's going on in the normal environment (Ethereum), but the state of the world after
 one crosses the arch is fuzzy and concealed by the forest (AZTEC).
 
-![Forest](../../../assets/posts/confidential-tokens/forest.jpg)
+![Forest](../../../assets/posts/2019/confidential-tokens/forest.jpg)
 
 ### Notes
 
@@ -73,7 +73,7 @@ confidential token standard. The former stores a [mapping between Ethereum addre
 balances][stackexchange-onchain-balance]. The latter does encrypt the balances. I like to compare
 AZTEC notes with **Bitcoin UTXOs**, as the process of spending notes on AZTEC is very much similar.
 
-![Note Validation](../../../assets/posts/confidential-tokens/note-validation.jpg)
+![Note Validation](../../../assets/posts/2019/confidential-tokens/note-validation.jpg)
 
 The contents of a note, classified by their visibility:
 
@@ -125,7 +125,7 @@ Environment variables:
 
 Now, check that your project looks like this:
 
-![Project Files](../../../assets/posts/confidential-tokens/project-files.png)
+![Project Files](../../../assets/posts/2019/confidential-tokens/project-files.png)
 
 Run the demo:
 
@@ -274,7 +274,7 @@ transferred. However, the second transaction is fully confidential.
 
 Here's a mindmap for what we just did:
 
-![Mind Map](../../../assets/posts/confidential-tokens/mindmap.png)
+![Mind Map](../../../assets/posts/2019/confidential-tokens/mindmap.png)
 
 ## Caveats
 

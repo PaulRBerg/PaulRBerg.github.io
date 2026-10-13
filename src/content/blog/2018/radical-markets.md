@@ -1,14 +1,14 @@
 ---
 title: "Intro to Radical Markets"
 description: "Straightforward presentation of the policies proposed in Radical Markets"
-ogImage: "../../../assets/posts/intro-to-radical-markets/preview.jpg"
+ogImage: "../../../assets/posts/2018/intro-to-radical-markets/preview.jpg"
 pubDatetime: 2018-12-24T00:19:11Z
 tags:
   - "blockchain"
   - "economics"
 ---
 
-![Radical Markets Cover](../../../assets/posts/intro-to-radical-markets/radical-markets.jpg)
+![Radical Markets Cover](../../../assets/posts/2018/intro-to-radical-markets/radical-markets.jpg)
 
 ## Context
 
@@ -44,7 +44,7 @@ The book is split into five main chapters, each showcasing a radical approach. L
 
 ## Common Ownership Self-Assessed Tax (COST)
 
-![Property is Monopoly](../../../assets/posts/intro-to-radical-markets/property-is-monopoly.png)
+![Property is Monopoly](../../../assets/posts/2018/intro-to-radical-markets/property-is-monopoly.png)
 
 The first chapter is all about re-imagining private property. It is argued, on numerous occasions,
 that "property is monopoly" and owners undermine the efficiency of the market as they can holdout on
@@ -66,7 +66,7 @@ is also called a Harberger tax.
 What's the catch? Well, you have to stand ready to sell your property to **anyone** willing to pay
 the price you set. At **any time** henceforth.
 
-![Whaaat?](../../../assets/posts/intro-to-radical-markets/whaaat.gif)
+![Whaaat?](../../../assets/posts/2018/intro-to-radical-markets/whaaat.gif)
 
 There are two counterbalancing forces:
 
@@ -96,7 +96,7 @@ what you want on the banner of the "/r/ethtrader" subreddit by
 
 ## Quadratic Voting
 
-![Quadratic Voting](../../../assets/posts/intro-to-radical-markets/quadratic-voting.png)
+![Quadratic Voting](../../../assets/posts/2018/intro-to-radical-markets/quadratic-voting.png)
 
 Do you ever feel that 1 person 1 vote (1p1v) simply doesn't work? That minorities are seriously
 neglected and underrepresented? Generally speaking, that present-day democracy fails egregiously
@@ -126,7 +126,7 @@ disincentive private ownership of dangerous weapons.
 The graph below is a mathematical representation of the cost incurred by King's Landing's citizens
 with and without Judy in town **if the aforementioned proposal passes.**
 
-![Quadratic Voting Graph](../../../assets/posts/intro-to-radical-markets/quadratic-voting-judy.png)
+![Quadratic Voting Graph](../../../assets/posts/2018/intro-to-radical-markets/quadratic-voting-judy.png)
 
 The x-axis plots the quantity of votes, while the y-axis the price paid for those votes.
 
@@ -158,7 +158,7 @@ If you want to see QV at play, check out the
 
 ## Uniting the World's Workers
 
-![Uniting the World's Workers](../../../assets/posts/intro-to-radical-markets/uniting-the-worlds-workers.png)
+![Uniting the World's Workers](../../../assets/posts/2018/intro-to-radical-markets/uniting-the-worlds-workers.png)
 
 Inequality has reached staggering figures over the last decades. In OECD countries, the income of
 the richest 10% of the population is [9 times](http://www.oecd.org/social/inequality.htm) that of
@@ -195,7 +195,7 @@ given the recent growth of Internet-based companies like
 [GAFA](https://en.wikipedia.org/wiki/Big_Four_tech_companies). We need bridges to deal with the
 issue in the medium term, the argument goes.
 
-![Agreeement](../../../assets/posts/intro-to-radical-markets/agreement.jpg)
+![Agreeement](../../../assets/posts/2018/intro-to-radical-markets/agreement.jpg)
 
 _Note: this analysis refers mostly to the US, where immigration is an increasingly important
 dilemma, but it's applicable to any other wealthy country which blocks access to international
@@ -236,7 +236,7 @@ only that this is what the authors talk about in RM.
 
 ## Dismembering the Octopus
 
-![Dismembering the Octopus](../../../assets/posts/intro-to-radical-markets/dismembering-the-octopus.png)
+![Dismembering the Octopus](../../../assets/posts/2018/intro-to-radical-markets/dismembering-the-octopus.png)
 
 For a novice economist, this is a provocative chapter because it reveals a lot of interesting stats
 on the quiet mechanics of the market; specifically, we'll discuss how index funds like BlackRock or
@@ -255,7 +255,7 @@ Over time, these funds have diversified so much insofar they now have a substant
 majority of large corporations. For instance, take a look at the following table with the top 5
 owners of the largest six US banks:
 
-![Bank Stake Distribution](../../../assets/posts/intro-to-radical-markets/bank-stake-distribution.png)
+![Bank Stake Distribution](../../../assets/posts/2018/intro-to-radical-markets/bank-stake-distribution.png)
 
 When stakes are so spread out, **there's an incentive to optimize for aggregate profits rather than
 waste effort on competition**. As large stake grants investors a say in the governance of the
@@ -278,7 +278,7 @@ proposal, to avoid laziness and spur economic activity.
 
 ## Data as Labour
 
-![Data as Labour](../../../assets/posts/intro-to-radical-markets/data-as-labour.png)
+![Data as Labour](../../../assets/posts/2018/intro-to-radical-markets/data-as-labour.png)
 
 If the previous chapter was all about monopoly, let's flip the table on its side and discuss
 monopsony: the state of the market in which one or a handful of companies are the sole buyers of an
@@ -294,7 +294,7 @@ methodologies.
   intelligence.
 - Microsoft acquired LinkedIn and GitHub and significantly enhanced their software arsenal.
 
-![Data as New Oil](../../../assets/posts/intro-to-radical-markets/data-as-new-oil.jpg)
+![Data as New Oil](../../../assets/posts/2018/intro-to-radical-markets/data-as-new-oil.jpg)
 
 [There is no such thing as a free lunch](https://www.phrases.org.uk/meanings/tanstaafl.html). As
 "free" digital services are concerned, we are the product. Tech companies collect gargantuan amounts

@@ -1,7 +1,7 @@
 ---
 title: "How to Write Upgradeable Smart Contracts with Truffle ^5.0 and ZeppelinOS ^2.0"
 description: "Step-by-step tutorial to get up and running with upgradeable smart contracts"
-ogImage: "../../../assets/posts/upgradeable-smart-contracts/preview.jpg"
+ogImage: "../../../assets/posts/2018/upgradeable-smart-contracts/preview.jpg"
 pubDatetime: 2018-12-30T17:50:44Z
 tags:
   - "howto"
@@ -37,7 +37,7 @@ Make sure you are equipped with the following:
 
 ## Truffle ^5.0
 
-![Truffle Logo](../../../assets/posts/upgradeable-smart-contracts/truffle.png)
+![Truffle Logo](../../../assets/posts/2018/upgradeable-smart-contracts/truffle.png)
 
 To install truffle globally, go to your terminal and write:
 
@@ -117,7 +117,7 @@ exhaustive list.
 
 ## Deploy a Smart Contract
 
-![Smart Contract](../../../assets/posts/upgradeable-smart-contracts/smart-contract.png)
+![Smart Contract](../../../assets/posts/2018/upgradeable-smart-contracts/smart-contract.png)
 
 This is the mock-up Solidity contract we're going to use:
 
@@ -207,7 +207,7 @@ with the cooler part yet: making the smart contracts upgradeable.
 
 ## ZeppelinOS
 
-![ZeppelinOS Logo](../../../assets/posts/upgradeable-smart-contracts/zeppelinOS.png)
+![ZeppelinOS Logo](../../../assets/posts/2018/upgradeable-smart-contracts/zeppelinOS.png)
 
 ### Set Up
 
@@ -309,7 +309,7 @@ Now, to clarify a few things:
 2. You might wonder what "from" parameter to set. Simply put, any account **except** the first one.
    Find a picture below for an example on the Ganache desktop app:
 
-![Ganache Screenshot](../../../assets/posts/upgradeable-smart-contracts/ganache-account.png)
+![Ganache Screenshot](../../../assets/posts/2018/upgradeable-smart-contracts/ganache-account.png)
 
 Ready for prime time?
 

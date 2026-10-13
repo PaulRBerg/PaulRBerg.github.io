@@ -24,11 +24,11 @@ const imageMarkers = (nodes: RootContent[]): Record<string, unknown>[] =>
 await test("Astro Markdown retains priority and sized GIF assets", async () => {
   const processor = await createMarkdownProcessor({ ...plugins, syntaxHighlight: false });
   const rendered = await processor.render(
-    `![Cover](../../../assets/posts/sample/cover.jpg)
+    `![Cover](../../../assets/posts/2020/sample/cover.jpg)
 
-![Diagram](../../../assets/posts/sample/diagram.png)
+![Diagram](../../../assets/posts/2020/sample/diagram.png)
 
-<img src="../../../assets/posts/sample/animation.gif" alt="Animation" width="350" height="350"/>
+<img src="../../../assets/posts/2020/sample/animation.gif" alt="Animation" width="350" height="350"/>
 
 ![External](https://example.com/image.jpg)`,
     { fileURL: new URL("../content/blog/2020/example.md", import.meta.url) }
@@ -57,16 +57,16 @@ await test("Astro MDX passes literal HTML metadata to Image and leaves LinkPrevi
   );
   assert.ok(processor);
   const rendered = await processor.process(
-    `![Cover](../../../assets/posts/sample/cover.jpg)
+    `![Cover](../../../assets/posts/2026/sample/cover.jpg)
 
-![Diagram](../../../assets/posts/sample/diagram.webp)
+![Diagram](../../../assets/posts/2026/sample/diagram.webp)
 
 <LinkPreview href="https://example.com" />`,
     fileURLToPath(new URL("../content/blog/2026/example.mdx", import.meta.url)),
     {}
   );
   assert.match(rendered.code, /from "astro:assets"/u);
-  assert.match(rendered.code, /from "\.\.\/\.\.\/\.\.\/assets\/posts\/sample\/cover\.jpg"/u);
+  assert.match(rendered.code, /from "\.\.\/\.\.\/\.\.\/assets\/posts\/2026\/sample\/cover\.jpg"/u);
   assert.match(rendered.code, /fetchpriority: "high"/u);
   assert.doesNotMatch(rendered.code, /fetchPriority/u);
   assert.match(rendered.code, /loading: "eager"/u);

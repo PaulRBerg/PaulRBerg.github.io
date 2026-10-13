@@ -1,7 +1,7 @@
 ---
 title: "How to Host a Static Website with S3, CloudFront and Route53"
 description: "Step-by-step tutorial for hosting your static website on AWS"
-ogImage: "../../../assets/posts/static-website-aws/preview.jpg"
+ogImage: "../../../assets/posts/2018/static-website-aws/preview.jpg"
 pubDatetime: 2018-12-27T04:14:42Z
 tags:
   - "howto"
@@ -73,7 +73,7 @@ Here's a neat
 [mindmap](https://cloudcraft.co/view/d2391653-9c67-4bcd-84f2-977b0e32ecfc?key=aoBnq-ksfVXmgA4yjWIWSQ)
 designed with [Cloudcraft](https://cloudcraft.co) for what you're going to build:
 
-![Mindmap](../../../assets/posts/static-website-aws/mindmap.png)
+![Mindmap](../../../assets/posts/2018/static-website-aws/mindmap.png)
 
 We'll first focus on the path on the **right-hand side**, so the normal configuration, not the one
 for the www subdomain. Importantly, using this modular configuration, you won't run any back-end
@@ -81,7 +81,7 @@ Linux server at all, so you don't have mind updating or patching anything. How c
 
 ## S3
 
-![S3 Logo](../../../assets/posts/static-website-aws/s3.png)
+![S3 Logo](../../../assets/posts/2018/static-website-aws/s3.png)
 
 This is where you'll store your static files (HTML, CSS, JS). If you used Create React App or some
 other frontend development framework, look after your generated "build" or "public" folder.
@@ -107,7 +107,7 @@ All the operations above can be done using either the AWS
 console so that you can get the endpoint for your new hosted website (I hid mine for privacy
 reasons):
 
-![Static Website Hosting on S3](../../../assets/posts/static-website-aws/static-website-hosting-s3.png)
+![Static Website Hosting on S3](../../../assets/posts/2018/static-website-aws/static-website-hosting-s3.png)
 
 Test it out in the browser to make sure you set up your S3 bucket correctly. It should like this:
 
@@ -115,7 +115,7 @@ Test it out in the browser to make sure you set up your S3 bucket correctly. It 
 
 ## CloudFront
 
-![CloudFront Logo](../../../assets/posts/static-website-aws/cloudfront.png)
+![CloudFront Logo](../../../assets/posts/2018/static-website-aws/cloudfront.png)
 
 To host a static website, you don't actually need CloudFront or any other CDN, because there's not
 much data to store and the gains in efficiency and UX are little. However, one of the original goals
@@ -153,7 +153,7 @@ Note it somewhere because we'll use it with Route53 in a sec.
 
 ## Route53
 
-![Route53 Logo](../../../assets/posts/static-website-aws/route53.png)
+![Route53 Logo](../../../assets/posts/2018/static-website-aws/route53.png)
 
 It's time to connect the domain you bought on your DNS registrar with CloudFront and S3. Route53
 acts as the bridge for that.
@@ -163,7 +163,7 @@ acts as the bridge for that.
    administration page. If you're using [Namecheap](https://namecheap.pxf.io/c/1243704/386170/5618),
    here's how you can update your nameservers. Go to Account -> Dashboard -> Manage -> Nameservers
    -> Custom DNS and put your 4 nameservers in there:
-   ![Namecheap Nameservers](../../../assets/posts/static-website-aws/namecheap-nameservers.png)
+   ![Namecheap Nameservers](../../../assets/posts/2018/static-website-aws/namecheap-nameservers.png)
 3. Create a record set and leave the name empty (it will default to example.com). Then:
 
 - Set the type to "A - IPv4 address"
@@ -201,7 +201,7 @@ both of them, the answer is no, you don't have to do that. When you activate "St
 hosting" for your second S3 bucket, select "Redirect requests" instead of "Use this bucket to host a
 website":
 
-![Static Website Hosting on S3 WWWW](../../../assets/posts/static-website-aws/static-website-hosting-s3-www.png)
+![Static Website Hosting on S3 WWWW](../../../assets/posts/2018/static-website-aws/static-website-hosting-s3-www.png)
 
 ## SSL certificate
 

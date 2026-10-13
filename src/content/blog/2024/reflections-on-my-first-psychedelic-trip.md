@@ -2,7 +2,7 @@
 title: "Reflections on My First Psychedelic Trip"
 description:
   "How a solo LSD trip in Oxford changed my perspective on consciousness, ego, and daily habits"
-ogImage: "../../../assets/posts/reflections-on-my-first-psychedelic-trip/cover.jpg"
+ogImage: "../../../assets/posts/2024/reflections-on-my-first-psychedelic-trip/cover.jpg"
 pubDatetime: 2024-06-12T23:48:00Z
 tags:
   - "psychedelics"
@@ -10,7 +10,7 @@ tags:
   - "self-improvement"
 ---
 
-![The Radcliffe Camera in Oxford](../../../assets/posts/reflections-on-my-first-psychedelic-trip/cover.jpg)
+![The Radcliffe Camera in Oxford](../../../assets/posts/2024/reflections-on-my-first-psychedelic-trip/cover.jpg)
 
 My first psychedelic trip was one of the top 5 most amazing experiences of my life. Here's the story
 of how I did it, how it changed me, and the lessons I took away from it.

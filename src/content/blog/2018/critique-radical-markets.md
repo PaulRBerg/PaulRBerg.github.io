@@ -1,14 +1,14 @@
 ---
 title: "Critique on Radical Markets"
 description: "In-depth analysis of the policies proposed in the book"
-ogImage: "../../../assets/posts/critique-on-radical-markets/preview.jpg"
+ogImage: "../../../assets/posts/2018/critique-on-radical-markets/preview.jpg"
 pubDatetime: 2018-12-31T19:22:34Z
 tags:
   - "blockchain"
   - "economics"
 ---
 
-![Radical Markets Cover](../../../assets/posts/critique-on-radical-markets/radical-markets.jpg)
+![Radical Markets Cover](../../../assets/posts/2018/critique-on-radical-markets/radical-markets.jpg)
 
 ## Context
 
@@ -44,7 +44,7 @@ We shall see how all of them intersect with the concerns I had for each policy.
 
 ### The Hyperloop Dilemma
 
-![Hyperloop](../../../assets/posts/critique-on-radical-markets/hyperloop.jpg)
+![Hyperloop](../../../assets/posts/2018/critique-on-radical-markets/hyperloop.jpg)
 
 The vignette at the beginning of the chapter describes a hypothetical scenario whereby Alejandro,
 the manager of Hyperloop, has to buy all the properties required for building a railroad between Los
@@ -92,7 +92,7 @@ but I posit that the concerns above are real and they should be considered in ad
 
 ### Shallow Prescription for Irrationality
 
-![Irrationality](../../../assets/posts/critique-on-radical-markets/irrationality.jpg)
+![Irrationality](../../../assets/posts/2018/critique-on-radical-markets/irrationality.jpg)
 
 On numerous occasions, Glen Weyl [talks](https://youtu.be/uj186urDU8c?t=323) about how Marketopia (a
 world in which RM is ubiquitously implemented) is immune to the discretionary control of the rich,
@@ -154,7 +154,7 @@ from buying Iris' properties? Wouldn't this create a precedent for other loophol
 
 ## Quadratic Voting
 
-![Voting](../../../assets/posts/critique-on-radical-markets/voting.jpg)
+![Voting](../../../assets/posts/2018/critique-on-radical-markets/voting.jpg)
 
 As stated before, mobile apps and technology in general are supposed to be an ancillary component to
 Marketopia. At the high level, I totally love this! After watching the 2018 testimonial shows
@@ -209,7 +209,7 @@ plastic card and leave with a spectacularly powerful computing device in my back
 
 ## Uniting the World's Workers
 
-![Agreeement](../../../assets/posts/critique-on-radical-markets/agreement.jpg)
+![Agreeement](../../../assets/posts/2018/critique-on-radical-markets/agreement.jpg)
 
 The immigration policy proposed in the third chapter of the book is well-intentioned as it aims to
 bridge the gap between excessively wealthy countries and the rest of the world by aligning the
@@ -231,7 +231,7 @@ safer and better.
 
 ## Dismembering the Octopus
 
-![Octopus](../../../assets/posts/critique-on-radical-markets/octopus.jpg)
+![Octopus](../../../assets/posts/2018/critique-on-radical-markets/octopus.jpg)
 
 This has been one of the most interesting chapters from a factual point of view. Even if I did know
 about BlackRock, Vanguard et al, I wasn't aware of the financial control they exert over the market.
@@ -276,7 +276,7 @@ octopus can be dismembered.
 
 ## Data as Labour
 
-![Data](../../../assets/posts/critique-on-radical-markets/data-as-labour.jpg)
+![Data](../../../assets/posts/2018/critique-on-radical-markets/data-as-labour.jpg)
 
 Given enough time, I concur with Posner and Weyl that people will become more aware of the value of
 their data. We just need a few more Cambridge Analytica incidents and we'll get there. The main

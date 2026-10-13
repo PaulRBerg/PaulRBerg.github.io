@@ -24,8 +24,8 @@ Articles generate their table of contents from headings and offer reading progre
 preferences, image zoom, footnote previews, and links to individual headings. Reading preferences
 apply to article prose; navigation and code retain the site's monospace font.
 
-Store article images in `src/assets/posts/<slug>/` and use relative Markdown image paths so Astro
-emits responsive, optimized images with dimensions. Reference `ogImage` previews from the same
+Store article images in `src/assets/posts/<year>/<slug>/` and use relative Markdown image paths so
+Astro emits responsive, optimized images with dimensions. Reference `ogImage` previews from the same
 directory with relative paths. Image zoom opens the widest responsive variant, which keeps the
 source's full dimensions. The article image plugins prioritize the first image and lazy-load the
 remaining images.
