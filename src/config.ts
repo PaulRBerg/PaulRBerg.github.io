@@ -1,5 +1,5 @@
 export const SITE = {
-  author: "Paul Berg",
+  author: "Paul Razvan Berg",
   desc: "I'm a software engineer and open-source developer with 12+ years of experience, now on sabbatical. I co-founded Sablier, a VC-backed crypto payments startup, and ran it from 2022 to 2026. I also created PRBMath, the most popular fixed-point math library in Solidity.",
   dir: "ltr",
   dynamicOgImage: true,
@@ -11,7 +11,7 @@ export const SITE = {
   lang: "en",
   lightAndDarkMode: true,
   metadataDescription:
-    "Paul Berg: software engineer, open-source developer, Sablier co-founder, and creator of PRBMath. Essays on technology, markets, and ideas.",
+    "Paul Razvan Berg: software engineer, open-source developer, Sablier co-founder, and creator of PRBMath. Essays on technology, markets, and ideas.",
   ogImage: "",
   postPerIndex: 10,
   profile: "https://github.com/PaulRBerg",
@@ -19,6 +19,6 @@ export const SITE = {
   scheduledPostMargin: 15 * 60 * 1000,
   showBackButton: true,
   timezone: "UTC",
-  title: "Paul Berg",
+  title: "Paul Razvan Berg",
   website: "https://prberg.com"
 } as const;

@@ -216,7 +216,7 @@ export const buildLlmsIndex = (pages: AgentPage[]): string => {
     throw new Error("The published homepage is required to generate llms.txt");
   }
   const { origin } = new URL(homepage.url);
-  const author = homepage.author ?? "Paul Berg";
+  const author = homepage.author ?? "Paul Razvan Berg";
   const sections = [
     `# ${author}`,
     `> Personal website, blog, and speaking archive of ${author} (@PaulRBerg).`,

@@ -11,7 +11,7 @@ const groupedPosts = groupBlogPostsByYearAndMonth(posts);
 
 <SiteShell
   title={`Posts | ${SITE.title}`}
-  description="Essays by Paul Berg on software engineering, crypto, economics, philosophy, and books. Browse the complete blog archive."
+  description="Essays by Paul on AI agents, software engineering, crypto, philosophy, and more. Browse the complete blog archive."
 >
   <Main pageTitle="All Posts" pageDesc="Browse all blog posts by year and month.">
     {groupedPosts.map(({ year, months }) => <div>

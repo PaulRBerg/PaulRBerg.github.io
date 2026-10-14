@@ -1,30 +1,33 @@
-        <section>
-          <h3 class="r-fit-text">⚒️ Testing Best Practices in Foundry</h3>
-          <h4>Paul Berg @ EthCC 2023</h4>
-          <p style="font-size: 32px">
-            ▶️ Watch on <a href="https://youtube.com/watch?v=V6KBy8QQnCo" target="_blank">YouTube</a>
-          </p>
-        </section>
+<section>
+  <h3 class="r-fit-text">⚒️ Testing Best Practices in Foundry</h3>
+  <h4>Paul Razvan Berg @ EthCC 2023</h4>
+  <p style="font-size: 32px">
+    ▶️ Watch on <a href="https://youtube.com/watch?v=V6KBy8QQnCo" target="_blank">YouTube</a>
+  </p>
+</section>
 
-        <section>
-          <h2>Personal Background</h2>
-          <ul style="list-style-type: none">
-            <li>⏳ Co-founder and Solidity Lead at Sablier Labs</li>
-            <li>👨‍💻 Ethereum developer for 5+ years</li>
-            <li>🐦 Sharing Solidity tips on Twitter @PaulRBerg</li>
-            <li>🚀 Sablier V2: 100% built with Foundry</li>
-          </ul>
-        </section>
+<section>
+  <h2>Personal Background</h2>
+  <ul style="list-style-type: none">
+    <li>⏳ Co-founder and Solidity Lead at Sablier Labs</li>
+    <li>👨‍💻 Ethereum developer for 5+ years</li>
+    <li>🐦 Sharing Solidity tips on Twitter @PaulRBerg</li>
+    <li>🚀 Sablier V2: 100% built with Foundry</li>
+  </ul>
+</section>
 
-        <section>
-          <h2>🐣 Foundry</h2>
-          <p>Foundry made its debut in 2022. Before this, Solidity was rarely used for testing smart contracts.</p>
-          <p class="fragment">Today, many Foundry test suites are disorganized</p>
-        </section>
+<section>
+  <h2>🐣 Foundry</h2>
+  <p>
+    Foundry made its debut in 2022. Before this, Solidity was rarely used for testing smart
+    contracts.
+  </p>
+  <p class="fragment">Today, many Foundry test suites are disorganized</p>
+</section>
 
-        <section>
-          <h2 data-id="code-title">😇 How it starts</h2>
-          <pre data-id="code-animation">
+<section>
+  <h2 data-id="code-title">😇 How it starts</h2>
+  <pre data-id="code-animation">
               <code class="hljs solidity" data-trim data-line-numbers>
                 function test_Foo() external {
                   uint256 x = 42;
@@ -32,11 +35,11 @@
                 }
               </code>
             </pre>
-        </section>
+</section>
 
-        <section>
-          <h2>😵‍💫 How it ends (monolith)</h2>
-          <pre data-id="code-animation">
+<section>
+  <h2>😵‍💫 How it ends (monolith)</h2>
+  <pre data-id="code-animation">
               <code class="hljs solidity" data-trim data-line-numbers>
                 function test_Foo_1() external {
                   // --- snip ---
@@ -55,10 +58,10 @@
                 }
               </code>
             </pre>
-        </section>
+</section>
 
-        <section data-markdown>
-          <textarea data-template>
+<section data-markdown>
+  <textarea data-template>
           ## 🤔 Problems
 
           - Undirected development
@@ -66,10 +69,10 @@
           - Lack of categories
           - Vague or missing plain English specifications
           </textarea>
-        </section>
+</section>
 
-        <section data-markdown>
-          <textarea data-template>
+<section data-markdown>
+  <textarea data-template>
           ## Solutions
 
           - Foundry Book best practices: [book.getfoundry.sh](https://book.getfoundry.sh/tutorials/best-practices)
@@ -77,105 +80,105 @@
               - High-level structures
               - Low-level design and spec
           </textarea>
-        </section>
+</section>
 
-        <section data-markdown>
-          <textarea data-template>
+<section data-markdown>
+  <textarea data-template>
             ## High-level structures
 
             - Split Foundry tests into clear-cut categories
             - Use contract inheritance: `Base.t.sol`
             - Treat contracts as describe blocks: `Foo.t.sol`
           </textarea>
-        </section>
+</section>
 
-        <section>
-          <h2>Foundry test categories</h2>
-          <p>Create a directory for each of the following categories:</p>
-          <table class="r-fit-text">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Unit</td>
-                <td>Functions involving a single contract</td>
-              </tr>
-              <tr>
-                <td>Integration</td>
-                <td>Function involving multiple contracts</td>
-              </tr>
-              <tr>
-                <td>Invariant</td>
-                <td>Expressions that should always hold true</td>
-              </tr>
-              <tr>
-                <td>Fork</td>
-                <td>Tests running against a production chain</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+<section>
+  <h2>Foundry test categories</h2>
+  <p>Create a directory for each of the following categories:</p>
+  <table class="r-fit-text">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Unit</td>
+        <td>Functions involving a single contract</td>
+      </tr>
+      <tr>
+        <td>Integration</td>
+        <td>Function involving multiple contracts</td>
+      </tr>
+      <tr>
+        <td>Invariant</td>
+        <td>Expressions that should always hold true</td>
+      </tr>
+      <tr>
+        <td>Fork</td>
+        <td>Tests running against a production chain</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-        <section>
-          <h2 class="r-fit-text">Foundry test subcategories</h2>
-          <table class="r-fit-text">
-            <thead>
-              <tr>
-                <th>Sub-category</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Concrete</td>
-                <td>Standard deterministic tests that take no inputs</td>
-              </tr>
-              <tr>
-                <td>Fuzz</td>
-                <td>Non-deterministic tests with fuzzed inputs</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+<section>
+  <h2 class="r-fit-text">Foundry test subcategories</h2>
+  <table class="r-fit-text">
+    <thead>
+      <tr>
+        <th>Sub-category</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Concrete</td>
+        <td>Standard deterministic tests that take no inputs</td>
+      </tr>
+      <tr>
+        <td>Fuzz</td>
+        <td>Non-deterministic tests with fuzzed inputs</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-        <section>
-          <h2 class="r-fit-text">Low-level design and spec</h2>
-          <ul>
-            <li>Branching Tree Technique</li>
-            <li>
-              Use a test function naming convention like this:
-              <ul>
-                <li><code>test_Foo</code></li>
-                <li><code>testFuzz_Foo</code></li>
-                <li><code>test_RevertWhen_Foo</code></li>
-                <li><code>testFuzz_RevertWhen_Foo</code></li>
-              </ul>
-            </li>
-          </ul>
-        </section>
+<section>
+  <h2 class="r-fit-text">Low-level design and spec</h2>
+  <ul>
+    <li>Branching Tree Technique</li>
+    <li>
+      Use a test function naming convention like this:
+      <ul>
+        <li><code>test_Foo</code></li>
+        <li><code>testFuzz_Foo</code></li>
+        <li><code>test_RevertWhen_Foo</code></li>
+        <li><code>testFuzz_RevertWhen_Foo</code></li>
+      </ul>
+    </li>
+  </ul>
+</section>
 
-        <section>
-          <section>
-            <aside class="notes">Don't forget to slide down to show the examples</aside>
-            <h3>🌳 Branching Tree Technique (BTT)</h3>
-            <ol>
-              <li>Target a function</li>
-              <li>Create a ".tree" file</li>
-              <li>Consider all possible execution paths</li>
-              <li>Consider what contract state leads to what paths</li>
-              <li>Consider what function params lead to what paths</li>
-              <li>Define "given state is x" nodes</li>
-              <li>Define "when parameter is x" nodes</li>
-              <li>Define final "it should" tests</li>
-            </ol>
-          </section>
-          <section>
-            <h2 class="r-fit-text" data-id="code-title">Example: <code>statusOf.tree</code></h2>
-            <pre data-id="code-animation">
+<section>
+  <section>
+    <aside class="notes">Don't forget to slide down to show the examples</aside>
+    <h3>🌳 Branching Tree Technique (BTT)</h3>
+    <ol>
+      <li>Target a function</li>
+      <li>Create a ".tree" file</li>
+      <li>Consider all possible execution paths</li>
+      <li>Consider what contract state leads to what paths</li>
+      <li>Consider what function params lead to what paths</li>
+      <li>Define "given state is x" nodes</li>
+      <li>Define "when parameter is x" nodes</li>
+      <li>Define final "it should" tests</li>
+    </ol>
+  </section>
+  <section>
+    <h2 class="r-fit-text" data-id="code-title">Example: <code>statusOf.tree</code></h2>
+    <pre data-id="code-animation">
               <code class="hljs gherkin" data-trim data-line-numbers>
               ├── when the id references a null stream
               │  └── it should revert
@@ -195,10 +198,10 @@
                              └── it should return STREAMING
 					    </code>
             </pre>
-          </section>
-          <section>
-            <h2 class="r-fit-text" data-id="code-title">Example: <code>statusOf</code></h2>
-            <pre data-id="code-animation">
+  </section>
+  <section>
+    <h2 class="r-fit-text" data-id="code-title">Example: <code>statusOf</code></h2>
+    <pre data-id="code-animation">
               <code class="hljs solidity" data-trim data-line-numbers>
                 function test_RevertWhen_Null() external {
                     uint256 nullStreamId = 1729;
@@ -226,11 +229,11 @@
                 }
 					    </code>
             </pre>
-          </section>
-        </section>
+  </section>
+</section>
 
-        <section data-markdown>
-          <textarea data-template>
+<section data-markdown>
+  <textarea data-template>
           ## ✅ Benefits of BTT
 
           - Plain English
@@ -239,59 +242,83 @@
           - Can be shared with non-technical team members
           - Potentially automatable
           </textarea>
-        </section>
+</section>
 
-        <section>
-          <h2>Specification Techniques</h2>
-          <table class="r-fit-text">
-            <thead>
-              <tr>
-                <th>Technique</th>
-                <th>Barrier to entry</th>
-                <th>Effectiveness</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Braching Tree Technique</td>
-                <td>Entry-level</td>
-                <td>Moderately effective</td>
-              </tr>
-              <tr>
-                <td>Cucumber Gherkin</td>
-                <td>Medium-level</td>
-                <td>Moderately effective</td>
-              </tr>
-              <tr>
-                <td>Certora, TLA+</td>
-                <td>Senior-level</td>
-                <td>Highly effective</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+<section>
+  <h2>Specification Techniques</h2>
+  <table class="r-fit-text">
+    <thead>
+      <tr>
+        <th>Technique</th>
+        <th>Barrier to entry</th>
+        <th>Effectiveness</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Braching Tree Technique</td>
+        <td>Entry-level</td>
+        <td>Moderately effective</td>
+      </tr>
+      <tr>
+        <td>Cucumber Gherkin</td>
+        <td>Medium-level</td>
+        <td>Moderately effective</td>
+      </tr>
+      <tr>
+        <td>Certora, TLA+</td>
+        <td>Senior-level</td>
+        <td>Highly effective</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 
-        <section>
-          <h2>The End</h2>
-          <div style="display: flex; justify-content: center">
-            <ul style="list-style-type: none; align-items: center">
-              <li style="display: flex; align-items: center">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter Logo" style="width: 40px; height: 40px" />
-                <a href="https://twitter.com/PaulRBerg" style="margin-left: 10px" target="_blank">PaulRBerg</a>
-              </li>
-              <li style="display: flex; align-items: center">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub Logo" style="width: 40px; height: 40px" />
-                <a href="https://github.com/PaulRBerg" style="margin-left: 10px" target="_blank">PaulRBerg</a>
-              </li>
-              <li style="display: flex; align-items: center">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter Logo" style="width: 40px; height: 40px" />
-                <a href="https://twitter.com/Sablier" style="margin-left: 10px" target="_blank">Sablier</a>
-              </li>
-              <li style="display: flex; align-items: center">
-                <img src="/presentations/ethcc-2023/img/website.png" alt="Website Icon" style="width: 40px; height: 40px" />
-                <a href="https://sablier.com" style="margin-left: 10px" target="_blank">sablier.com</a>
-              </li>
-            </ul>
-            <img src="/presentations/ethcc-2023/img/qr.png" alt="V2 Core" style="width: 220px; margin-left: 250px; object-fit: contain" />
-          </div>
-        </section>
+<section>
+  <h2>The End</h2>
+  <div style="display: flex; justify-content: center">
+    <ul style="list-style-type: none; align-items: center">
+      <li style="display: flex; align-items: center">
+        <img
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg"
+          alt="Twitter Logo"
+          style="width: 40px; height: 40px"
+        />
+        <a href="https://twitter.com/PaulRBerg" style="margin-left: 10px" target="_blank"
+          >PaulRBerg</a
+        >
+      </li>
+      <li style="display: flex; align-items: center">
+        <img
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
+          alt="GitHub Logo"
+          style="width: 40px; height: 40px"
+        />
+        <a href="https://github.com/PaulRBerg" style="margin-left: 10px" target="_blank"
+          >PaulRBerg</a
+        >
+      </li>
+      <li style="display: flex; align-items: center">
+        <img
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg"
+          alt="Twitter Logo"
+          style="width: 40px; height: 40px"
+        />
+        <a href="https://twitter.com/Sablier" style="margin-left: 10px" target="_blank">Sablier</a>
+      </li>
+      <li style="display: flex; align-items: center">
+        <img
+          src="/presentations/ethcc-2023/img/website.png"
+          alt="Website Icon"
+          style="width: 40px; height: 40px"
+        />
+        <a href="https://sablier.com" style="margin-left: 10px" target="_blank">sablier.com</a>
+      </li>
+    </ul>
+    <img
+      src="/presentations/ethcc-2023/img/qr.png"
+      alt="V2 Core"
+      style="width: 220px; margin-left: 250px; object-fit: contain"
+    />
+  </div>
+</section>

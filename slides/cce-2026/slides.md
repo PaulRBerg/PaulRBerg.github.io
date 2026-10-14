@@ -1,6 +1,6 @@
 ---
 theme: default
-title: "The Ultimate Rational Meme — Paul Berg @ Conjecture Con Europe 2026"
+title: "The Ultimate Rational Meme — Paul Razvan Berg @ Conjecture Con Europe 2026"
 info: |
   ## The Ultimate Rational Meme
   On the meme that lets every other rational meme evolve.

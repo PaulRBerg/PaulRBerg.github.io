@@ -19,25 +19,25 @@ export const SOCIALS: IconLinkDefinition[] = [
   {
     href: "https://x.com/PaulRBerg",
     icon: IconBrandX,
-    linkTitle: "Paul Berg on X",
+    linkTitle: "Paul Razvan Berg on X",
     name: "X"
   },
   {
     href: "https://github.com/PaulRBerg",
     icon: IconGitHub,
-    linkTitle: "Paul Berg on GitHub",
+    linkTitle: "Paul Razvan Berg on GitHub",
     name: "GitHub"
   },
   {
     href: "mailto:prberg@proton.me",
     icon: IconMail,
-    linkTitle: "Email Paul Berg",
+    linkTitle: "Email Paul Razvan Berg",
     name: "Email"
   },
   {
     href: "https://linkedin.com/in/prberg",
     icon: IconLinkedin,
-    linkTitle: "Paul Berg on LinkedIn",
+    linkTitle: "Paul Razvan Berg on LinkedIn",
     name: "LinkedIn"
   }
 ] as const;

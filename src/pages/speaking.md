@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/AboutLayout.astro
 description:
-  "Paul Berg’s podcasts, conference talks, and presentation slides on Sablier, Solidity, crypto, and
+  "Paul's podcasts, conference talks, and presentation slides on Sablier, Solidity, crypto, and
   agent tooling."
 title: "Speaking"
 ---

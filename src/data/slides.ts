@@ -12,7 +12,7 @@ export interface RevealSlide {
 
 export const revealSlides: RevealSlide[] = [
   {
-    description: "Paul Berg @ RatFest 2025",
+    description: "Paul Razvan Berg @ RatFest 2025",
     favicon: "/favicon.svg",
     image: "/presentations/ratfest-2025/img/david-paul-chat-bubbles.jpg",
     imageHeight: 1024,
@@ -23,7 +23,7 @@ export const revealSlides: RevealSlide[] = [
     title: "IQ: The Good, the Bad, and the Popperian"
   },
   {
-    description: "Paul Berg @ ETHCluj 2025",
+    description: "Paul Razvan Berg @ ETHCluj 2025",
     favicon: "/presentations/ethcluj-2025/img/favicon.ico",
     image: "/presentations/ethcluj-2025/og.jpg",
     imageHeight: 657,
@@ -34,7 +34,7 @@ export const revealSlides: RevealSlide[] = [
     title: "Schrodinger's TVL: Until You Hack It, It's Not Real"
   },
   {
-    description: "Paul Berg @ RatFest 2024",
+    description: "Paul Razvan Berg @ RatFest 2024",
     favicon: "/favicon.svg",
     image: "/presentations/ratfest-2024/img/icy-brain.png",
     imageHeight: 1024,
@@ -45,7 +45,7 @@ export const revealSlides: RevealSlide[] = [
     title: "The Moral Philosophy of Icy Brains"
   },
   {
-    description: "Paul Berg @ Solidity Summit 2023",
+    description: "Paul Razvan Berg @ Solidity Summit 2023",
     favicon: "/presentations/solidity-summit-2023/img/favicon.ico",
     image: "/presentations/solidity-summit-2023/og.jpg",
     imageHeight: 1660,
@@ -56,7 +56,7 @@ export const revealSlides: RevealSlide[] = [
     title: "Branching Tree Technique"
   },
   {
-    description: "Paul Berg @ Spearbit 2023",
+    description: "Paul Razvan Berg @ Spearbit 2023",
     favicon: "/presentations/spearbit-2023/img/favicon.ico",
     image: "/presentations/spearbit-2023/og.jpg",
     imageHeight: 1808,
@@ -67,7 +67,7 @@ export const revealSlides: RevealSlide[] = [
     title: "Branching Tree Technique"
   },
   {
-    description: "Paul Berg @ EthCC 2023",
+    description: "Paul Razvan Berg @ EthCC 2023",
     favicon: "/presentations/ethcc-2023/img/favicon.ico",
     image: "/presentations/ethcc-2023/og.jpg",
     imageHeight: 818,
@@ -78,7 +78,7 @@ export const revealSlides: RevealSlide[] = [
     title: "Testing Best Practices in Foundry"
   },
   {
-    description: "Paul Berg @ ETH École, July 21, 2021",
+    description: "Paul Razvan Berg @ ETH École, July 21, 2021",
     favicon: "/favicon.svg",
     image: "/presentations/eth-ecole-2021/img/prbmath-cover.png",
     imageHeight: 675,
