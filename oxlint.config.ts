@@ -4,7 +4,7 @@ import core from "ultracite/oxlint/core";
 
 export default defineConfig({
   extends: [core, astro],
-  ignorePatterns: [".ai/", ".vercel/", "reveal-js/"],
+  ignorePatterns: [".ai/", ".wrangler/", ".vercel/"],
   options: {
     typeAware: true,
     typeCheck: true

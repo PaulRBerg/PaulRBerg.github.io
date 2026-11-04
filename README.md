@@ -79,8 +79,8 @@ behavior.
 
 `just dev` and `just build` first build both Slidev decks into ignored
 `public/presentations/<slug>/` directories. `bun run build:slides` rebuilds just those decks. Astro
-then builds the site and Reveal pages using the npm Reveal.js runtime. The retained legacy submodule
-is excluded from the build and code checks.
+then builds the site and Reveal pages using the pinned `reveal.js` npm package. No Git submodule
+initialization is required.
 
 The Slidev builds set their own HTML base URLs so images also work on slashless legacy links. The
 `floating-vue` override retains the API expected by Slidev's syntax-tooltip integration.

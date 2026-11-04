@@ -6,6 +6,3 @@ slides/*/slides.md
 
 # Preserve author notes verbatim
 slides/cce-2026/NOTES.md
-
-# Retained legacy submodule
-reveal-js/

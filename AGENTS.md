@@ -23,9 +23,8 @@ to changed files when other agents share the working tree.
 Use oxfmt for TS, JS, and JSON. Keep its exclusions in `.oxfmtrc.json`. Use Prettier for `.astro`,
 `.md`, and `.mdx` files. Keep `.prettierrc.mjs` in sync with `.oxfmtrc.json`. Exclude Slidev
 entrypoints (`slides/*/slides.md`) from Prettier. Prettier turns their `---` slide separators into
-prose, which breaks the decks. Preserve `slides/cce-2026/NOTES.md` verbatim. Leave the retained
-`reveal-js/` submodule and `.gitmodules` untouched. Exclude that submodule from formatters, lint,
-type checks, and builds.
+prose, which breaks the decks. Preserve `slides/cce-2026/NOTES.md` verbatim. Use the pinned
+`reveal.js` npm package for Reveal decks through `src/layouts/PresentationLayout.astro`.
 
 ## AI-generated images
 

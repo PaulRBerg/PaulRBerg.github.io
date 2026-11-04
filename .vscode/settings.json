@@ -11,8 +11,8 @@
     "*.css": "tailwindcss"
   },
   "search.exclude": {
+    "**/.wrangler": true,
     "**/.vercel": true,
-    "**/reveal-js": true,
     "dist": true
   },
   "markdownlint.config": {

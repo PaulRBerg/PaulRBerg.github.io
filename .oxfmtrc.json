@@ -3,9 +3,9 @@
   "ignorePatterns": [
     ".ai/",
     ".serena/",
+    ".wrangler/",
     ".vercel/",
     ".vscode/",
-    "reveal-js/",
     "slides/",
     "src/content/"
   ],
