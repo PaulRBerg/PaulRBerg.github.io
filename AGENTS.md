@@ -76,6 +76,11 @@ descriptions. Keep search, 404, and redirect pages out of the sitemap. Search an
 Keep `/services` accessible by direct link only. Exclude it from navigation, internal search, the
 sitemap, and generated discovery exports. Preserve its `noindex,follow` metadata.
 
+Google Search Console verifies the `prberg.com` domain property under `paul.razvan.berg@gmail.com`.
+Preserve Cloudflare TXT record `7b42da67351e301fabf9094ef984af87` in the `prberg.com` zone; it
+maintains ownership verification used by the Google Play developer account's verified `/services/`
+website.
+
 `build:site` generates `/llms.txt` and directory `index.md` exports from rendered, indexable HTML.
 Keep Markdown alternate links aligned with these outputs. Exports require a canonical URL and
 `<main>` content. Presentation pages link to `/llms.txt` without advertising unavailable Markdown.
