@@ -1,0 +1,108 @@
+---
+import SiteShell from "@/layouts/SiteShell.astro";
+---
+
+<SiteShell
+  title="Software Development Services | Paul Razvan Berg"
+  description="Software development and consulting by Paul Razvan Berg, covering web, mobile, backend, Solidity, and developer tooling."
+  noindex
+>
+  <main id="main-content" data-pagefind-ignore class="app-layout">
+    <section class="border-b border-border py-12 sm:py-16">
+      <p class="mb-3 text-sm uppercase tracking-[0.28em] text-accent">Software development</p>
+      <h1 class="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+        Software development and consulting
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-8 text-foreground/80">
+        I&apos;m Paul Razvan Berg, a software engineer and open-source developer. I work on software
+        products and infrastructure across web, mobile, backend systems, Solidity, and developer
+        tooling.
+      </p>
+      <a
+        href="mailto:prberg@proton.me"
+        class="mt-7 inline-flex rounded-full bg-accent px-5 py-3 font-medium text-background transition hover:opacity-85"
+      >
+        Contact me
+      </a>
+    </section>
+
+    <section
+      class="grid gap-8 border-b border-border py-10 sm:grid-cols-[minmax(0,12rem)_1fr] sm:gap-12 sm:py-12"
+    >
+      <h2 class="text-2xl font-semibold">How I can help</h2>
+      <ul class="grid gap-6 sm:grid-cols-2">
+        <li>
+          <h3 class="font-semibold">Product engineering</h3>
+          <p class="mt-2 leading-7 text-foreground/75">
+            Build and improve web and mobile applications, from user-facing features to the systems
+            that support them.
+          </p>
+        </li>
+        <li>
+          <h3 class="font-semibold">Backend and infrastructure</h3>
+          <p class="mt-2 leading-7 text-foreground/75">
+            Design and implement APIs, services, and reliable application infrastructure.
+          </p>
+        </li>
+        <li>
+          <h3 class="font-semibold">Smart contracts</h3>
+          <p class="mt-2 leading-7 text-foreground/75">
+            Develop Solidity systems and supporting software for onchain products.
+          </p>
+        </li>
+        <li>
+          <h3 class="font-semibold">Developer tooling</h3>
+          <p class="mt-2 leading-7 text-foreground/75">
+            Create libraries and tools that make software development clearer and more effective.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <section
+      class="grid gap-8 border-b border-border py-10 sm:grid-cols-[minmax(0,12rem)_1fr] sm:gap-12 sm:py-12"
+    >
+      <h2 class="text-2xl font-semibold">Selected work</h2>
+      <ul class="space-y-5 leading-7 text-foreground/80">
+        <li>
+          <a
+            class="font-semibold text-accent underline underline-offset-4"
+            href="https://sablier.com"
+            >Sablier</a
+          >
+          <span> — co-founded the software company.</span>
+        </li>
+        <li>
+          <a
+            class="font-semibold text-accent underline underline-offset-4"
+            href="https://github.com/PaulRBerg/prb-math"
+            >PRBMath</a
+          >
+          <span> — created an open-source fixed-point math library for Solidity.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="grid gap-8 py-10 sm:grid-cols-[minmax(0,12rem)_1fr] sm:gap-12 sm:py-12">
+      <h2 class="text-2xl font-semibold">Business details</h2>
+      <address class="space-y-2 not-italic leading-7 text-foreground/80">
+        <p class="font-semibold text-foreground">Berg Paul Razvan Persoana Fizica Autorizata</p>
+        <p>Bulevardul Bucurestii Noi 136, Ap 5, Parter, Sector 1, Bucuresti 012366, Romania</p>
+        <p>CUI: 54640718</p>
+        <p>Trade Registry: F2026024079002</p>
+        <p>
+          Phone:
+          <a class="underline underline-offset-4 hover:text-accent" href="tel:+40738833995"
+            >+40738833995</a
+          >
+        </p>
+        <p>
+          Email:
+          <a class="underline underline-offset-4 hover:text-accent" href="mailto:prberg@proton.me"
+            >prberg@proton.me</a
+          >
+        </p>
+      </address>
+    </section>
+  </main>
+</SiteShell>

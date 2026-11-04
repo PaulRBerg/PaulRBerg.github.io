@@ -73,6 +73,9 @@ deliberate external canonical overrides. Give indexable pages descriptive titles
 descriptions. Keep search, 404, and redirect pages out of the sitemap. Search and 404 pages use
 `noindex,follow`.
 
+Keep `/services` accessible by direct link only. Exclude it from navigation, internal search, the
+sitemap, and generated discovery exports. Preserve its `noindex,follow` metadata.
+
 `build:site` generates `/llms.txt` and directory `index.md` exports from rendered, indexable HTML.
 Keep Markdown alternate links aligned with these outputs. Exports require a canonical URL and
 `<main>` content. Presentation pages link to `/llms.txt` without advertising unavailable Markdown.

@@ -60,6 +60,7 @@ export default defineConfig({
           "/search/",
           "/404/",
           "/404.html",
+          "/services/",
           "/2018/12/radical-markets/",
           "/2018/12/critique-radical-markets/"
         ].includes(new URL(page).pathname)
