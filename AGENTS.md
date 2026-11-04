@@ -46,14 +46,25 @@ deck with its `/presentations/<deck>/` base URL. Keep the CCE paper in
 ## Deployment and commits
 
 Use Conventional Commits with per-deck scopes such as `feat(cce-2026): ...` and
-`chore(frontiers-2026): ...`. Use `ci: ...` for workflow changes. Push to `main` to deploy through
-`.github/workflows/deploy.yml`. Build the complete site with `bun run build`. Upload `dist/` with
-`.nojekyll` to GitHub Pages. Keep `public/CNAME` set to `prberg.com`. Keep `.ai/`, generated output,
-and secret files out of Git and published assets.
+`chore(frontiers-2026): ...`.
 
-CI caches `node_modules/.astro` and both Slidev outputs. Run `bun run build:site` only after
-building or restoring the decks. If deck inputs move outside `slides/`, update the presentation
-cache key in `.github/workflows/deploy.yml` to include them.
+Deploy the static site with Cloudflare Workers and the pinned local Wrangler. `wrangler.jsonc` is
+the source of truth for Worker `prberg-site`, its account, `dist/` assets, and the two custom
+domains `prberg.com` and `www.prberg.com`. Keep `workers_dev` and `preview_urls` disabled. Use
+`just deploy-dry-run` to build the complete site and validate without publishing; use
+`just deploy-prod` for an explicitly authorized production deployment. `just preview` is local. No
+Astro adapter or Worker script is required. Keep automatic trailing-slash handling and `404-page`
+fallback so Astro directory indexes and `404.html` retain their intended behavior. Keep `.ai/`,
+`.wrangler/`, generated output, and secret files out of Git and published assets.
+
+Cloudflare Workers Builds should build `main` using `bun run build`, then deploy using
+`bunx wrangler deploy`, with `BUN_VERSION=1.4.4` and `NODE_VERSION=24` or newer. The Git integration
+and build settings are managed in Cloudflare. Always build both Slidev decks before `build:site`;
+the full build also generates the Pagefind search index and Markdown exports.
+
+Canonicalize `www.prberg.com` with a Cloudflare Single Redirect Rule that preserves the path and
+query string. Workers static-asset `_redirects` does not support domain-level redirects. Keep both
+custom domains attached so the zone rule can redirect `www` requests.
 
 ## SEO and agent discovery
 
@@ -72,10 +83,9 @@ absolute links, images, code whitespace, tables, and footnotes. Run
 Verify generated files with `just build` and a production preview, rather than the dev server.
 
 Keep robots crawling allowed and retain the sitemap directive. Content signals permit `search` and
-`ai-input`; leave `ai-train` unspecified unless Paul requests a training policy. GitHub Pages serves
-static Markdown files. Runtime `Accept: text/markdown` negotiation and custom HTTP `Link` headers
-require a hosting or proxy change. An `_headers` file or Astro endpoint response header cannot
-configure GitHub Pages response headers.
+`ai-input`; leave `ai-train` unspecified unless Paul requests a training policy. Cloudflare serves
+static Markdown files at explicit URLs. Runtime `Accept: text/markdown` negotiation requires a
+Worker script or proxy; static response headers can be configured with `public/_headers`.
 
 ## Blog Link Previews
 

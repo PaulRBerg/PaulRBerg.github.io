@@ -97,16 +97,15 @@ alias pw := prettier-write
 #                                    DEPLOY                                    #
 # ---------------------------------------------------------------------------- #
 
-# Deploy preview to Vercel
+# Validate a complete production build without publishing
 [group("deploy")]
-@deploy-preview:
-    bun run vercel
-alias dp := deploy-preview
+@deploy-dry-run: build
+    bun run wrangler deploy --dry-run
 
-# Deploy to production on Vercel
+# Deploy the complete site to Cloudflare Workers
 [group("deploy")]
-@deploy-prod:
-    bun run vercel --prod
+@deploy-prod: build
+    bun run wrangler deploy
 alias dpr := deploy-prod
 
 # ---------------------------------------------------------------------------- #

@@ -1,6 +1,6 @@
 # Directories
 .ai/
-.vercel/
+.wrangler/
 .astro/
 dist/
 .vite/

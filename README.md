@@ -1,7 +1,5 @@
 # PaulRBerg.github.io
 
-[![Deploy to GitHub Pages](https://github.com/PaulRBerg/PaulRBerg.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/PaulRBerg/PaulRBerg.github.io/actions/workflows/deploy.yml)
-
 PRB's personal site, blog, and presentation archive at [prberg.com](https://prberg.com).
 
 Source files were migrated from [prb-site](https://github.com/PaulRBerg/prb-site) without importing
@@ -13,11 +11,22 @@ Run `bun install --frozen-lockfile` from the repository root. Use `just dev` for
 `just build` for the production build in `dist/`, and `just preview` to inspect that build. Run
 `just full-write` and `just full-check` before committing.
 
-Push to `main` to deploy through
-[GitHub Pages](https://github.com/PaulRBerg/PaulRBerg.github.io/actions/workflows/deploy.yml). The
-workflow caches Astro assets and both Slidev decks. It rebuilds the decks when their sources or
-build configuration change, and rebuilds the Astro site and Pagefind search index on every run.
-`public/CNAME` preserves the custom domain, and the Pages artifact includes `.nojekyll`.
+The site is a static Cloudflare Worker named `prberg-site`, configured in `wrangler.jsonc`. Wrangler
+publishes the complete `dist/` directory, including Pagefind search, Markdown exports, and
+presentations. No server runtime or Astro adapter is needed. Directory index pages retain trailing
+slashes, and missing paths serve the site's `404.html` with a 404 status.
+
+Use `just deploy-dry-run` to build everything and validate the deployment locally without
+publishing. Use `just deploy-prod` to build and publish with the pinned local Wrangler.
+`just preview` remains a local Astro preview; no public preview URLs or `workers.dev` route are
+enabled.
+
+Configure Cloudflare Workers Builds for the `main` branch with build command `bun run build` and
+deploy command `bunx wrangler deploy`. Set `BUN_VERSION=1.4.4` and `NODE_VERSION=24` (or newer).
+These dashboard settings and the Git integration are managed separately from this repository. The
+only Worker custom domains are `prberg.com` and `www.prberg.com`. Configure a Cloudflare Single
+Redirect Rule for `www.prberg.com` to `https://prberg.com`, preserving the request path and query
+string; Workers static-asset `_redirects` does not support domain-level redirects.
 
 ## Reading experience
 
@@ -49,8 +58,9 @@ HTML URL and available publication metadata. The build generates these copies fr
 so MDX components and optimized image links remain readable without JavaScript.
 
 HTML pages advertise their Markdown alternatives. Robots permits crawling, search, and AI retrieval;
-the site's content signals leave training preferences unspecified. GitHub Pages serves the Markdown
-files at explicit URLs and does not negotiate Markdown from the `Accept` request header.
+the site's content signals leave training preferences unspecified. Cloudflare serves the Markdown
+files at explicit URLs; the static site does not negotiate Markdown from the `Accept` request
+header.
 
 ## Presentations
 

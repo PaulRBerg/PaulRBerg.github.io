@@ -52,7 +52,7 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
     "ultracite": "^7.12.2",
-    "vercel": "^62.0.0"
+    "wrangler": "4.154.0"
   },
   "overrides": {
     "floating-vue": "5.2.2"
