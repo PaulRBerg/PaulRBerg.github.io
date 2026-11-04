@@ -1,4 +1,11 @@
 ---
+import IconArrowUpRight from "@tabler/icons/outline/arrow-up-right.svg";
+import IconCode from "@tabler/icons/outline/code.svg";
+import IconDeviceLaptop from "@tabler/icons/outline/device-laptop.svg";
+import IconExternalLink from "@tabler/icons/outline/external-link.svg";
+import IconMail from "@tabler/icons/outline/mail.svg";
+import IconServer2 from "@tabler/icons/outline/server-2.svg";
+import IconTool from "@tabler/icons/outline/tool.svg";
 import SiteShell from "@/layouts/SiteShell.astro";
 ---
 
@@ -10,49 +17,312 @@ import SiteShell from "@/layouts/SiteShell.astro";
   <main id="main-content" data-pagefind-ignore class="app-layout">
     <section class="border-b border-border py-12 sm:py-16">
       <p class="mb-3 text-sm uppercase tracking-[0.28em] text-accent">Software development</p>
-      <h1 class="max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
         Software development and consulting
       </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-8 text-foreground/80">
-        I&apos;m Paul Razvan Berg, a software engineer and open-source developer. I work on software
-        products and infrastructure across web, mobile, backend systems, Solidity, and developer
-        tooling.
-      </p>
-      <a
-        href="mailto:prberg@proton.me"
-        class="mt-7 inline-flex rounded-full bg-accent px-5 py-3 font-medium text-background transition hover:opacity-85"
-      >
-        Contact me
-      </a>
+      <div class="mt-8 grid items-center gap-8 sm:mt-10 lg:grid-cols-[1fr_0.95fr] lg:gap-10">
+        <div>
+          <p class="max-w-2xl text-lg leading-8 text-foreground/80">
+            I&apos;m Paul Razvan Berg, a software engineer and open-source developer. I work on
+            software products and infrastructure across web, mobile, backend systems, Solidity, and
+            developer tooling.
+          </p>
+          <a
+            href="mailto:prberg@proton.me"
+            class="mt-7 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 font-medium text-background transition hover:opacity-85"
+          >
+            <IconMail width={18} height={18} aria-hidden="true" />
+            Contact me
+            <IconArrowUpRight width={16} height={16} aria-hidden="true" />
+          </a>
+        </div>
+
+        <div class="mx-auto w-full max-w-[30rem] lg:justify-self-end">
+          <svg
+            viewBox="0 0 480 330"
+            role="img"
+            aria-labelledby="systems-art-title systems-art-description"
+            class="h-auto w-full overflow-visible text-foreground"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title id="systems-art-title">Connected software systems</title>
+            <desc id="systems-art-description">
+              A web interface and mobile app connect through an API to backend services and a
+              Solidity module.
+            </desc>
+            <path
+              d="M137 85H188M292 85H343M240 126V194"
+              stroke="currentColor"
+              stroke-opacity=".4"
+              stroke-width="2"
+            />
+            <path
+              d="M137 85H188M292 85H343M240 126V194"
+              stroke="var(--accent)"
+              stroke-width="2"
+              stroke-dasharray="4 7"
+            />
+            <circle cx="162" cy="85" r="4" fill="var(--accent)" />
+            <circle cx="318" cy="85" r="4" fill="var(--accent)" />
+            <circle cx="240" cy="160" r="4" fill="var(--accent)" />
+
+            <g>
+              <rect
+                x="188"
+                y="48"
+                width="104"
+                height="78"
+                rx="12"
+                fill="color-mix(in srgb, var(--background) 94%, var(--foreground) 6%)"
+                stroke="currentColor"
+                stroke-opacity=".4"
+                stroke-width="2"
+              />
+              <text
+                x="240"
+                y="68"
+                text-anchor="middle"
+                fill="currentColor"
+                fill-opacity=".6"
+                font-family="ui-monospace, monospace"
+                font-size="9"
+                letter-spacing="1.5"
+                >SYSTEM</text
+              >
+              <path
+                d="M240 76V91M214 91H266M214 91V103M240 91V103M266 91V103"
+                stroke="var(--accent)"
+                stroke-opacity=".68"
+                stroke-width="2"
+              />
+              <circle cx="214" cy="108" r="4" fill="var(--accent)" />
+              <circle cx="240" cy="108" r="4" fill="currentColor" fill-opacity=".42" />
+              <circle cx="266" cy="108" r="4" fill="currentColor" fill-opacity=".42" />
+            </g>
+
+            <g>
+              <rect
+                x="22"
+                y="32"
+                width="154"
+                height="107"
+                rx="12"
+                fill="color-mix(in srgb, var(--background) 94%, var(--foreground) 6%)"
+                stroke="currentColor"
+                stroke-opacity=".4"
+                stroke-width="2"
+              />
+              <path d="M22 52H176" stroke="currentColor" stroke-opacity=".36" stroke-width="2" />
+              <circle cx="38" cy="42" r="3" fill="var(--accent)" />
+              <circle cx="49" cy="42" r="3" fill="currentColor" fill-opacity=".38" />
+              <circle cx="60" cy="42" r="3" fill="currentColor" fill-opacity=".38" />
+              <rect
+                x="38"
+                y="68"
+                width="48"
+                height="56"
+                rx="7"
+                fill="var(--accent)"
+                fill-opacity=".11"
+              />
+              <path
+                d="M98 74H157M98 87H145M98 100H153M98 117H130"
+                stroke="currentColor"
+                stroke-opacity=".42"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <path
+                d="M38 59H83"
+                stroke="currentColor"
+                stroke-opacity=".38"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </g>
+
+            <g>
+              <rect
+                x="344"
+                y="32"
+                width="88"
+                height="107"
+                rx="13"
+                fill="color-mix(in srgb, var(--background) 94%, var(--foreground) 6%)"
+                stroke="currentColor"
+                stroke-opacity=".4"
+                stroke-width="2"
+              />
+              <path
+                d="M369 46H407"
+                stroke="currentColor"
+                stroke-opacity=".38"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <rect
+                x="357"
+                y="59"
+                width="62"
+                height="52"
+                rx="7"
+                fill="var(--accent)"
+                fill-opacity=".1"
+              />
+              <path
+                d="M368 73H407M368 84H397M368 95H403"
+                stroke="currentColor"
+                stroke-opacity=".42"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <circle cx="388" cy="124" r="3" fill="currentColor" fill-opacity=".42" />
+            </g>
+
+            <g>
+              <rect
+                x="175"
+                y="194"
+                width="130"
+                height="88"
+                rx="14"
+                fill="color-mix(in srgb, var(--background) 94%, var(--foreground) 6%)"
+                stroke="var(--accent)"
+                stroke-opacity=".72"
+                stroke-width="2"
+              />
+              <path d="M175 217H305" stroke="var(--accent)" stroke-opacity=".45" stroke-width="2" />
+              <path
+                d="M191 206H209"
+                stroke="var(--accent)"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <path
+                d="M197 239L187 247L197 255M283 239L293 247L283 255M252 235L236 259"
+                stroke="currentColor"
+                stroke-opacity=".68"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <text
+                x="240"
+                y="276"
+                text-anchor="middle"
+                fill="currentColor"
+                fill-opacity=".6"
+                font-family="ui-monospace, monospace"
+                font-size="13"
+                letter-spacing="1.5"
+                >API / SERVICES</text
+              >
+            </g>
+
+            <g>
+              <rect
+                x="328"
+                y="194"
+                width="130"
+                height="88"
+                rx="14"
+                fill="color-mix(in srgb, var(--background) 94%, var(--foreground) 6%)"
+                stroke="currentColor"
+                stroke-opacity=".4"
+                stroke-width="2"
+              />
+              <path d="M328 217H458" stroke="currentColor" stroke-opacity=".36" stroke-width="2" />
+              <path
+                d="M345 239L355 247L345 255M371 239L361 247L371 255"
+                stroke="var(--accent)"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M388 239H439M388 250H428M388 261H434"
+                stroke="currentColor"
+                stroke-opacity=".42"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <text
+                x="393"
+                y="276"
+                text-anchor="middle"
+                fill="currentColor"
+                fill-opacity=".6"
+                font-family="ui-monospace, monospace"
+                font-size="13"
+                letter-spacing="1.5"
+                >SOLIDITY</text
+              >
+            </g>
+
+            <path
+              d="M240 282V301H393V282"
+              stroke="currentColor"
+              stroke-opacity=".22"
+              stroke-width="2"
+            />
+            <circle cx="240" cy="301" r="4" fill="var(--accent)" />
+            <path
+              d="M178 307H210M218 307H262M270 307H302"
+              stroke="currentColor"
+              stroke-opacity=".18"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+      </div>
     </section>
 
     <section
       class="grid gap-8 border-b border-border py-10 sm:grid-cols-[minmax(0,12rem)_1fr] sm:gap-12 sm:py-12"
     >
       <h2 class="text-2xl font-semibold">How I can help</h2>
-      <ul class="grid gap-6 sm:grid-cols-2">
-        <li>
-          <h3 class="font-semibold">Product engineering</h3>
-          <p class="mt-2 leading-7 text-foreground/75">
+      <ul class="grid gap-4 sm:grid-cols-2">
+        <li class="rounded-xl border border-border bg-foreground/[0.025] p-5">
+          <h3 class="flex items-center gap-2 font-semibold">
+            <IconDeviceLaptop
+              width={19}
+              height={19}
+              class="text-accent"
+              aria-hidden="true"
+            />Product
+            engineering
+          </h3>
+          <p class="mt-3 leading-7 text-foreground/75">
             Build and improve web and mobile applications, from user-facing features to the systems
             that support them.
           </p>
         </li>
-        <li>
-          <h3 class="font-semibold">Backend and infrastructure</h3>
-          <p class="mt-2 leading-7 text-foreground/75">
+        <li class="rounded-xl border border-border bg-foreground/[0.025] p-5">
+          <h3 class="flex items-center gap-2 font-semibold">
+            <IconServer2 width={19} height={19} class="text-accent" aria-hidden="true" />Backend and
+            infrastructure
+          </h3>
+          <p class="mt-3 leading-7 text-foreground/75">
             Design and implement APIs, services, and reliable application infrastructure.
           </p>
         </li>
-        <li>
-          <h3 class="font-semibold">Smart contracts</h3>
-          <p class="mt-2 leading-7 text-foreground/75">
+        <li class="rounded-xl border border-border bg-foreground/[0.025] p-5">
+          <h3 class="flex items-center gap-2 font-semibold">
+            <IconCode width={19} height={19} class="text-accent" aria-hidden="true" />Smart
+            contracts
+          </h3>
+          <p class="mt-3 leading-7 text-foreground/75">
             Develop Solidity systems and supporting software for onchain products.
           </p>
         </li>
-        <li>
-          <h3 class="font-semibold">Developer tooling</h3>
-          <p class="mt-2 leading-7 text-foreground/75">
+        <li class="rounded-xl border border-border bg-foreground/[0.025] p-5">
+          <h3 class="flex items-center gap-2 font-semibold">
+            <IconTool width={19} height={19} class="text-accent" aria-hidden="true" />Developer
+            tooling
+          </h3>
+          <p class="mt-3 leading-7 text-foreground/75">
             Create libraries and tools that make software development clearer and more effective.
           </p>
         </li>
@@ -68,16 +338,16 @@ import SiteShell from "@/layouts/SiteShell.astro";
           <a
             class="font-semibold text-accent underline underline-offset-4"
             href="https://sablier.com"
-            >Sablier</a
-          >
+            >Sablier<IconExternalLink width={15} height={15} class="ml-1 inline" aria-hidden="true"
+          /></a>
           <span> — co-founded the software company.</span>
         </li>
         <li>
           <a
             class="font-semibold text-accent underline underline-offset-4"
             href="https://github.com/PaulRBerg/prb-math"
-            >PRBMath</a
-          >
+            >PRBMath<IconExternalLink width={15} height={15} class="ml-1 inline" aria-hidden="true"
+          /></a>
           <span> — created an open-source fixed-point math library for Solidity.</span>
         </li>
       </ul>
