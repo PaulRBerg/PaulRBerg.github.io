@@ -73,6 +73,13 @@ deliberate external canonical overrides. Give indexable pages descriptive titles
 descriptions. Keep search, 404, and redirect pages out of the sitemap. Search and 404 pages use
 `noindex,follow`.
 
+Astro builds with `trailingSlash: "always"`, and Workers static assets answer slash-less paths with
+a 307. Write every internal link with its trailing slash (`/posts/`, `/about/`) so Googlebot never
+has to follow a redirect; Search Console reports slash-less links as "Page with redirect". Keep
+legacy blog paths in `public/_redirects` as 301 rules. They outrank the meta-refresh pages that
+Astro's `redirects` config generates. Keep the Cloudflare zone setting "Always Use HTTPS" on so
+`http://` requests redirect instead of serving a duplicate page.
+
 Keep `/services` accessible by direct link only. Exclude it from navigation, internal search, the
 sitemap, and generated discovery exports. Preserve its `noindex,follow` metadata.
 
