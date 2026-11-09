@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 
 const { title, description, ogImage, ...props } = data;
-const postHref = getPath(id, filePath);
+const postHref = `${getPath(id, filePath)}/`;
 const cardImage = typeof ogImage === "string" ? ogImage : ogImage?.src;
 
 const readingTime = showReadingTime ? getReadingTime(body ?? "") : undefined;

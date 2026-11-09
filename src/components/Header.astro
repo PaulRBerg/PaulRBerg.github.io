@@ -66,17 +66,17 @@ const isActive = (path: string) => {
         ]}
       >
         <li class="col-span-2">
-          <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}> Posts </a>
+          <a href="/posts/" class:list={{ "active-nav": isActive("/posts") }}> Posts </a>
         </li>
         <li class="col-span-2">
-          <a href="/about" class:list={{ "active-nav": isActive("/about") }}> About </a>
+          <a href="/about/" class:list={{ "active-nav": isActive("/about") }}> About </a>
         </li>
         <li class="col-span-2">
-          <a href="/speaking" class:list={{ "active-nav": isActive("/speaking") }}> Speaking </a>
+          <a href="/speaking/" class:list={{ "active-nav": isActive("/speaking") }}> Speaking </a>
         </li>
         <li class="col-span-1 flex items-center justify-center">
           <LinkButton
-            href="/search"
+            href="/search/"
             data-search-trigger
             class:list={[
               "focus-outline flex p-3 sm:p-1",
