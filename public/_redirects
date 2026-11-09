@@ -1,0 +1,6 @@
+# Legacy blog URLs from the pre-Astro site. Permanent redirects outrank the
+# meta-refresh fallback pages that Astro generates for the same paths.
+/2018/12/critique-radical-markets  /posts/2018/critique-radical-markets/  301
+/2018/12/critique-radical-markets/ /posts/2018/critique-radical-markets/  301
+/2018/12/radical-markets           /posts/2018/radical-markets/           301
+/2018/12/radical-markets/          /posts/2018/radical-markets/           301
