@@ -73,12 +73,17 @@ deliberate external canonical overrides. Give indexable pages descriptive titles
 descriptions. Keep search, 404, and redirect pages out of the sitemap. Search and 404 pages use
 `noindex,follow`.
 
-Astro builds with `trailingSlash: "always"`, and Workers static assets answer slash-less paths with
-a 307. Write every internal link with its trailing slash (`/posts/`, `/about/`) so Googlebot never
-has to follow a redirect; Search Console reports slash-less links as "Page with redirect". Keep
-legacy blog paths in `public/_redirects` as 301 rules. They outrank the meta-refresh pages that
-Astro's `redirects` config generates. Keep the Cloudflare zone setting "Always Use HTTPS" on so
-`http://` requests redirect instead of serving a duplicate page.
+Astro builds with `trailingSlash: "always"`. The zone Single Redirect Rule `append_trailing_slash`
+runs before `www_to_apex`. It sends slash-less paths that contain no dot to the slashed apex URL
+with a 301 and keeps the query string. It skips the slash-less legacy sources in
+`public/_redirects`. When you add a legacy redirect, add its slash-less source to the rule's
+exclusion set so the request takes one hop.
+
+Write every internal link with its trailing slash (`/posts/`, `/about/`) so Googlebot never has to
+follow a redirect; Search Console reports slash-less links as "Page with redirect". Keep legacy blog
+paths in `public/_redirects` as 301 rules. They outrank the meta-refresh pages that Astro's
+`redirects` config generates. Keep the Cloudflare zone setting "Always Use HTTPS" on so `http://`
+requests redirect instead of serving a duplicate page.
 
 Keep `/services` accessible by direct link only. Exclude it from navigation, internal search, the
 sitemap, and generated discovery exports. Preserve its `noindex,follow` metadata.
