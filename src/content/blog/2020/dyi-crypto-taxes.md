@@ -205,9 +205,10 @@ That's it for incomes. Let's continue with yields.
 
 ## Yields
 
-This is a [spreadsheet](yields-2020) dedicated exclusively to interest earned from supplying money
-to lending protocols like [Compound](app.compound.finance), [dYdX](https://trade.dydx.exchange),
-[Aave](https://app.aave.com/) or [DSR](https://app.sparkprotocol.io/).
+This is a [spreadsheet][yields-2020] dedicated exclusively to interest earned from supplying money
+to lending protocols like [Compound](https://app.compound.finance),
+[dYdX](https://trade.dydx.exchange), [Aave](https://app.aave.com/) or
+[DSR](https://app.sparkprotocol.io/).
 
 Besides the common sheets, you'll see:
 
